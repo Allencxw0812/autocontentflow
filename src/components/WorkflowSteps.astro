@@ -1,0 +1,47 @@
+---
+import type { WorkflowStep } from '../types/index';
+import { getToolById, getToolFavicon, getToolIcon } from '../utils/data';
+
+interface Props {
+  steps: WorkflowStep[];
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="space-y-4">
+  {steps.map((step, index) => {
+    const tool = getToolById(step.toolId);
+    return (
+      <div class="flex gap-4 items-start">
+        <!-- Step Number -->
+        <div class="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-primary-light flex items-center justify-center text-white text-sm font-bold shrink-0">
+          {step.step}
+        </div>
+
+        <div class="flex-1 bg-bg-white rounded-[var(--radius-card)] border border-border p-4">
+          <div class="flex items-center justify-between">
+            <h4 class="font-medium text-sm">{step.title}</h4>
+            {tool && (
+              <a href={`/tools/${tool.slug}`} class="inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-medium">
+                <img
+                  src={getToolIcon(tool.id)}
+                  alt={tool.name}
+                  class="w-4 h-4 object-contain rounded-sm"
+                  onerror={`this.onerror=null;this.src='${getToolFavicon(tool.url, 32)}'`}
+                  loading="lazy"
+                />
+                {tool.name} →
+              </a>
+            )}
+          </div>
+          <p class="text-text-secondary text-xs mt-1">{step.description}</p>
+        </div>
+
+        {index < steps.length - 1 && (
+          <div class="absolute left-[15px] mt-10 w-0.5 h-4 bg-border hidden" />
+        )}
+      </div>
+    );
+  })}
+</div>

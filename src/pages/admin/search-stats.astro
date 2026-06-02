@@ -1,0 +1,194 @@
+---
+// Admin page - search stats dashboard (not in sitemap)
+---
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>搜索热词统计 - 管理后台</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; padding: 24px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 24px; }
+    .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid #e5e7eb; }
+    .card h2 { font-size: 16px; margin-bottom: 12px; color: #6366F1; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .stat-item { background: #f0f0ff; border-radius: 8px; padding: 12px; text-align: center; }
+    .stat-value { font-size: 24px; font-weight: 700; color: #6366F1; }
+    .stat-label { font-size: 12px; color: #666; margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+    th { color: #666; font-weight: 600; background: #fafafa; }
+    tr:hover td { background: #f8f8ff; }
+    .bar { height: 20px; background: linear-gradient(to right, #6366F1, #5B21B6); border-radius: 4px; min-width: 4px; }
+    .empty { text-align: center; color: #999; padding: 40px; font-size: 14px; }
+    .tag { display: inline-block; padding: 4px 12px; border-radius: 16px; font-size: 13px; margin: 3px; background: #f0f0ff; color: #6366F1; border: 1px solid #e0e0ff; }
+    .tag .count { font-weight: 700; margin-left: 4px; }
+    .actions { margin-bottom: 16px; display: flex; gap: 8px; }
+    .btn { padding: 6px 16px; border-radius: 6px; border: 1px solid #ddd; background: white; cursor: pointer; font-size: 13px; }
+    .btn:hover { background: #f5f5f5; }
+    .btn-primary { background: #6366F1; color: white; border-color: #6366F1; }
+    .btn-primary:hover { background: #5B21B6; }
+    .topic-idea { padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .topic-idea .priority { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+    .priority-high { background: #fef2f2; color: #dc2626; }
+    .priority-mid { background: #fffbeb; color: #d97706; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 搜索热词统计</h1>
+    <p class="subtitle">基于 localStorage 的搜索行为数据，用于指导公众号选题</p>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="refreshData()">刷新数据</button>
+      <button class="btn" onclick="exportData()">导出 JSON</button>
+      <button class="btn" onclick="if(confirm('确定清除所有搜索数据？')){localStorage.removeItem('ai_site_search_log');refreshData();}">清除数据</button>
+    </div>
+
+    <div id="stats-summary" class="stat-grid"></div>
+
+    <div class="card">
+      <h2>🔥 热门搜索词 TOP 20</h2>
+      <div id="top-keywords"></div>
+    </div>
+
+    <div class="card">
+      <h2>🏷️ 搜索词云</h2>
+      <div id="word-cloud"></div>
+    </div>
+
+    <div class="card">
+      <h2>💡 选题建议</h2>
+      <div id="topic-ideas"></div>
+    </div>
+
+    <div class="card">
+      <h2>📋 搜索明细（最近 50 条）</h2>
+      <table>
+        <thead><tr><th>搜索词</th><th>时间</th></tr></thead>
+        <tbody id="search-log"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script is:inline>
+    function getSearchLog() {
+      try {
+        return JSON.parse(localStorage.getItem('ai_site_search_log') || '[]');
+      } catch(e) { return []; }
+    }
+
+    function analyzeSearches(log) {
+      var counts = {};
+      var now = Date.now();
+      var dayMs = 86400000;
+      var recent7d = 0;
+      var recent1d = 0;
+
+      log.forEach(function(entry) {
+        var q = entry.q.toLowerCase().trim();
+        if (!q || q.length < 2) return;
+        counts[q] = (counts[q] || 0) + 1;
+        if (now - entry.t < 7 * dayMs) recent7d++;
+        if (now - entry.t < 1 * dayMs) recent1d++;
+      });
+
+      var sorted = Object.entries(counts).sort(function(a, b) { return b[1] - a[1]; });
+      return { total: log.length, unique: sorted.length, recent7d: recent7d, recent1d: recent1d, top: sorted.slice(0, 20), all: sorted };
+    }
+
+    function formatTime(ts) {
+      var d = new Date(ts);
+      return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0') + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+    }
+
+    function refreshData() {
+      var log = getSearchLog();
+      var stats = analyzeSearches(log);
+
+      // Summary
+      document.getElementById('stats-summary').innerHTML =
+        '<div class="stat-item"><div class="stat-value">' + stats.total + '</div><div class="stat-label">总搜索次数</div></div>' +
+        '<div class="stat-item"><div class="stat-value">' + stats.unique + '</div><div class="stat-label">独立搜索词</div></div>' +
+        '<div class="stat-item"><div class="stat-value">' + stats.recent7d + '</div><div class="stat-label">近7天搜索</div></div>' +
+        '<div class="stat-item"><div class="stat-value">' + stats.recent1d + '</div><div class="stat-label">今日搜索</div></div>';
+
+      // Top keywords
+      var maxCount = stats.top.length > 0 ? stats.top[0][1] : 1;
+      var topHtml = stats.top.length === 0 ? '<div class="empty">暂无搜索数据，需部署后用户搜索才会产生数据</div>' :
+        '<table><thead><tr><th>关键词</th><th>搜索次数</th><th>占比</th></tr></thead><tbody>' +
+        stats.top.map(function(item) {
+          var pct = Math.round(item[1] / stats.total * 100);
+          return '<tr><td>' + item[0] + '</td><td>' + item[1] + '</td><td><div style="display:flex;align-items:center;gap:8px"><div class="bar" style="width:' + Math.max(4, (item[1]/maxCount)*200) + 'px"></div><span>' + pct + '%</span></div></td></tr>';
+        }).join('') + '</tbody></table>';
+      document.getElementById('top-keywords').innerHTML = topHtml;
+
+      // Word cloud (simple tag cloud)
+      var cloudHtml = stats.all.length === 0 ? '<div class="empty">暂无数据</div>' :
+        stats.all.slice(0, 40).map(function(item) {
+          var size = Math.max(12, Math.min(24, 12 + item[1] * 2));
+          return '<span class="tag" style="font-size:' + size + 'px">' + item[0] + '<span class="count">' + item[1] + '</span></span>';
+        }).join('');
+      document.getElementById('word-cloud').innerHTML = cloudHtml;
+
+      // Topic ideas - map search terms to content suggestions
+      var topicMap = {
+        'ppt': { title: 'AI一键PPT全攻略', priority: 'high' },
+        '绘画': { title: 'AI绘画工具对比与实操指南', priority: 'high' },
+        '周报': { title: 'AI写周报：从要点到成稿', priority: 'high' },
+        '小红书': { title: 'AI做小红书：选题+文案+封面', priority: 'high' },
+        '翻译': { title: 'AI翻译工具深度对比', priority: 'mid' },
+        '论文': { title: 'AI辅助论文写作全流程', priority: 'mid' },
+        '视频': { title: 'AI视频制作入门指南', priority: 'mid' },
+        '编程': { title: '免费AI编程工具替代Copilot', priority: 'mid' },
+        '免费': { title: '10个免费AI工具推荐', priority: 'high' },
+        '提示词': { title: 'AI提示词编写技巧合集', priority: 'high' },
+      };
+      var ideas = [];
+      stats.top.forEach(function(item) {
+        Object.keys(topicMap).forEach(function(key) {
+          if (item[0].includes(key) && !ideas.find(function(i) { return i.key === key; })) {
+            ideas.push({ key: key, keyword: item[0], count: item[1], title: topicMap[key].title, priority: topicMap[key].priority });
+          }
+        });
+      });
+      // Add generic suggestions if not enough specific ones
+      if (ideas.length < 3 && stats.top.length > 0) {
+        ideas.push({ key: '_general', keyword: stats.top[0][0], count: stats.top[0][1], title: '「' + stats.top[0][0] + '」深度实战指南', priority: 'high' });
+      }
+      var ideasHtml = ideas.length === 0 ? '<div class="empty">搜索数据积累后自动生成选题建议</div>' :
+        ideas.map(function(idea) {
+          var pClass = idea.priority === 'high' ? 'priority-high' : 'priority-mid';
+          var pText = idea.priority === 'high' ? '优先' : '一般';
+          return '<div class="topic-idea"><span class="priority ' + pClass + '">' + pText + '</span><span>' + idea.title + '</span><span style="color:#999;font-size:12px;margin-left:auto">搜索' + idea.count + '次</span></div>';
+        }).join('');
+      document.getElementById('topic-ideas').innerHTML = ideasHtml;
+
+      // Search log
+      var recentLog = log.slice(-50).reverse();
+      var logHtml = recentLog.length === 0 ? '<tr><td colspan="2" class="empty">暂无搜索记录</td></tr>' :
+        recentLog.map(function(entry) {
+          return '<tr><td>' + entry.q + '</td><td>' + formatTime(entry.t) + '</td></tr>';
+        }).join('');
+      document.getElementById('search-log').innerHTML = logHtml;
+    }
+
+    function exportData() {
+      var log = getSearchLog();
+      var stats = analyzeSearches(log);
+      var data = { exportedAt: new Date().toISOString(), totalSearches: stats.total, uniqueKeywords: stats.unique, topKeywords: stats.top, rawLog: log };
+      var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'search-stats-' + new Date().toISOString().split('T')[0] + '.json';
+      a.click();
+    }
+
+    refreshData();
+  </script>
+</body>
+</html>

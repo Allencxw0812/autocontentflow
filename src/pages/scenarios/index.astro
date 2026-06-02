@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ScenarioCard from '../../components/ScenarioCard.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getAllScenarios, getAllRoles, getScenariosByRole } from '../../utils/data';
+
+const scenarios = getAllScenarios();
+const roles = getAllRoles();
+---
+
+<BaseLayout
+  meta={{
+    title: '场景推荐',
+    description: '按你的角色和场景，找到最合适的AI工具。覆盖职场办公、自媒体、学习成长、创业等场景。',
+  }}
+>
+  <Breadcrumb items={[{ label: '场景推荐' }]} />
+
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold">场景推荐</h1>
+    <p class="text-text-secondary mt-2">按你的角色和场景，找到最合适的AI工具</p>
+  </div>
+
+  {roles.map((role) => {
+    const roleScenarios = getScenariosByRole(role.id);
+    if (roleScenarios.length === 0) return null;
+    return (
+      <section id={role.id} class="mb-12">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-2xl">{role.icon}</span>
+          <h2 class="text-xl font-bold">{role.name}</h2>
+          <span class="text-text-secondary text-sm">— {role.description}</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {roleScenarios.map((scenario) => (
+            <ScenarioCard scenario={scenario} />
+          ))}
+        </div>
+      </section>
+    );
+  })}
+</BaseLayout>

@@ -1,0 +1,929 @@
+{
+  "scenarios": [
+    {
+      "id": "weekly-report",
+      "name": "写周报",
+      "slug": "weekly-report",
+      "role": "office-worker",
+      "icon": "📝",
+      "tagline": "10分钟搞定过去要1小时的周报",
+      "description": "每周五写周报是很多人的噩梦。用AI工具，你可以快速梳理一周工作要点，自动生成结构清晰的周报草稿，再稍作修改就能提交。从1小时缩短到10分钟，从此告别加班写周报。",
+      "coverImage": "/images/scenarios/weekly-report.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "整理要点",
+          "description": "用Kimi对话梳理本周工作重点",
+          "toolId": "kimi"
+        },
+        {
+          "step": 2,
+          "title": "生成草稿",
+          "description": "用AI生成周报结构化草稿",
+          "toolId": "wenxin"
+        },
+        {
+          "step": 3,
+          "title": "润色排版",
+          "description": "微调措辞，让周报更自然",
+          "toolId": "kimi"
+        }
+      ],
+      "tools": [
+        "kimi",
+        "wenxin",
+        "chatgpt",
+        "doubao"
+      ],
+      "comparison": [
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "长文本强",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "wenxin",
+          "coreAdvantage": "中文地道",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "chatgpt",
+          "coreAdvantage": "逻辑清晰",
+          "easeOfUse": "中(需翻墙)",
+          "freeQuota": "有限"
+        }
+      ],
+      "pitfalls": [
+        "AI生成的数据要人工核实，别直接抄",
+        "周报太完美反而不自然，记得加点「人味」"
+      ],
+      "caseStudy": {
+        "title": "我是如何用Kimi+文心一键生成周报的",
+        "summary": "从1小时缩短到10分钟，分享我的实际操作流程",
+        "url": "/tools/kimi"
+      },
+      "freeAlternatives": [
+        {
+          "paidToolId": "chatgpt",
+          "freeToolId": "kimi",
+          "note": "免费，中文更好"
+        }
+      ],
+      "relatedScenarios": [
+        "ppt-making",
+        "xiaohongshu"
+      ],
+      "seo": {
+        "title": "AI写周报工具推荐 - 10分钟搞定每周工作汇报",
+        "description": "推荐Kimi、文心一言等AI工具帮你快速生成周报，附详细对比和实战案例。免费方案，无需翻墙。"
+      },
+      "publishedAt": "2025-02-01",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "AI写周报全流程：从要点梳理到排版提交",
+          "url": "#"
+        },
+        {
+          "title": "周报写不好被领导批？AI帮你10分钟搞定",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "xiaohongshu",
+      "name": "做小红书",
+      "slug": "xiaohongshu",
+      "role": "content-creator",
+      "icon": "📱",
+      "tagline": "AI帮你从0到1做小红书博主",
+      "description": "做小红书最头疼的就是选题、文案和封面图。用AI工具，你可以快速生成爆款选题、写出吸引眼球的文案、制作精美封面图，轻松涨粉变现。",
+      "coverImage": "/images/scenarios/xiaohongshu.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "选题策划",
+          "description": "用Kimi分析热门话题，生成选题清单",
+          "toolId": "kimi"
+        },
+        {
+          "step": 2,
+          "title": "文案撰写",
+          "description": "用豆包生成小红书风格文案",
+          "toolId": "doubao"
+        },
+        {
+          "step": 3,
+          "title": "封面制作",
+          "description": "用即梦生成吸睛封面图",
+          "toolId": "jimeng"
+        }
+      ],
+      "tools": [
+        "kimi",
+        "doubao",
+        "jimeng",
+        "tongyi-wanxiang"
+      ],
+      "comparison": [
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "选题分析强",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "doubao",
+          "coreAdvantage": "文案风格多",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "jimeng",
+          "coreAdvantage": "出图快",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "AI生成的文案太模板化，需要加入个人风格",
+        "封面图不要过度修图，容易翻车"
+      ],
+      "caseStudy": {
+        "title": "我用AI做小红书，3个月涨粉5万",
+        "summary": "从零开始做小红书的完整AI工具链分享",
+        "url": "/tools/doubao"
+      },
+      "freeAlternatives": [
+        {
+          "paidToolId": "midjourney",
+          "freeToolId": "jimeng",
+          "note": "免费，中文界面"
+        }
+      ],
+      "relatedScenarios": [
+        "ai-painting",
+        "weekly-report"
+      ],
+      "seo": {
+        "title": "AI做小红书攻略 - 选题文案封面一条龙工具推荐",
+        "description": "推荐Kimi、豆包、即梦等AI工具帮你做小红书，从选题到封面一站搞定。免费方案，新手友好。"
+      },
+      "publishedAt": "2025-02-15",
+      "updatedAt": "2025-07-18",
+      "articles": [
+        {
+          "title": "AI做小红书全攻略：选题+文案+封面一条龙",
+          "url": "#"
+        },
+        {
+          "title": "小红书AI封面图：即梦一键生成爆款封面",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ai-painting",
+      "name": "AI绘画",
+      "slug": "ai-painting",
+      "role": "content-creator",
+      "icon": "🎨",
+      "tagline": "零基础也能画出专业级作品",
+      "description": "AI绘画让不会画画的普通人也能创作出令人惊艳的图片。无论是做头像、做配图还是做设计稿，AI绘画工具都能帮你快速实现。中文用户推荐即梦和通义万相，效果不输Midjourney。",
+      "coverImage": "/images/scenarios/ai-painting.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "选择工具",
+          "description": "根据需求选择合适的AI绘画工具",
+          "toolId": "jimeng"
+        },
+        {
+          "step": 2,
+          "title": "输入描述",
+          "description": "用中文描述你想要的图片效果",
+          "toolId": "jimeng"
+        },
+        {
+          "step": 3,
+          "title": "调整优化",
+          "description": "根据生成结果调整提示词或参数",
+          "toolId": "tongyi-wanxiang"
+        }
+      ],
+      "tools": [
+        "jimeng",
+        "tongyi-wanxiang",
+        "midjourney"
+      ],
+      "comparison": [
+        {
+          "toolId": "jimeng",
+          "coreAdvantage": "中文友好",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "tongyi-wanxiang",
+          "coreAdvantage": "可商用",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "midjourney",
+          "coreAdvantage": "质量最高",
+          "easeOfUse": "高(需翻墙+付费)",
+          "freeQuota": "无"
+        }
+      ],
+      "pitfalls": [
+        "AI绘画有版权风险，商用前确认工具的授权条款",
+        "不要期待一次生成完美，多试几次调整提示词"
+      ],
+      "freeAlternatives": [
+        {
+          "paidToolId": "midjourney",
+          "freeToolId": "jimeng",
+          "note": "免费，中文界面"
+        },
+        {
+          "paidToolId": "midjourney",
+          "freeToolId": "tongyi-wanxiang",
+          "note": "免费，可商用"
+        }
+      ],
+      "relatedScenarios": [
+        "xiaohongshu",
+        "paper-writing"
+      ],
+      "seo": {
+        "title": "AI绘画工具推荐 - 零基础也能画出专业作品",
+        "description": "推荐即梦、通义万相等AI绘画工具，中文友好、免费使用。对比Midjourney，帮你选择最适合的AI绘画工具。"
+      },
+      "publishedAt": "2025-03-01",
+      "updatedAt": "2025-07-15",
+      "articles": [
+        {
+          "title": "AI绘画入门：零基础也能画出专业级作品",
+          "url": "#"
+        },
+        {
+          "title": "AI绘画商用指南：哪些工具生成的图可以商用",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "paper-writing",
+      "name": "论文写作",
+      "slug": "paper-writing",
+      "role": "student",
+      "icon": "🎓",
+      "tagline": "AI辅助论文写作，效率提升3倍",
+      "description": "写论文最痛苦的不是写本身，而是找文献、理思路、调格式。AI工具可以帮你快速梳理研究框架、润色学术表达、检查引用格式，让你专注在真正有价值的思考上。",
+      "coverImage": "/images/scenarios/paper-writing.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "文献梳理",
+          "description": "用Kimi上传论文PDF，快速提取要点",
+          "toolId": "kimi"
+        },
+        {
+          "step": 2,
+          "title": "框架搭建",
+          "description": "用DeepSeek梳理研究框架和逻辑链",
+          "toolId": "deepseek"
+        },
+        {
+          "step": 3,
+          "title": "润色修改",
+          "description": "用文心一言润色学术表达",
+          "toolId": "wenxin"
+        }
+      ],
+      "tools": [
+        "kimi",
+        "deepseek",
+        "wenxin",
+        "chatgpt"
+      ],
+      "comparison": [
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "长文本阅读",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "deepseek",
+          "coreAdvantage": "逻辑推理强",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "wenxin",
+          "coreAdvantage": "中文学术",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "AI不能替代你的思考，只是辅助工具",
+        "引用AI生成的内容需要标注，注意学术诚信",
+        "AI可能生成看似正确但实际错误的引用，务必核实"
+      ],
+      "freeAlternatives": [
+        {
+          "paidToolId": "chatgpt",
+          "freeToolId": "deepseek",
+          "note": "免费，推理能力更强"
+        }
+      ],
+      "relatedScenarios": [
+        "weekly-report",
+        "ai-painting"
+      ],
+      "seo": {
+        "title": "AI论文写作工具推荐 - 文献梳理到润色修改一条龙",
+        "description": "推荐Kimi、DeepSeek等AI工具辅助论文写作，从文献梳理到润色修改全流程覆盖。免费方案，学生友好。"
+      },
+      "publishedAt": "2025-03-10",
+      "updatedAt": "2025-07-18",
+      "articles": [
+        {
+          "title": "AI辅助论文写作：从文献梳理到润色修改",
+          "url": "#"
+        },
+        {
+          "title": "论文润色用AI还是人工？实测对比告诉你答案",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ppt-making",
+      "name": "做PPT",
+      "slug": "ppt-making",
+      "role": "office-worker",
+      "icon": "📊",
+      "tagline": "AI一键生成专业PPT，告别加班",
+      "description": "做PPT是职场人的日常噩梦：找模板、排版、配色、动画……用AI工具，你可以从一句话描述生成完整PPT，或让AI帮你优化现有PPT的视觉效果和内容逻辑。",
+      "coverImage": "/images/scenarios/ppt-making.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "生成大纲",
+          "description": "用Kimi根据主题生成PPT大纲",
+          "toolId": "kimi"
+        },
+        {
+          "step": 2,
+          "title": "生成PPT",
+          "description": "用WPS AI一键生成PPT初稿",
+          "toolId": "wps-ai"
+        },
+        {
+          "step": 3,
+          "title": "优化内容",
+          "description": "用文心一言优化每页文案",
+          "toolId": "wenxin"
+        }
+      ],
+      "tools": [
+        "kimi",
+        "wps-ai",
+        "wenxin"
+      ],
+      "comparison": [
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "内容生成强",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "wps-ai",
+          "coreAdvantage": "一键生成PPT",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "wenxin",
+          "coreAdvantage": "文案优化",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "AI生成的PPT模板感太重，需要加入个人风格",
+        "数据图表务必人工核实，AI容易编造数据"
+      ],
+      "freeAlternatives": [],
+      "relatedScenarios": [
+        "weekly-report",
+        "xiaohongshu"
+      ],
+      "seo": {
+        "title": "AI做PPT工具推荐 - 一键生成专业演示文稿",
+        "description": "推荐Kimi、WPS AI等工具帮你快速制作PPT，从大纲到排版一站搞定。免费方案，职场必备。"
+      },
+      "publishedAt": "2025-03-20",
+      "updatedAt": "2025-07-15",
+      "articles": [
+        {
+          "title": "AI一键PPT：告别加班做汇报",
+          "url": "#"
+        },
+        {
+          "title": "AI PPT工具对比：Kimi vs WPS AI vs Gamma",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "code-assistant",
+      "name": "编程开发",
+      "slug": "code-assistant",
+      "role": "entrepreneur",
+      "icon": "💻",
+      "tagline": "AI编程助手，开发效率翻倍",
+      "description": "无论你是专业程序员还是编程新手，AI编程助手都能帮你写出更好的代码。从代码补全、Bug修复到架构设计，AI工具正在重新定义编程方式。",
+      "coverImage": "/images/scenarios/code-assistant.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "需求分析",
+          "description": "用DeepSeek梳理需求和技术方案",
+          "toolId": "deepseek"
+        },
+        {
+          "step": 2,
+          "title": "代码编写",
+          "description": "用Copilot辅助编码和代码补全",
+          "toolId": "copilot"
+        },
+        {
+          "step": 3,
+          "title": "代码审查",
+          "description": "用DeepSeek审查代码质量和潜在问题",
+          "toolId": "deepseek"
+        }
+      ],
+      "tools": [
+        "deepseek",
+        "copilot",
+        "chatgpt"
+      ],
+      "comparison": [
+        {
+          "toolId": "deepseek",
+          "coreAdvantage": "免费开源",
+          "easeOfUse": "中",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "copilot",
+          "coreAdvantage": "IDE集成",
+          "easeOfUse": "低",
+          "freeQuota": "无"
+        },
+        {
+          "toolId": "chatgpt",
+          "coreAdvantage": "逻辑推理",
+          "easeOfUse": "中(需翻墙)",
+          "freeQuota": "有限"
+        }
+      ],
+      "pitfalls": [
+        "AI生成的代码可能有安全漏洞，务必审查",
+        "不要完全依赖AI，理解代码逻辑很重要"
+      ],
+      "freeAlternatives": [
+        {
+          "paidToolId": "copilot",
+          "freeToolId": "deepseek",
+          "note": "免费，推理能力更强"
+        }
+      ],
+      "relatedScenarios": [
+        "paper-writing",
+        "ppt-making"
+      ],
+      "seo": {
+        "title": "AI编程工具推荐 - 代码补全到架构设计全流程",
+        "description": "推荐DeepSeek、GitHub Copilot等AI编程工具，从代码补全到Bug修复一站搞定。含免费替代方案。"
+      },
+      "publishedAt": "2025-04-01",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "AI编程实战：免费工具替代Copilot",
+          "url": "#"
+        },
+        {
+          "title": "DeepSeek代码审查：比人工review更高效的方案",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "video-making",
+      "name": "视频制作",
+      "slug": "video-making",
+      "role": "content-creator",
+      "icon": "🎬",
+      "tagline": "AI帮你从零开始做短视频",
+      "description": "做视频不再需要专业设备和剪辑技术。AI工具可以帮你自动生成字幕、配音、特效，甚至直接从文字生成视频。无论你是做抖音、B站还是小红书，AI都能大幅降低视频创作门槛。",
+      "coverImage": "/images/scenarios/video-making.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "脚本撰写",
+          "description": "用Kimi生成视频脚本和分镜",
+          "toolId": "kimi"
+        },
+        {
+          "step": 2,
+          "title": "视频生成",
+          "description": "用可灵AI从文字生成视频素材",
+          "toolId": "kling"
+        },
+        {
+          "step": 3,
+          "title": "剪辑优化",
+          "description": "用剪映AI字幕和智能剪辑出片",
+          "toolId": "jianying"
+        }
+      ],
+      "tools": [
+        "kimi",
+        "kling",
+        "jianying",
+        "bi-ge"
+      ],
+      "comparison": [
+        {
+          "toolId": "kling",
+          "coreAdvantage": "AI生成视频",
+          "easeOfUse": "中",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "jianying",
+          "coreAdvantage": "剪辑+字幕",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "bi-ge",
+          "coreAdvantage": "免费+B站",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "AI生成的视频时长有限，适合短片段素材",
+        "AI字幕需人工核对专业术语，容易出错",
+        "视频质量和提示词描述直接相关，描述越具体效果越好"
+      ],
+      "caseStudy": {
+        "title": "我用AI工具7天做出10条短视频，涨粉2万",
+        "summary": "从脚本到成片全AI流水线实操分享",
+        "url": "/tools/kling"
+      },
+      "freeAlternatives": [
+        {
+          "paidToolId": "jianying",
+          "freeToolId": "bi-ge",
+          "note": "完全免费，B站生态"
+        }
+      ],
+      "relatedScenarios": [
+        "xiaohongshu",
+        "ai-painting"
+      ],
+      "seo": {
+        "title": "AI视频制作工具推荐 - 从脚本到成片全流程",
+        "description": "推荐可灵AI、剪映等AI视频制作工具，从脚本撰写到成片输出一站搞定。免费方案，新手也能做视频。"
+      },
+      "publishedAt": "2025-04-10",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "AI视频制作：从脚本到成片全流程",
+          "url": "#"
+        },
+        {
+          "title": "短视频AI流水线：7天10条视频的实操分享",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "translation",
+      "name": "翻译速查",
+      "slug": "translation",
+      "role": "office-worker",
+      "icon": "🌐",
+      "tagline": "AI翻译比人翻还自然",
+      "description": "传统翻译软件翻译出来的内容机器味太重。新一代AI翻译工具不仅能翻译得更自然，还能保持原文的语气和风格。无论是翻译文档、邮件还是网页，AI翻译都能帮你快速搞定。",
+      "coverImage": "/images/scenarios/translation.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "选择工具",
+          "description": "根据语言对选择DeepL或彩云小译",
+          "toolId": "deepl"
+        },
+        {
+          "step": 2,
+          "title": "上传内容",
+          "description": "粘贴文本或上传文档",
+          "toolId": "deepl"
+        },
+        {
+          "step": 3,
+          "title": "校对润色",
+          "description": "用Kimi对翻译结果做校对和润色",
+          "toolId": "kimi"
+        }
+      ],
+      "tools": [
+        "deepl",
+        "caiyun-translation",
+        "kimi"
+      ],
+      "comparison": [
+        {
+          "toolId": "deepl",
+          "coreAdvantage": "质量最高",
+          "easeOfUse": "低",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "caiyun-translation",
+          "coreAdvantage": "中日英口语化",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "上下文理解",
+          "easeOfUse": "中",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "AI翻译不能完全替代人工，关键内容务必人工校对",
+        "专业术语翻译可能有偏差，建立术语表效果更好",
+        "长文档建议分段翻译，保持上下文连贯性"
+      ],
+      "caseStudy": {
+        "title": "用DeepL+Kimi翻译10万字技术文档的正确姿势",
+        "summary": "从翻译工具选择到校对流程的完整方案",
+        "url": "/tools/deepl"
+      },
+      "freeAlternatives": [
+        {
+          "paidToolId": "deepl",
+          "freeToolId": "caiyun-translation",
+          "note": "免费，中日英口语化"
+        }
+      ],
+      "relatedScenarios": [
+        "paper-writing",
+        "data-organizing"
+      ],
+      "seo": {
+        "title": "AI翻译工具推荐 - DeepL对比彩云小译哪个好",
+        "description": "对比DeepL、彩云小译等AI翻译工具，帮你选择最适合的翻译方案。免费替代、文档翻译、口语化翻译全覆盖。"
+      },
+      "publishedAt": "2025-04-20",
+      "updatedAt": "2025-07-18",
+      "articles": [
+        {
+          "title": "AI翻译对比：DeepL vs 彩云小译哪个好",
+          "url": "#"
+        },
+        {
+          "title": "文档翻译保持排版：DeepL和彩云小译的完整方案",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "voice-to-text",
+      "name": "语音转文字",
+      "slug": "voice-to-text",
+      "role": "office-worker",
+      "icon": "🎙️",
+      "tagline": "开会再也不用手动记笔记",
+      "description": "开会、采访、上课时手写笔记效率太低还容易遗漏。AI语音转写工具可以实时将语音转为文字，还能自动生成会议摘要和待办事项，让你的精力专注在思考而非记录上。",
+      "coverImage": "/images/scenarios/voice-to-text.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "开启录音",
+          "description": "用讯飞听见或飞书妙记开始录音转写",
+          "toolId": "xunfei-hearing"
+        },
+        {
+          "step": 2,
+          "title": "生成纪要",
+          "description": "AI自动生成结构化会议纪要",
+          "toolId": "feishu-minutes"
+        },
+        {
+          "step": 3,
+          "title": "整理输出",
+          "description": "用Kimi整理要点生成周报或汇报",
+          "toolId": "kimi"
+        }
+      ],
+      "tools": [
+        "xunfei-hearing",
+        "feishu-minutes",
+        "kimi"
+      ],
+      "comparison": [
+        {
+          "toolId": "xunfei-hearing",
+          "coreAdvantage": "中文识别最准",
+          "easeOfUse": "低",
+          "freeQuota": "体验"
+        },
+        {
+          "toolId": "feishu-minutes",
+          "coreAdvantage": "生态集成好",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "整理输出强",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "复杂场景多人说话时识别准确率会下降",
+        "方言和口音重的语音转写效果有限",
+        "敏感内容注意信息安全，谨慎选择云端转写"
+      ],
+      "caseStudy": {
+        "title": "我用AI语音转写+Kimi，1小时会议5分钟出纪要",
+        "summary": "从录音到结构化纪要的自动化工作流",
+        "url": "/tools/xunfei-hearing"
+      },
+      "freeAlternatives": [
+        {
+          "paidToolId": "xunfei-hearing",
+          "freeToolId": "feishu-minutes",
+          "note": "飞书生态免费使用"
+        }
+      ],
+      "relatedScenarios": [
+        "weekly-report",
+        "data-organizing"
+      ],
+      "seo": {
+        "title": "AI语音转文字工具推荐 - 讯飞听见对比飞书妙记",
+        "description": "对比讯飞听见、飞书妙记等AI语音转写工具，帮你找到最适合的会议记录方案。免费替代、实时转写全覆盖。"
+      },
+      "publishedAt": "2025-05-01",
+      "updatedAt": "2025-07-15",
+      "articles": [
+        {
+          "title": "AI语音转文字：开会不用手写笔记了",
+          "url": "#"
+        },
+        {
+          "title": "讯飞听见 vs 飞书妙记：语音转写工具深度对比",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "data-organizing",
+      "name": "数据整理",
+      "slug": "data-organizing",
+      "role": "office-worker",
+      "icon": "📋",
+      "tagline": "AI帮你从混乱信息中理出头绪",
+      "description": "面对散乱的会议记录、邮件、文档，整理信息是最耗时的工作之一。AI工具可以帮你快速归纳要点、提取关键数据、生成结构化表格，让混乱的信息变得一目了然。",
+      "coverImage": "/images/scenarios/data-organizing.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "收集素材",
+          "description": "用Kimi上传多个文档批量提取要点",
+          "toolId": "kimi"
+        },
+        {
+          "step": 2,
+          "title": "整理归纳",
+          "description": "用DeepSeek梳理逻辑框架和分类",
+          "toolId": "deepseek"
+        },
+        {
+          "step": 3,
+          "title": "输出成果",
+          "description": "用Notion AI生成结构化笔记和表格",
+          "toolId": "notion-ai"
+        }
+      ],
+      "tools": [
+        "kimi",
+        "deepseek",
+        "notion-ai",
+        "doubao"
+      ],
+      "comparison": [
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "长文档处理",
+          "easeOfUse": "低",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "deepseek",
+          "coreAdvantage": "逻辑梳理",
+          "easeOfUse": "中",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "notion-ai",
+          "coreAdvantage": "知识管理",
+          "easeOfUse": "中",
+          "freeQuota": "无"
+        }
+      ],
+      "pitfalls": [
+        "AI归纳的要点要人工核实，可能遗漏细节",
+        "涉及敏感数据注意信息安全，谨慎上传到云端",
+        "建议先整理框架再填充内容，效率更高"
+      ],
+      "caseStudy": {
+        "title": "我是如何用Kimi+DeepSeek整理100份行业报告的",
+        "summary": "从杂乱文件到结构化知识库的完整流程",
+        "url": "/tools/kimi"
+      },
+      "freeAlternatives": [
+        {
+          "paidToolId": "notion-ai",
+          "freeToolId": "kimi",
+          "note": "免费，长文本更强"
+        }
+      ],
+      "relatedScenarios": [
+        "weekly-report",
+        "paper-writing"
+      ],
+      "seo": {
+        "title": "AI数据整理工具推荐 - 从混乱信息到结构化知识",
+        "description": "推荐Kimi、DeepSeek等AI工具帮你整理归纳信息，从会议记录到行业报告一站搞定。免费方案，效率翻倍。"
+      },
+      "publishedAt": "2025-05-10",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "AI数据整理：从混乱信息到结构化知识",
+          "url": "#"
+        },
+        {
+          "title": "Kimi+DeepSeek：100份报告整理成知识库的完整流程",
+          "url": "#"
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "id": "office-worker",
+      "name": "职场办公",
+      "icon": "🏢",
+      "description": "提升日常办公效率"
+    },
+    {
+      "id": "content-creator",
+      "name": "自媒体",
+      "icon": "📱",
+      "description": "AI赋能内容创作"
+    },
+    {
+      "id": "student",
+      "name": "学习成长",
+      "icon": "🎓",
+      "description": "AI辅助学习与研究"
+    },
+    {
+      "id": "entrepreneur",
+      "name": "创业",
+      "icon": "💼",
+      "description": "AI助力创业降本增效"
+    }
+  ]
+}

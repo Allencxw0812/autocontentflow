@@ -1,0 +1,77 @@
+---
+/**
+ * JSON-LD Structured Data Component
+ *
+ * Supports multiple schema types:
+ * - Single object or array of objects
+ * - BreadcrumbList (via breadcrumbItems prop)
+ * - FAQ (via faqItems prop)
+ *
+ * Usage:
+ *   <JsonLd data={toolJsonLd} />
+ *   <JsonLd breadcrumbItems={[{name: '首页', url: '/'}, {name: '工具'}]} />
+ */
+
+interface BreadcrumbItem {
+  name: string;
+  url?: string;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  data?: Record<string, unknown> | Record<string, unknown>[];
+  breadcrumbItems?: BreadcrumbItem[];
+  faqItems?: FAQItem[];
+}
+
+const { data, breadcrumbItems, faqItems } = Astro.props;
+
+// Build structured data array
+const schemas: Record<string, unknown>[] = [];
+
+if (data) {
+  if (Array.isArray(data)) {
+    schemas.push(...data);
+  } else {
+    schemas.push(data);
+  }
+}
+
+if (breadcrumbItems && breadcrumbItems.length > 0) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbItems.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      ...(item.url ? { item: item.url } : {}),
+    })),
+  });
+}
+
+if (faqItems && faqItems.length > 0) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  });
+}
+
+const jsonStr = schemas.length === 1
+  ? JSON.stringify(schemas[0], null, 0)
+  : JSON.stringify(schemas, null, 0);
+---
+
+<script type="application/ld+json" set:html={jsonStr} />

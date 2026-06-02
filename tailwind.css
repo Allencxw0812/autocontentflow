@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366F1;
+  --color-primary-light: #5B21B6;
+  --color-bg: #F9FAFB;
+  --color-bg-white: #FFFFFF;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+  --radius-card: 8px;
+  --radius-card-lg: 12px;
+  --font-family-base: -apple-system, PingFang SC, Microsoft YaHei, sans-serif;
+}

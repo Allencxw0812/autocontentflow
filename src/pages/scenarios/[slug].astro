@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import WorkflowSteps from '../../components/WorkflowSteps.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import FreeAlternativeItem from '../../components/FreeAlternativeItem.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { getAllScenarios, getToolById, getRelatedScenarios, getRoleById } from '../../utils/data';
+import { generateScenarioJsonLd } from '../../utils/seo';
+import { formatDate } from '../../utils/formatters';
+import type { Scenario } from '../../types/index';
+
+export function getStaticPaths() {
+  const scenarios = getAllScenarios();
+  return scenarios.map((scenario) => ({
+    params: { slug: scenario.slug },
+    props: { scenario },
+  }));
+}
+
+const { scenario } = Astro.props as { scenario: Scenario };
+const role = getRoleById(scenario.role);
+const relatedScenarios = getRelatedScenarios(scenario.id);
+const tools = scenario.tools.map((id) => getToolById(id)).filter(Boolean);
+
+const scenarioJsonLd = generateScenarioJsonLd(scenario);
+
+// Breadcrumb JSON-LD
+const breadcrumbLd = [
+  { name: '首页', url: 'https://ai-website.pages.dev/' },
+  { name: '场景推荐', url: 'https://ai-website.pages.dev/scenarios' },
+  ...(role ? [{ name: role.name, url: `https://ai-website.pages.dev/scenarios#${role.id}` }] : []),
+  { name: scenario.name },
+];
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org' as const,
+  '@type': 'BreadcrumbList' as const,
+  itemListElement: breadcrumbLd.map((item, index) => ({
+    '@type': 'ListItem' as const,
+    position: index + 1,
+    name: item.name,
+    ...(item.url ? { item: item.url } : {}),
+  })),
+};
+
+// FAQ JSON-LD
+const faqJsonLd = scenario.pitfalls && scenario.pitfalls.length > 0 ? {
+  '@context': 'https://schema.org' as const,
+  '@type': 'FAQPage' as const,
+  mainEntity: [
+    {
+      '@type': 'Question' as const,
+      name: `${scenario.name}可以用哪些AI工具？`,
+      acceptedAnswer: {
+        '@type': 'Answer' as const,
+        text: `推荐使用${scenario.tools.map((id) => getToolById(id)?.name).filter(Boolean).join('、')}来完成${scenario.name}。`,
+      },
+    },
+    ...scenario.pitfalls.slice(0, 4).map((pitfall) => ({
+      '@type': 'Question' as const,
+      name: pitfall.length > 50 ? pitfall.slice(0, 50) + '...' : pitfall,
+      acceptedAnswer: {
+        '@type': 'Answer' as const,
+        text: pitfall,
+      },
+    })),
+  ],
+} : undefined;
+
+const jsonLd = [scenarioJsonLd, breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
+---
+
+<BaseLayout
+  meta={{
+    title: scenario.seo.title,
+    description: scenario.seo.description,
+  }}
+  jsonLd={jsonLd}
+>
+  <Breadcrumb items={[
+    { label: '场景推荐', href: '/scenarios' },
+    ...(role ? [{ label: role.name, href: `/scenarios#${role.id}` }] : []),
+    { label: scenario.name },
+  ]} />
+
+  <!-- Header -->
+  <div class="mb-8">
+    <div class="flex items-center gap-3 mb-3">
+      <span class="text-3xl">{scenario.icon}</span>
+      <h1 class="text-2xl md:text-3xl font-bold">{scenario.name}</h1>
+    </div>
+    <p class="text-text-secondary text-lg">{scenario.tagline}</p>
+  </div>
+
+  <!-- Description -->
+  <section class="mb-10">
+    <p class="text-text-primary leading-relaxed">{scenario.description}</p>
+    <div class="flex items-center gap-3 mt-3 text-xs text-text-secondary">
+      <span>更新于 {formatDate(scenario.updatedAt)}</span>
+    </div>
+  </section>
+
+  <!-- Workflow -->
+  <section class="mb-10">
+    <h2 class="text-xl font-bold mb-4">✅ 推荐工作流</h2>
+    <WorkflowSteps steps={scenario.workflow} />
+  </section>
+
+  <!-- Tool Comparison -->
+  {scenario.comparison && scenario.comparison.length > 0 && (
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">🔧 推荐工具对比</h2>
+      <div class="bg-bg-white rounded-[var(--radius-card-lg)] border border-border p-5">
+        <ComparisonTable comparison={scenario.comparison} />
+      </div>
+    </section>
+  )}
+
+  <!-- Pitfalls -->
+  {scenario.pitfalls && scenario.pitfalls.length > 0 && (
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">⚠️ 避坑指南</h2>
+      <div class="bg-yellow-50 rounded-[var(--radius-card)] border border-yellow-200 p-5">
+        <ul class="space-y-2">
+          {scenario.pitfalls.map((pitfall) => (
+            <li class="flex items-start gap-2 text-sm">
+              <span class="text-yellow-500 mt-0.5">•</span>
+              <span>{pitfall}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- Case Study -->
+  {scenario.caseStudy && (
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">📖 实战案例</h2>
+      <div class="bg-bg-white rounded-[var(--radius-card)] border border-border p-5">
+        <h3 class="font-medium">{scenario.caseStudy.title}</h3>
+        <p class="text-text-secondary text-sm mt-1">{scenario.caseStudy.summary}</p>
+        {scenario.caseStudy.url.startsWith('/') ? (
+          <a
+            href={scenario.caseStudy.url}
+            class="inline-block mt-3 text-sm text-primary hover:underline font-medium"
+          >
+            查看工具教程 →
+          </a>
+        ) : (
+          <a
+            href={scenario.caseStudy.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block mt-3 text-sm text-primary hover:underline font-medium"
+          >
+            阅读全文 →
+          </a>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- Related Articles -->
+  {scenario.articles && scenario.articles.length > 0 && (
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">📰 系列文章</h2>
+      <div class="space-y-3">
+        {scenario.articles.map((article) => (
+          <a
+            href={article.url}
+            class="flex items-center gap-3 p-4 bg-white rounded-lg border border-border hover:border-primary/40 hover:shadow-sm transition-all group"
+          >
+            <span class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-sm shrink-0 group-hover:bg-primary/20 transition-colors">📄</span>
+            <span class="text-sm font-medium text-text-primary group-hover:text-primary transition-colors">{article.title}</span>
+            <span class="ml-auto text-xs text-text-secondary shrink-0">公众号</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Free Alternatives -->
+  {scenario.freeAlternatives && scenario.freeAlternatives.length > 0 && (
+    <section class="mb-10">
+      <h2 class="text-xl font-bold mb-4">🆓 免费替代</h2>
+      <div class="space-y-3">
+        {scenario.freeAlternatives.map((alt) => (
+          <FreeAlternativeItem alternative={alt} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Recommended Tools -->
+  <section class="mb-10">
+    <h2 class="text-xl font-bold mb-4">🔧 相关工具</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {tools.map((tool) => tool && <ToolCard tool={tool} />)}
+    </div>
+  </section>
+
+  <!-- Related Scenarios -->
+  {relatedScenarios.length > 0 && (
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">🔗 关联场景</h2>
+      <div class="flex flex-wrap gap-3">
+        {relatedScenarios.map((rs) => (
+          <a
+            href={`/scenarios/${rs.slug}`}
+            class="px-4 py-2 bg-white rounded-full border border-primary/20 text-sm text-primary hover:bg-primary/5 hover:border-primary/40 transition-colors shadow-sm"
+          >
+            {rs.icon} {rs.name}
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import type { Tool } from '../types/index';
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+---
+
+<div class="bg-bg-white rounded-[var(--radius-card-lg)] border border-border p-6 space-y-5">
+  <h3 class="font-semibold text-lg">📊 三维评测</h3>
+
+  <!-- Core Advantage -->
+  <div class="space-y-2">
+    <div class="flex items-center gap-2">
+      <span class="text-green-500 text-sm">✅</span>
+      <span class="font-medium text-sm">核心优势</span>
+      <span class="ml-auto text-xs text-primary font-medium">{tool.rating.coreAdvantage}/5</span>
+    </div>
+    <div class="w-full bg-gray-100 rounded-full h-1.5">
+      <div class="bg-gradient-to-r from-primary to-primary-light h-1.5 rounded-full" style={`width: ${(tool.rating.coreAdvantage / 5) * 100}%`}></div>
+    </div>
+    <p class="text-text-secondary text-xs leading-relaxed">{tool.review.coreAdvantage}</p>
+  </div>
+
+  <!-- Pain Points -->
+  <div class="space-y-2">
+    <div class="flex items-center gap-2">
+      <span class="text-yellow-500 text-sm">⚠️</span>
+      <span class="font-medium text-sm">使用门槛</span>
+      <span class="ml-auto text-xs text-primary font-medium">{tool.rating.easeOfUse}/5</span>
+    </div>
+    <div class="w-full bg-gray-100 rounded-full h-1.5">
+      <div class="bg-gradient-to-r from-yellow-400 to-orange-400 h-1.5 rounded-full" style={`width: ${(tool.rating.easeOfUse / 5) * 100}%`}></div>
+    </div>
+    <p class="text-text-secondary text-xs leading-relaxed">{tool.review.painPoints}</p>
+  </div>
+
+  <!-- Target Users -->
+  <div class="space-y-2">
+    <div class="flex items-center gap-2">
+      <span class="text-blue-500 text-sm">👥</span>
+      <span class="font-medium text-sm">适合人群</span>
+      <span class="ml-auto text-xs text-primary font-medium">{tool.rating.chineseFriendly}/5</span>
+    </div>
+    <div class="w-full bg-gray-100 rounded-full h-1.5">
+      <div class="bg-gradient-to-r from-green-400 to-emerald-400 h-1.5 rounded-full" style={`width: ${(tool.rating.chineseFriendly / 5) * 100}%`}></div>
+    </div>
+    <p class="text-text-secondary text-xs leading-relaxed">{tool.review.targetUsers}</p>
+  </div>
+</div>

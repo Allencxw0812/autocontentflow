@@ -1,0 +1,48 @@
+---
+import type { FreeAlternative as FreeAltType } from '../types/index';
+import { getToolById, getToolFavicon, getToolIcon } from '../utils/data';
+
+interface Props {
+  alternative: FreeAltType;
+}
+
+const { alternative } = Astro.props;
+const paidTool = getToolById(alternative.paidToolId);
+const freeTool = getToolById(alternative.freeToolId);
+---
+
+<div class="flex items-center gap-3 py-3 px-4 bg-bg-white rounded-[var(--radius-card)] border border-border">
+  {paidTool ? (
+    <a href={`/tools/${paidTool.slug}`} class="inline-flex items-center gap-1.5 text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+      <img
+        src={getToolIcon(paidTool.id)}
+        alt={paidTool.name}
+        class="w-4 h-4 object-contain rounded-sm"
+        onerror={`this.onerror=null;this.src='${getToolFavicon(paidTool.url, 32)}'`}
+        loading="lazy"
+      />
+      {paidTool.name}
+    </a>
+  ) : (
+    <span class="text-sm font-medium text-text-secondary">{alternative.paidToolId}</span>
+  )}
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary shrink-0"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+  {freeTool ? (
+    <a href={`/tools/${freeTool.slug}`} class="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">
+      <img
+        src={getToolIcon(freeTool.id)}
+        alt={freeTool.name}
+        class="w-4 h-4 object-contain rounded-sm"
+        onerror={`this.onerror=null;this.src='${getToolFavicon(freeTool.url, 32)}'`}
+        loading="lazy"
+      />
+      {freeTool.name}
+    </a>
+  ) : (
+    <span class="text-sm font-medium text-primary">{alternative.freeToolId}</span>
+  )}
+
+  <span class="text-xs text-text-secondary ml-auto">{alternative.note}</span>
+</div>

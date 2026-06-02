@@ -1,0 +1,20 @@
+---
+interface Props {
+  level: 'native' | 'partial' | 'none';
+}
+
+const { level } = Astro.props;
+
+const config: Record<string, { label: string; icon: string; color: string }> = {
+  native: { label: '原生中文', icon: '✅', color: 'bg-green-50 text-green-700 border-green-200' },
+  partial: { label: '部分支持', icon: '⚠️', color: 'bg-yellow-50 text-yellow-700 border-yellow-200' },
+  none: { label: '不支持', icon: '❌', color: 'bg-red-50 text-red-700 border-red-200' },
+};
+
+const c = config[level] || config.none;
+---
+
+<span class={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full border font-medium ${c.color}`}>
+  <span>{c.icon}</span>
+  {c.label}
+</span>

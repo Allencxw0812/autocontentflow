@@ -1,0 +1,61 @@
+---
+import type { ComparisonItem } from '../types/index';
+import { getToolById, getToolFavicon, getToolIcon } from '../utils/data';
+
+interface Props {
+  comparison: ComparisonItem[];
+}
+
+const { comparison } = Astro.props;
+---
+
+<div class="overflow-x-auto">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="text-left py-3 px-4 font-medium text-text-secondary"></th>
+        {comparison.map((item) => {
+          const tool = getToolById(item.toolId);
+          return (
+            <th class="text-left py-3 px-4 font-medium">
+              {tool ? (
+                <a href={`/tools/${tool.slug}`} class="inline-flex items-center gap-1.5 hover:text-primary transition-colors">
+                  <img
+                    src={getToolIcon(tool.id)}
+                    alt={tool.name}
+                    class="w-4 h-4 object-contain rounded-sm"
+                    onerror={`this.onerror=null;this.src='${getToolFavicon(tool.url, 32)}'`}
+                    loading="lazy"
+                  />
+                  {tool.name}
+                </a>
+              ) : (
+                item.toolId
+              )}
+            </th>
+          );
+        })}
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b border-border/50">
+        <td class="py-3 px-4 text-text-secondary font-medium">核心优势</td>
+        {comparison.map((item) => (
+          <td class="py-3 px-4">{item.coreAdvantage}</td>
+        ))}
+      </tr>
+      <tr class="border-b border-border/50">
+        <td class="py-3 px-4 text-text-secondary font-medium">使用门槛</td>
+        {comparison.map((item) => (
+          <td class="py-3 px-4">{item.easeOfUse}</td>
+        ))}
+      </tr>
+      <tr>
+        <td class="py-3 px-4 text-text-secondary font-medium">免费额度</td>
+        {comparison.map((item) => (
+          <td class="py-3 px-4">{item.freeQuota}</td>
+        ))}
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FreeAlternativeItem from '../../components/FreeAlternativeItem.astro';
+import { getFreeAlternativesByCategory, categoryNames } from '../../utils/data';
+
+const grouped = getFreeAlternativesByCategory();
+const categoryKeys = Object.keys(grouped);
+---
+
+<BaseLayout
+  meta={{
+    title: '免费替代专题',
+    description: '付费AI工具的免费替代方案，不花冤枉钱。覆盖AI对话、AI绘画、AI编程等分类。',
+  }}
+>
+  <Breadcrumb items={[{ label: '免费替代专题' }]} />
+
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold">🆓 免费替代专区</h1>
+    <p class="text-text-secondary mt-2 text-lg">付费工具的免费平替方案，不花冤枉钱</p>
+  </div>
+
+  {categoryKeys.map((cat) => {
+    const alts = grouped[cat];
+    const catName = categoryNames[cat] || cat;
+    return (
+      <section class="mb-10">
+        <h2 class="text-xl font-bold mb-4">{catName}</h2>
+        <div class="bg-bg-white rounded-[var(--radius-card-lg)] border border-border p-5 space-y-3">
+          {alts.map((alt) => (
+            <FreeAlternativeItem alternative={{ paidToolId: alt.paidTool.id, freeToolId: alt.freeTool.id, note: alt.note }} />
+          ))}
+        </div>
+      </section>
+    );
+  })}
+
+  {categoryKeys.length === 0 && (
+    <div class="text-center py-16 text-text-secondary">
+      <p>暂无免费替代数据，敬请期待</p>
+    </div>
+  )}
+</BaseLayout>

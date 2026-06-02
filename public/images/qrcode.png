@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="#F9FAFB" rx="8"/>
+  <rect x="40" y="40" width="50" height="50" fill="#6366F1" rx="4"/>
+  <rect x="110" y="40" width="50" height="50" fill="#6366F1" rx="4"/>
+  <rect x="40" y="110" width="50" height="50" fill="#6366F1" rx="4"/>
+  <rect x="110" y="110" width="50" height="50" fill="#8B5CF6" rx="4"/>
+  <rect x="50" y="50" width="30" height="30" fill="white" rx="2"/>
+  <rect x="120" y="50" width="30" height="30" fill="white" rx="2"/>
+  <rect x="50" y="120" width="30" height="30" fill="white" rx="2"/>
+  <text x="100" y="180" text-anchor="middle" fill="#6B7280" font-size="10" font-family="sans-serif">公众号二维码</text>
+</svg>

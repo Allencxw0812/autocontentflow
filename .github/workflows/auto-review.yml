@@ -1,0 +1,65 @@
+name: AI Auto-Refresh Reviews
+
+on:
+  schedule:
+    # First day of each month at 06:00 UTC+8 (22:00 UTC on last day of prev month)
+    - cron: '0 22 28-31 * *'
+  workflow_dispatch:
+
+jobs:
+  auto-refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run AI refresh
+        id: refresh
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Only run on actual 1st day of month (cron trick catches last days)
+          if [ "$(date +%d)" != "01" ]; then
+            echo "Not the 1st day of month, skipping."
+            exit 0
+          fi
+          node scripts/ops.mjs refresh --json > reports/refresh-result.json
+          cat reports/refresh-result.json
+
+      - name: Create Pull Request
+        if: success()
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: '🤖 AI auto-refresh stale content reviews'
+          title: '🤖 AI Auto-Refresh — Monthly Content Review Update'
+          body: |
+            Automated monthly refresh of stale tool and scenario reviews.
+
+            ### Changes
+            - AI re-evaluated reviews for tools/scenarios not updated in 90+ days
+            - Updated ratings, descriptions, and review text based on current state
+
+            ### Review Checklist
+            - [ ] Verify AI-generated review accuracy
+            - [ ] Check rating changes are reasonable
+            - [ ] Confirm no data corruption in JSON files
+
+            > 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+          branch: auto/refresh-reviews
+          delete-branch: true
+          labels: |
+            automated
+            content

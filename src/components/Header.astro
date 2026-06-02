@@ -1,0 +1,74 @@
+---
+import SearchBox from './SearchBox.astro';
+
+const navLinks = [
+  { href: '/scenarios', label: '场景' },
+  { href: '/tools', label: '工具' },
+  { href: '/free-alternatives', label: '免费替代' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-bg-white/80 backdrop-blur-md border-b border-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <span class="text-2xl">🤖</span>
+        <span class="font-bold text-lg text-primary">
+          普通人AI实战笔记
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-text-secondary hover:text-primary transition-colors text-sm font-medium"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Search -->
+      <div class="hidden md:block">
+        <SearchBox />
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-text-secondary hover:text-primary transition-colors"
+        aria-label="打开菜单"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-bg-white">
+    <div class="px-4 py-3 space-y-3">
+      <div class="mb-3">
+        <SearchBox />
+      </div>
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block text-text-secondary hover:text-primary transition-colors text-sm font-medium py-2"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

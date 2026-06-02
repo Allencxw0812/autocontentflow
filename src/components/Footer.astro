@@ -1,0 +1,49 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-border bg-bg-white mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">🤖</span>
+          <span class="font-bold text-lg text-primary">
+            普通人AI实战笔记
+          </span>
+        </div>
+        <p class="text-text-secondary text-sm leading-relaxed">
+          帮你找到真正好用的AI工具。<br />
+          按场景找工具 · 真实评测 · 免费替代
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-semibold text-sm mb-4">快速导航</h3>
+        <ul class="space-y-2">
+          <li><a href="/scenarios" class="text-text-secondary hover:text-primary transition-colors text-sm">场景推荐</a></li>
+          <li><a href="/tools" class="text-text-secondary hover:text-primary transition-colors text-sm">工具评测</a></li>
+          <li><a href="/free-alternatives" class="text-text-secondary hover:text-primary transition-colors text-sm">免费替代</a></li>
+          <li><a href="/search" class="text-text-secondary hover:text-primary transition-colors text-sm">搜索</a></li>
+        </ul>
+      </div>
+
+      <!-- WeChat -->
+      <div>
+        <h3 class="font-semibold text-sm mb-4">关注公众号</h3>
+        <p class="text-text-secondary text-sm leading-relaxed">
+          微信搜索「普通人AI实战笔记」<br />
+          获取更多AI实战经验，每周更新
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-border mt-8 pt-8 text-center">
+      <p class="text-text-secondary text-xs">
+        © {currentYear} 普通人AI实战笔记. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

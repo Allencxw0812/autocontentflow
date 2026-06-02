@@ -1,0 +1,27 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Cache static assets aggressively
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pagefind search index
+/pagefind/*
+  Cache-Control: public, max-age=86400
+
+# HTML pages
+/*.html
+  Cache-Control: public, max-age=3600
+
+# RSS feed
+/rss.xml
+  Cache-Control: public, max-age=3600
+
+# Sitemaps
+/sitemap*.xml
+  Cache-Control: public, max-age=86400

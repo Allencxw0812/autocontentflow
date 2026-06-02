@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { getAllTools, getAllScenarios, getAllRoles } from '../utils/data';
+
+const tools = getAllTools();
+const scenarios = getAllScenarios();
+const roles = getAllRoles();
+
+// Count by category
+const categoryCount: Record<string, number> = {};
+for (const t of tools) {
+  for (const cat of t.category) {
+    categoryCount[cat] = (categoryCount[cat] || 0) + 1;
+  }
+}
+
+const categoryNames: Record<string, string> = {
+  'ai-chat': 'AI对话',
+  'ai-image': 'AI绘画',
+  'ai-writing': 'AI写作',
+  'ai-code': 'AI编程',
+  'ai-video': 'AI视频',
+  'ai-translation': 'AI翻译',
+  'ai-voice': 'AI语音',
+  'ai-productivity': 'AI办公',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: '关于普通人AI实战笔记',
+  description: '帮你找到真正好用的AI工具。按场景找工具、真实评测、免费替代。让普通人也能用好AI。',
+  about: {
+    '@type': 'WebSite',
+    name: '普通人AI实战笔记',
+    url: 'https://ai-website.pages.dev',
+  },
+};
+---
+
+<BaseLayout
+  meta={{
+    title: '关于我们',
+    description: '了解普通人AI实战笔记的定位、内容理念和团队。帮你找到真正好用的AI工具。',
+  }}
+  jsonLd={jsonLd}
+>
+  <Breadcrumb items={[{ label: '关于我们' }]} />
+
+  <!-- Hero -->
+  <section class="mb-12">
+    <h1 class="text-3xl font-bold mb-4">关于普通人AI实战笔记</h1>
+    <p class="text-lg text-text-secondary leading-relaxed max-w-3xl">
+      一个为普通人打造的AI工具导航与实战指南网站。
+      我们不谈高深的技术概念，只关注一个问题：<strong class="text-text-primary">这个AI工具能帮你做什么，怎么用最好。</strong>
+    </p>
+  </section>
+
+  <!-- Mission -->
+  <section class="mb-12">
+    <div class="bg-gradient-to-br from-primary/5 to-primary-light/5 rounded-xl border border-primary/10 p-8">
+      <h2 class="text-xl font-bold mb-4">🎯 我们的初衷</h2>
+      <div class="space-y-4 text-text-secondary leading-relaxed">
+        <p>
+          2024年以来，AI工具井喷式涌现。但对大多数普通人来说，面对眼花缭乱的AI产品，
+          最常见的问题就是：<strong class="text-text-primary">"哪个适合我？" "怎么用？" "要不要花钱？" "需不需要翻墙？"</strong>
+        </p>
+        <p>
+          现有的AI工具评测大多面向技术用户，充斥着专业术语和晦涩的概念。
+          而我们想做的是：<strong class="text-text-primary">用最接地气的语言，告诉普通人怎么用好AI。</strong>
+        </p>
+        <p>
+          每个工具都亲自使用过，每个教程都附带可直接复制的提示词。
+          我们不追求全面，只推荐<strong class="text-text-primary">真正好用、适合普通人的AI工具</strong>。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-6">📊 网站数据</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white rounded-lg border border-border p-5 text-center">
+        <div class="text-3xl font-bold text-primary">{tools.length}</div>
+        <div class="text-sm text-text-secondary mt-1">AI工具评测</div>
+      </div>
+      <div class="bg-white rounded-lg border border-border p-5 text-center">
+        <div class="text-3xl font-bold text-primary">{scenarios.length}</div>
+        <div class="text-sm text-text-secondary mt-1">使用场景</div>
+      </div>
+      <div class="bg-white rounded-lg border border-border p-5 text-center">
+        <div class="text-3xl font-bold text-primary">{roles.length}</div>
+        <div class="text-sm text-text-secondary mt-1">用户角色</div>
+      </div>
+      <div class="bg-white rounded-lg border border-border p-5 text-center">
+        <div class="text-3xl font-bold text-primary">{Object.keys(categoryCount).length}</div>
+        <div class="text-sm text-text-secondary mt-1">工具分类</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-4">🏷️ 覆盖品类</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+      {Object.entries(categoryCount).map(([cat, count]) => (
+        <a
+          href={`/tools#${cat}`}
+          class="bg-white rounded-lg border border-border p-4 hover:border-primary/30 hover:shadow-sm transition-all text-center"
+        >
+          <div class="text-2xl font-bold text-primary">{count}</div>
+          <div class="text-xs text-text-secondary mt-1">{categoryNames[cat] || cat}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-6">✨ 特色功能</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="bg-white rounded-lg border border-border p-6">
+        <div class="text-2xl mb-3">🎯</div>
+        <h3 class="font-semibold mb-2">按场景找工具</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          不需要知道工具叫什么，只需要告诉我们要做什么。写周报、做PPT、做小红书，场景化推荐最适合的工具组合。
+        </p>
+      </div>
+      <div class="bg-white rounded-lg border border-border p-6">
+        <div class="text-2xl mb-3">🆓</div>
+        <h3 class="font-semibold mb-2">免费替代方案</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          付费工具太贵？我们帮每个付费工具找到了免费替代方案，一样好用，不花一分钱。
+        </p>
+      </div>
+      <div class="bg-white rounded-lg border border-border p-6">
+        <div class="text-2xl mb-3">📋</div>
+        <h3 class="font-semibold mb-2">可复制提示词</h3>
+        <p class="text-sm text-text-secondary leading-relaxed">
+          每个工具教程都附带可直接复制的提示词模板，拿来就用，不用自己摸索。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold mb-4">📬 联系与反馈</h2>
+    <div class="bg-white rounded-lg border border-border p-6">
+      <p class="text-text-secondary text-sm leading-relaxed mb-4">
+        我们持续更新内容，如果发现信息过时或有新的好工具推荐，欢迎反馈。
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="https://mp.weixin.qq.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
+        >
+          关注公众号
+        </a>
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-white text-primary text-sm font-medium rounded-lg border border-primary/30 hover:bg-primary/5 transition-colors"
+        >
+          GitHub 反馈
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { getAllTools, getAllScenarios } from '../utils/data';
+import { formatDate } from '../utils/formatters';
+
+interface UpdateItem {
+  type: 'tool' | 'scenario';
+  name: string;
+  slug: string;
+  icon?: string;
+  description: string;
+  updatedAt: string;
+  link: string;
+}
+
+const tools = getAllTools();
+const scenarios = getAllScenarios();
+
+// Merge and sort all updates
+const allUpdates: UpdateItem[] = [
+  ...tools.map((t) => ({
+    type: 'tool' as const,
+    name: t.name,
+    slug: t.slug,
+    icon: t.logo,
+    description: t.tagline,
+    updatedAt: t.updatedAt,
+    link: `/tools/${t.slug}`,
+  })),
+  ...scenarios.map((s) => ({
+    type: 'scenario' as const,
+    name: s.name,
+    slug: s.slug,
+    icon: s.icon,
+    description: s.tagline,
+    updatedAt: s.updatedAt,
+    link: `/scenarios/${s.slug}`,
+  })),
+].sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+
+// Group by month
+const grouped: Record<string, UpdateItem[]> = {};
+for (const item of allUpdates) {
+  const month = item.updatedAt.slice(0, 7); // YYYY-MM
+  if (!grouped[month]) grouped[month] = [];
+  grouped[month].push(item);
+}
+
+const months = Object.keys(grouped).sort().reverse();
+---
+
+<BaseLayout
+  meta={{
+    title: '更新日志',
+    description: '普通人AI实战笔记的更新日志，追踪最新AI工具评测和场景指南的更新。',
+  }}
+>
+  <Breadcrumb items={[{ label: '更新日志' }]} />
+
+  <section class="mb-8">
+    <h1 class="text-3xl font-bold mb-2">📰 更新日志</h1>
+    <p class="text-text-secondary">
+      追踪网站最新内容更新，共 {tools.length} 个工具评测和 {scenarios.length} 个场景指南。
+    </p>
+    <div class="flex items-center gap-3 mt-4">
+      <a
+        href="/rss.xml"
+        target="_blank"
+        class="inline-flex items-center gap-1.5 px-4 py-2 bg-orange-50 text-orange-600 text-sm font-medium rounded-lg border border-orange-200 hover:bg-orange-100 transition-colors"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+        RSS 订阅
+      </a>
+    </div>
+  </section>
+
+  {months.map((month) => (
+    <section class="mb-10">
+      <h2 class="text-lg font-bold mb-4 text-text-secondary flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+        {month}
+        <span class="text-xs text-text-secondary font-normal">({grouped[month].length} 条更新)</span>
+      </h2>
+      <div class="space-y-3">
+        {grouped[month].map((item) => (
+          <a
+            href={item.link}
+            class="flex items-start gap-4 p-4 bg-white rounded-lg border border-border hover:border-primary/30 hover:shadow-sm transition-all group"
+          >
+            <span class="text-2xl shrink-0 mt-0.5">{item.icon || '📄'}</span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <span class={`text-xs px-2 py-0.5 rounded-full font-medium ${item.type === 'tool' ? 'bg-blue-50 text-blue-600' : 'bg-purple-50 text-purple-600'}`}>
+                  {item.type === 'tool' ? '工具' : '场景'}
+                </span>
+                <h3 class="font-medium text-sm group-hover:text-primary transition-colors">{item.name}</h3>
+              </div>
+              <p class="text-xs text-text-secondary">{item.description}</p>
+            </div>
+            <span class="text-xs text-text-secondary shrink-0 mt-1">{formatDate(item.updatedAt)}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  {months.length === 0 && (
+    <div class="text-center py-12 text-text-secondary">
+      <p>暂无更新记录</p>
+    </div>
+  )}
+</BaseLayout>

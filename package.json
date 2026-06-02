@@ -1,0 +1,23 @@
+{
+  "name": "ai-website",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "普通人AI实战笔记 - 内容网站",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "postbuild": "npx pagefind --site dist/",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "@astrojs/sitemap": "^3.3.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "lucide-static": "^0.460.0",
+    "pagefind": "^1.3.0"
+  }
+}

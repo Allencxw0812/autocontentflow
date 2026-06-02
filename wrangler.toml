@@ -1,0 +1,9 @@
+# Cloudflare Pages configuration
+# Deploy: npx wrangler pages deploy dist --project-name=ai-website
+
+name = "ai-website"
+compatibility_date = "2025-06-01"
+
+# Pages project configuration
+[site]
+bucket = "./dist"

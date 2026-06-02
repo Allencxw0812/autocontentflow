@@ -1,0 +1,309 @@
+---
+// Admin Operations Dashboard — 后台运营面板
+import { getAllTools, getAllScenarios, getAllRoles, getFreeAlternatives } from '../../utils/data';
+import type { Tool, Scenario } from '../../types/index';
+
+const STALENESS_DAYS = 90;
+const now = Date.now();
+const threshold = STALENESS_DAYS * 86400_000;
+
+const tools = getAllTools();
+const scenarios = getAllScenarios();
+const roles = getAllRoles();
+const freeAlts = getFreeAlternatives();
+
+// Compute freshness
+const toolsWithAge = tools.map(t => ({
+  ...t,
+  ageDays: Math.round((now - new Date(t.updatedAt).getTime()) / 86400_000),
+})).sort((a, b) => b.ageDays - a.ageDays);
+
+const scenariosWithAge = scenarios.map(s => ({
+  ...s,
+  ageDays: Math.round((now - new Date(s.updatedAt).getTime()) / 86400_000),
+})).sort((a, b) => b.ageDays - a.ageDays);
+
+const staleTools = toolsWithAge.filter(t => t.ageDays > STALENESS_DAYS);
+const staleScenarios = scenariosWithAge.filter(s => s.ageDays > STALENESS_DAYS);
+const freshCount = tools.length + scenarios.length - staleTools.length - staleScenarios.length;
+const healthScore = Math.round((freshCount / (tools.length + scenarios.length)) * 100);
+
+// Category stats
+const categoryStats: Record<string, number> = {};
+for (const t of tools) {
+  for (const cat of t.category) {
+    categoryStats[cat] = (categoryStats[cat] || 0) + 1;
+  }
+}
+
+// Pricing distribution
+const pricingStats = { free: 0, freemium: 0, paid: 0 };
+for (const t of tools) {
+  pricingStats[t.pricing] = (pricingStats[t.pricing] || 0) + 1;
+}
+
+// Recent updates (last 30 days)
+const recentUpdates = [...toolsWithAge, ...scenariosWithAge.map(s => ({ ...s, type: 'scenario' }))]
+  .sort((a, b) => a.ageDays - b.ageDays)
+  .slice(0, 10);
+
+// Top stale items
+const topStale = toolsWithAge.slice(0, 10);
+const topStaleScenarios = scenariosWithAge.slice(0, 5);
+
+const nowStr = new Date().toISOString().split('T')[0];
+---
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>运营后台 | 普通人AI实战笔记</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f7; color: #1a1a1a; }
+    .sidebar {
+      position: fixed; left: 0; top: 0; bottom: 0; width: 220px;
+      background: #1a1a2e; color: #fff; padding: 24px 0; z-index: 10;
+    }
+    .sidebar .logo { padding: 0 20px 20px; font-size: 16px; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px; }
+    .sidebar a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: all 0.2s; }
+    .sidebar a:hover, .sidebar a.active { background: rgba(255,255,255,0.08); color: #fff; }
+    .main { margin-left: 220px; padding: 24px 32px; min-height: 100vh; }
+    .top-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .top-bar h1 { font-size: 22px; }
+    .top-bar .meta { font-size: 13px; color: #888; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e8e8ec; }
+    .card h3 { font-size: 14px; color: #666; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .stat-num { font-size: 32px; font-weight: 700; }
+    .stat-label { font-size: 13px; color: #888; margin-top: 2px; }
+    .stat-green .stat-num { color: #10b981; }
+    .stat-red .stat-num { color: #ef4444; }
+    .stat-blue .stat-num { color: #6366F1; }
+    .stat-amber .stat-num { color: #f59e0b; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+    .badge-red { background: #fef2f2; color: #dc2626; }
+    .badge-green { background: #ecfdf5; color: #059669; }
+    .badge-amber { background: #fffbeb; color: #d97706; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; padding: 10px 12px; color: #888; font-weight: 600; border-bottom: 2px solid #f0f0f0; font-size: 12px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #f5f5f5; }
+    tr:hover td { background: #fafaff; }
+    .bar-bg { width: 100px; height: 6px; background: #f0f0f0; border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 8px; }
+    .bar-fill { height: 100%; border-radius: 3px; }
+    .bar-red { background: #ef4444; }
+    .bar-amber { background: #f59e0b; }
+    .bar-green { background: #10b981; }
+    .progress-ring { display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; font-size: 20px; font-weight: 700; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { padding: 4px 12px; border-radius: 16px; font-size: 12px; background: #f0f0ff; color: #6366F1; border: 1px solid #e0e0ff; }
+    .tag .count { font-weight: 700; margin-left: 4px; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; font-size: 13px; text-decoration: none; font-weight: 500; border: 1px solid #ddd; background: #fff; color: #333; cursor: pointer; transition: all 0.2s; }
+    .btn:hover { background: #f5f5f5; }
+    .btn-primary { background: #6366F1; color: #fff; border-color: #6366F1; }
+    .btn-primary:hover { background: #5B21B6; }
+    .actions { display: flex; gap: 8px; margin-bottom: 24px; }
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">📊 运营后台</div>
+    <a href="#overview" class="active">📈 运营总览</a>
+    <a href="#stale">⚠️ 过期内容</a>
+    <a href="#categories">🏷️ 分类分布</a>
+    <a href="#recent">🔄 最近更新</a>
+    <a href="/admin/search-stats/" style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">🔍 搜索统计</a>
+    <a href="/" target="_blank" style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">🌐 返回网站</a>
+  </aside>
+
+  <div class="main">
+    <div class="top-bar">
+      <div>
+        <h1>📊 运营总览</h1>
+        <p class="meta">数据刷新时间: {nowStr}</p>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <a href="#stale" class="btn btn-primary">查看过期内容</a>
+        <a href="/admin/search-stats/" class="btn">搜索统计</a>
+      </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="grid-4" id="overview">
+      <div class="card stat-blue">
+        <div class="stat-num">{tools.length + scenarios.length}</div>
+        <div class="stat-label">总内容数（{tools.length}工具 + {scenarios.length}场景）</div>
+      </div>
+      <div class="card" style="background: {healthScore >= 70 ? '#ecfdf5' : healthScore >= 40 ? '#fffbeb' : '#fef2f2'}">
+        <div class="stat-num" style="color: {healthScore >= 70 ? '#059669' : healthScore >= 40 ? '#d97706' : '#dc2626'}">{healthScore}%</div>
+        <div class="stat-label">内容健康度（{freshCount}/{tools.length + scenarios.length} 新鲜）</div>
+      </div>
+      <div class="card stat-red">
+        <div class="stat-num">{staleTools.length + staleScenarios.length}</div>
+        <div class="stat-label">过期内容（{staleTools.length}工具 + {staleScenarios.length}场景）</div>
+      </div>
+      <div class="card stat-green">
+        <div class="stat-num">{freeAlts.length}</div>
+        <div class="stat-label">免费替代方案</div>
+      </div>
+    </div>
+
+    <!-- Stale Content Warning -->
+    <div class="grid-2" id="stale">
+      <!-- Stale Tools -->
+      <div class="card">
+        <h3>⚠️ 最需更新的工具 TOP 10</h3>
+        <table>
+          <thead><tr><th>工具</th><th>最后更新</th><th>已过期</th><th>状态</th></tr></thead>
+          <tbody>
+            {topStale.map(t => (
+              <tr>
+                <td><a href={`/tools/${t.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{t.name}</a></td>
+                <td style="color:#888;">{t.updatedAt}</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px;">
+                    <div class="bar-bg"><div class="bar-fill" style="width:{Math.min(100, t.ageDays / STALENESS_DAYS * 100)}%;background:{t.ageDays > 180 ? '#ef4444' : '#f59e0b'};"></div></div>
+                    <span>{t.ageDays}天</span>
+                  </div>
+                </td>
+                <td><span class={`badge ${t.ageDays > 180 ? 'badge-red' : 'badge-amber'}`}>{t.ageDays > 180 ? '严重过期' : '需更新'}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Stale Scenarios -->
+      <div class="card">
+        <h3>⚠️ 过期场景</h3>
+        <table>
+          <thead><tr><th>场景</th><th>最后更新</th><th>已过期</th><th>状态</th></tr></thead>
+          <tbody>
+            {topStaleScenarios.map(s => (
+              <tr>
+                <td><a href={`/scenarios/${s.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{s.icon} {s.name}</a></td>
+                <td style="color:#888;">{s.updatedAt}</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px;">
+                    <div class="bar-bg"><div class="bar-fill" style="width:{Math.min(100, s.ageDays / STALENESS_DAYS * 100)}%;background:{s.ageDays > 180 ? '#ef4444' : '#f59e0b'};"></div></div>
+                    <span>{s.ageDays}天</span>
+                  </div>
+                </td>
+                <td><span class={`badge ${s.ageDays > 180 ? 'badge-red' : 'badge-amber'}`}>{s.ageDays > 180 ? '严重过期' : '需更新'}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Category Distribution -->
+    <div class="grid-2" id="categories">
+      <div class="card">
+        <h3>🏷️ 工具分类分布</h3>
+        <div class="tag-row" style="margin-bottom:16px;">
+          {Object.entries(categoryStats).map(([cat, count]) => (
+            <span class="tag">{cat}<span class="count">{count}</span></span>
+          ))}
+        </div>
+        <table>
+          <thead><tr><th>分类</th><th>数量</th><th>占比</th></tr></thead>
+          <tbody>
+            {Object.entries(categoryStats).sort((a,b) => b[1] - a[1]).map(([cat, count]) => (
+              <tr>
+                <td>{cat}</td>
+                <td>{count}</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <div class="bar-bg" style="width:120px;"><div class="bar-fill bar-green" style="width:{Math.round(count / tools.length * 100)}%;"></div></div>
+                    <span>{Math.round(count / tools.length * 100)}%</span>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>💰 定价分布</h3>
+        <table>
+          <thead><tr><th>定价模式</th><th>数量</th><th>工具</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-green">免费</span></td>
+              <td><strong>{pricingStats.free}</strong></td>
+              <td style="font-size:12px;color:#888;">{tools.filter(t => t.pricing === 'free').map(t => t.name).join(', ')}</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#eff6ff;color:#2563eb;">免费增值</span></td>
+              <td><strong>{pricingStats.freemium}</strong></td>
+              <td style="font-size:12px;color:#888;">{tools.filter(t => t.pricing === 'freemium').map(t => t.name).join(', ')}</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#fff7ed;color:#ea580c;">付费</span></td>
+              <td><strong>{pricingStats.paid}</strong></td>
+              <td style="font-size:12px;color:#888;">{tools.filter(t => t.pricing === 'paid').map(t => t.name).join(', ')}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top:20px;">👥 角色覆盖</h3>
+        <table>
+          <thead><tr><th>角色</th><th>场景数</th></tr></thead>
+          <tbody>
+            {roles.map(r => (
+              <tr>
+                <td>{r.icon} {r.name}</td>
+                <td>{scenarios.filter(s => s.role === r.id).length}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Recent Updates -->
+    <div class="card" id="recent">
+      <h3>🔄 最近更新 TOP 10</h3>
+      <table>
+        <thead><tr><th>类型</th><th>名称</th><th>简介</th><th>更新日期</th><th>距今</th></tr></thead>
+        <tbody>
+          {recentUpdates.map(item => (
+            <tr>
+              <td><span class={`badge ${item.type === 'scenario' ? '' : 'badge-green'}`}>{item.type === 'scenario' ? '场景' : '工具'}</span></td>
+              <td><a href={`/${item.type === 'scenario' ? 'scenarios' : 'tools'}/${item.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{(item as any).icon || ''} {item.name}</a></td>
+              <td style="font-size:12px;color:#888;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{item.tagline || (item as Tool).tagline}</td>
+              <td style="font-size:12px;">{(item as any).updatedAt}</td>
+              <td><span class={`badge ${item.ageDays <= 30 ? 'badge-green' : item.ageDays <= 90 ? 'badge-amber' : 'badge-red'}`}>{item.ageDays}天前</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top:32px;padding-top:16px;border-top:1px solid #e8e8ec;display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:12px;color:#999;">
+        🛠️ 运营自动化: 每周一自动检查内容新鲜度 | 每月1日 AI 自动刷新评测
+      </span>
+      <div style="display:flex;gap:8px;">
+        <a href="/about/" target="_blank" class="btn" style="font-size:12px;">关于我们</a>
+        <a href="/updates/" target="_blank" class="btn" style="font-size:12px;">更新日志</a>
+        <a href="/rss.xml" target="_blank" class="btn" style="font-size:12px;">RSS Feed</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

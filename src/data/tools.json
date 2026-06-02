@@ -1,0 +1,1852 @@
+{
+  "tools": [
+    {
+      "id": "kimi",
+      "name": "Kimi 智能助手",
+      "slug": "kimi",
+      "tagline": "月之暗面出品的长文本AI对话工具",
+      "description": "Kimi是月之暗面推出的AI智能助手，支持200万字超长上下文，中文理解能力极强，适合长文档处理、论文写作等场景。免费额度充足，无需翻墙，是国内用户的首选AI对话工具。",
+      "logo": "🤖",
+      "url": "https://kimi.moonshot.cn",
+      "pricing": "freemium",
+      "pricingDetail": "免费额度充足，付费版¥28/月起",
+      "category": [
+        "ai-chat"
+      ],
+      "tags": [
+        "对话",
+        "长文本",
+        "免费",
+        "中文原生"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 4.5,
+        "easeOfUse": 4,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "支持200万字超长上下文，中文理解能力极强，免费额度充足",
+        "painPoints": "需注册手机号，复杂逻辑推理稍弱于GPT-4",
+        "targetUsers": "需要处理长文档的职场人、学生论文写作、不想付费/不想翻墙的用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开Kimi",
+          "content": "访问Kimi官网，手机号一键登录",
+          "link": {
+            "label": "打开Kimi →",
+            "url": "https://kimi.moonshot.cn"
+          }
+        },
+        {
+          "step": 2,
+          "title": "上传文档并提问",
+          "content": "点击📎上传PDF/Word/图片，然后让Kimi帮你阅读和总结",
+          "prompt": "请帮我总结这份文档的核心要点，按以下格式输出：\n1. 文档主旨（一句话）\n2. 关键发现（3-5条）\n3. 行动建议（如有）",
+          "tips": [
+            "一次最多上传50个文件，总大小不超过100MB",
+            "上传后先让Kimi总结，再针对细节追问，效果更好"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "写周报/文案",
+          "content": "用Kimi生成结构化文本，效率翻倍",
+          "prompt": "帮我写一份本周工作周报，要求：\n- 语气正式但不刻板\n- 突出成果而非过程\n- 每项工作用1-2句话概括\n- 包含下周计划\n以下是我本周的工作要点：\n[粘贴你的工作要点]",
+          "tips": [
+            "先列要点再让AI扩写，比直接让AI凭空写更靠谱",
+            "生成后手动微调，加入具体数据更有说服力"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "长文分析",
+          "content": "让Kimi分析长文章、论文、报告的核心内容",
+          "prompt": "请分析这篇长文，输出：\n1. 核心论点（3句话以内）\n2. 论证逻辑链（用→连接关键节点）\n3. 对我有什么启发（结合我是[你的身份]）",
+          "tips": [
+            "Kimi最长支持200万字上下文，超长文档也能处理",
+            "可以追问「还有哪些细节我没注意到？」获取遗漏信息"
+          ]
+        }
+      ],
+      "similarTools": [
+        "wenxin",
+        "doubao",
+        "chatgpt"
+      ],
+      "applicableScenarios": [
+        "weekly-report",
+        "paper-writing",
+        "xiaohongshu"
+      ],
+      "freeAlternativeTo": [
+        "chatgpt"
+      ],
+      "publishedAt": "2025-01-15",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "Kimi长文档处理实战：5个场景帮你省2小时",
+          "url": "#"
+        },
+        {
+          "title": "Kimi提示词技巧：让AI输出质量翻倍的7个方法",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "slug": "doubao",
+      "tagline": "字节跳动出品的AI对话助手",
+      "description": "豆包是字节跳动推出的AI对话助手，基于云雀大模型，支持多轮对话、内容创作、知识问答等。界面简洁易用，与抖音生态深度整合，适合日常对话和轻量级内容创作。",
+      "logo": "🫘",
+      "url": "https://www.doubao.com",
+      "pricing": "freemium",
+      "pricingDetail": "基础功能免费，高级版¥49/月",
+      "category": [
+        "ai-chat"
+      ],
+      "tags": [
+        "对话",
+        "内容创作",
+        "免费",
+        "中文原生"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 4,
+        "easeOfUse": 4.5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "界面简洁易上手，中文表达自然，与抖音生态打通",
+        "painPoints": "长文本处理能力一般，专业领域深度不足",
+        "targetUsers": "日常对话和轻量级内容创作的用户、抖音生态用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开豆包",
+          "content": "访问豆包官网，手机号或抖音账号登录",
+          "link": {
+            "label": "打开豆包 →",
+            "url": "https://www.doubao.com"
+          }
+        },
+        {
+          "step": 2,
+          "title": "内容创作",
+          "content": "用豆包快速生成各类文案和创意内容",
+          "prompt": "帮我写一篇小红书种草文案，要求：\n- 标题带emoji，前3个字就吸引人\n- 正文分3-4段，每段2-3行\n- 语气亲切自然，像朋友聊天\n- 结尾加互动引导\n产品：[你的产品]\n卖点：[核心卖点]",
+          "tips": [
+            "豆包写小红书文案很在行，记得要求「像朋友聊天」避免AI味",
+            "可以指定风格：「用00后的语气写」效果更自然"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "日常问答",
+          "content": "日常提问、翻译、改写，快速获取答案",
+          "prompt": "帮我把下面这段话改写得更加口语化、更有感染力，保留核心意思：\n[粘贴原文]",
+          "tips": [
+            "豆包的中文表达很自然，适合做文字润色",
+            "追问「再换一种风格」可以快速获得多个版本"
+          ]
+        }
+      ],
+      "similarTools": [
+        "kimi",
+        "wenxin"
+      ],
+      "applicableScenarios": [
+        "weekly-report",
+        "xiaohongshu"
+      ],
+      "freeAlternativeTo": [
+        "chatgpt"
+      ],
+      "publishedAt": "2025-02-01",
+      "updatedAt": "2025-07-15",
+      "articles": [
+        {
+          "title": "豆包写小红书文案：3个提示词让AI味消失",
+          "url": "#"
+        },
+        {
+          "title": "豆包日常对话技巧：像朋友一样跟AI聊天",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "wenxin",
+      "name": "文心一言",
+      "slug": "wenxin",
+      "tagline": "百度出品的中文AI对话工具",
+      "description": "文心一言是百度推出的AI对话工具，基于文心大模型，中文理解能力出色，支持文学创作、商业文案、数理逻辑推算等。与百度搜索深度整合，信息时效性强。",
+      "logo": "🔵",
+      "url": "https://yiyan.baidu.com",
+      "pricing": "freemium",
+      "pricingDetail": "基础功能免费，文心4.0需付费",
+      "category": [
+        "ai-chat",
+        "ai-writing"
+      ],
+      "tags": [
+        "对话",
+        "写作",
+        "中文原生",
+        "搜索整合"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "rating": {
+        "coreAdvantage": 4,
+        "easeOfUse": 3.5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "中文表达地道自然，与百度搜索整合信息时效性强",
+        "painPoints": "界面交互稍显复杂，创意类输出偶有模板化",
+        "targetUsers": "需要中文内容创作的用户、百度生态用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开文心一言",
+          "content": "访问文心一言官网，百度账号登录",
+          "link": {
+            "label": "打开文心一言 →",
+            "url": "https://yiyan.baidu.com"
+          }
+        },
+        {
+          "step": 2,
+          "title": "商业文案写作",
+          "content": "文心一言的中文商业文案能力很强，适合写营销内容",
+          "prompt": "帮我写一段产品介绍文案，要求：\n- 适合放在详情页首屏\n- 突出3个核心卖点\n- 包含1个使用场景\n- 语气专业但不生硬\n- 150字以内\n产品：[产品名]\n卖点：[3个卖点]",
+          "tips": [
+            "文心一言的中文表达比很多工具更地道自然",
+            "商业文案场景优先选文心，日常对话选豆包或Kimi"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "PPT文案生成",
+          "content": "用文心一言为每页PPT生成精炼文案",
+          "prompt": "帮我为以下PPT页面生成文案，每页要求：\n- 标题：5字以内，有冲击力\n- 正文：2-3个要点，每个要点10字以内\n- 演讲备注：1句话概括这页核心\n主题：[PPT主题]",
+          "tips": [
+            "先让文心生成大纲，确认结构后再逐页生成文案",
+            "生成后用「让语言更精炼」优化，PPT文案越短越好"
+          ]
+        }
+      ],
+      "similarTools": [
+        "kimi",
+        "doubao",
+        "chatgpt"
+      ],
+      "applicableScenarios": [
+        "weekly-report",
+        "paper-writing",
+        "ppt-making"
+      ],
+      "freeAlternativeTo": [
+        "chatgpt"
+      ],
+      "publishedAt": "2025-01-20",
+      "updatedAt": "2025-07-18",
+      "articles": [
+        {
+          "title": "文心一言商业文案：比GPT更地道的中文表达",
+          "url": "#"
+        },
+        {
+          "title": "文心一言PPT文案：每页10字以内的高效写法",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "slug": "chatgpt",
+      "tagline": "OpenAI出品的AI对话工具",
+      "description": "ChatGPT是OpenAI推出的AI对话工具，基于GPT-4o模型，逻辑推理能力强，支持多模态输入输出。全球用户量最大的AI对话工具，适合复杂问题分析和创意内容生成。",
+      "logo": "💬",
+      "url": "https://chat.openai.com",
+      "pricing": "freemium",
+      "pricingDetail": "免费版可用GPT-4o mini，Plus版$20/月",
+      "category": [
+        "ai-chat",
+        "ai-writing"
+      ],
+      "tags": [
+        "对话",
+        "写作",
+        "逻辑推理",
+        "多模态"
+      ],
+      "chineseSupport": "partial",
+      "needsVPN": true,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 5,
+        "easeOfUse": 3,
+        "chineseFriendly": 3
+      },
+      "review": {
+        "coreAdvantage": "逻辑推理能力最强，多模态支持，全球生态最丰富",
+        "painPoints": "需要翻墙，Plus版价格较贵，中文表达不如国产工具地道",
+        "targetUsers": "需要强逻辑推理的用户、有翻墙条件的技术用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "访问ChatGPT",
+          "content": "需翻墙访问，邮箱注册后开始使用",
+          "link": {
+            "label": "打开ChatGPT →",
+            "url": "https://chat.openai.com"
+          },
+          "tips": [
+            "免费版使用GPT-4o mini，日常够用",
+            "Plus版$20/月可用GPT-4o，逻辑推理更强"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "复杂问题分析",
+          "content": "ChatGPT擅长逻辑推理和复杂分析",
+          "prompt": "Please analyze the following problem step by step:\n1. Break down the problem into key components\n2. Identify dependencies between components\n3. Propose a solution with clear reasoning\n4. List potential risks and mitigation strategies\n\nProblem: [你的问题]",
+          "tips": [
+            "复杂问题用英文提问效果更好，因为英文训练数据更丰富",
+            "加上「think step by step」让推理更深入"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "代码生成与调试",
+          "content": "ChatGPT是写代码和调试Bug的好帮手",
+          "prompt": "I have a bug in my code. Here's the error message:\n```\n[粘贴错误信息]\n```\nAnd here's the relevant code:\n```\n[粘贴代码]\n```\nPlease:\n1. Identify the root cause\n2. Explain why it happens\n3. Provide a fixed version of the code",
+          "tips": [
+            "贴完整错误信息+相关代码，比只描述问题效果好10倍",
+            "让ChatGPT解释修复原理，不要只拿代码就走"
+          ]
+        }
+      ],
+      "similarTools": [
+        "kimi",
+        "wenxin",
+        "deepseek"
+      ],
+      "applicableScenarios": [
+        "weekly-report",
+        "paper-writing",
+        "code-assistant"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-01-10",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "ChatGPT进阶技巧：让推理能力翻倍的提示词",
+          "url": "#"
+        },
+        {
+          "title": "ChatGPT代码调试：比Stack Overflow更快的解决方案",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "jimeng",
+      "name": "即梦",
+      "slug": "jimeng",
+      "tagline": "字节跳动出品的AI绘画工具",
+      "description": "即梦是字节跳动推出的AI图片生成工具，支持文生图、图生图等多种创作模式。中文提示词友好，生成速度快，适合做小红书封面、公众号配图等场景。",
+      "logo": "🎨",
+      "url": "https://jimeng.jianying.com",
+      "pricing": "freemium",
+      "pricingDetail": "每日免费生成次数，付费包月¥49",
+      "category": [
+        "ai-image"
+      ],
+      "tags": [
+        "绘画",
+        "图片生成",
+        "中文友好",
+        "内容创作"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "rating": {
+        "coreAdvantage": 4,
+        "easeOfUse": 4.5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "中文提示词友好，生成速度快，与抖音生态打通",
+        "painPoints": "精细控制能力有限，复杂构图效果不稳定",
+        "targetUsers": "小红书博主、公众号运营者、需要快速出图的内容创作者"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开即梦",
+          "content": "访问即梦官网，手机号或抖音账号登录",
+          "link": {
+            "label": "打开即梦 →",
+            "url": "https://jimeng.jianying.com"
+          }
+        },
+        {
+          "step": 2,
+          "title": "输入中文描述生成图片",
+          "content": "用自然中文描述你想要的图片效果",
+          "prompt": "一个年轻女生坐在咖啡厅窗边，阳光从窗外洒进来，桌上有一杯拿铁和一本翻开的书，暖色调，胶片质感，柔和光线，小红书封面风格",
+          "tips": [
+            "描述越具体效果越好：主体+场景+光线+风格+色调",
+            "加「小红书风格」「ins风」等关键词可以快速获得社交媒体风格",
+            "一次生成4张图，多试几次选最好的"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "图生图/参考图生成",
+          "content": "上传参考图，让AI基于参考风格生成新图",
+          "tips": [
+            "上传一张喜欢的图片作为参考，效果比纯文字描述更可控",
+            "图生图时描述要说明「保留什么」「改变什么」"
+          ]
+        }
+      ],
+      "similarTools": [
+        "tongyi-wanxiang",
+        "midjourney"
+      ],
+      "applicableScenarios": [
+        "ai-painting",
+        "xiaohongshu"
+      ],
+      "freeAlternativeTo": [
+        "midjourney"
+      ],
+      "publishedAt": "2025-02-10",
+      "updatedAt": "2025-07-15",
+      "articles": [
+        {
+          "title": "即梦AI绘画：中文提示词出图效果超越Midjourney",
+          "url": "#"
+        },
+        {
+          "title": "即梦图生图：上传参考图快速生成同风格作品",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "tongyi-wanxiang",
+      "name": "通义万相",
+      "slug": "tongyi-wanxiang",
+      "tagline": "阿里出品的AI绘画工具",
+      "description": "通义万相是阿里云推出的AI图片生成工具，支持文生图、涂鸦生图、照片重构等模式。基于通义大模型，可商用，适合电商设计、营销素材等场景。",
+      "logo": "🖼️",
+      "url": "https://tongyi.aliyun.com/wanxiang",
+      "pricing": "freemium",
+      "pricingDetail": "每日免费额度，超量按次计费",
+      "category": [
+        "ai-image"
+      ],
+      "tags": [
+        "绘画",
+        "图片生成",
+        "可商用",
+        "电商设计"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web"
+      ],
+      "rating": {
+        "coreAdvantage": 4,
+        "easeOfUse": 3.5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "可商用授权，电商场景优化，生成质量稳定",
+        "painPoints": "创意风格偏少，界面交互稍显复杂",
+        "targetUsers": "电商从业者、营销设计师、需要商用图片的用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开通义万相",
+          "content": "访问通义万相官网，阿里云账号登录",
+          "link": {
+            "label": "打开通义万相 →",
+            "url": "https://tongyi.aliyun.com/wanxiang"
+          }
+        },
+        {
+          "step": 2,
+          "title": "电商场景生图",
+          "content": "通义万相对电商场景优化，适合做商品图",
+          "prompt": "白色背景，一款无线蓝牙耳机放在大理石台面上，旁边有一片叶子和水珠，简约高端风格，产品摄影，专业灯光，4K细节",
+          "tips": [
+            "电商图加「白色背景」「产品摄影」「专业灯光」效果更干净",
+            "通义万相生成的图片可商用，不用担心版权问题"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "涂鸦生图",
+          "content": "画个简单草图，AI帮你变成精美图片",
+          "tips": [
+            "涂鸦生图适合快速出概念图，不需要画得多精细",
+            "文字描述仍然很重要，涂鸦+描述双管齐下效果最好"
+          ]
+        }
+      ],
+      "similarTools": [
+        "jimeng",
+        "midjourney"
+      ],
+      "applicableScenarios": [
+        "ai-painting",
+        "xiaohongshu"
+      ],
+      "freeAlternativeTo": [
+        "midjourney"
+      ],
+      "publishedAt": "2025-03-01",
+      "updatedAt": "2025-07-10",
+      "articles": [
+        {
+          "title": "通义万相电商图：AI生成可商用的产品图片",
+          "url": "#"
+        },
+        {
+          "title": "通义万相涂鸦生图：画个草图AI帮你变成精美图片",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "slug": "deepseek",
+      "tagline": "深度求索出品的AI推理工具",
+      "description": "DeepSeek是深度求索推出的AI对话工具，以强大的逻辑推理能力和代码生成能力著称。R1推理模型在数学和编程任务上表现优异，且完全开源免费。",
+      "logo": "🔍",
+      "url": "https://chat.deepseek.com",
+      "pricing": "free",
+      "pricingDetail": "完全免费，API调用按量计费",
+      "category": [
+        "ai-chat",
+        "ai-code"
+      ],
+      "tags": [
+        "推理",
+        "代码生成",
+        "免费",
+        "开源"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "rating": {
+        "coreAdvantage": 5,
+        "easeOfUse": 3.5,
+        "chineseFriendly": 4.5
+      },
+      "review": {
+        "coreAdvantage": "推理能力极强，代码生成质量高，完全免费开源",
+        "painPoints": "高峰期响应较慢，界面功能相对简单",
+        "targetUsers": "程序员、数学爱好者、需要强推理能力的用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开DeepSeek",
+          "content": "访问DeepSeek官网，邮箱或手机号注册",
+          "link": {
+            "label": "打开DeepSeek →",
+            "url": "https://chat.deepseek.com"
+          }
+        },
+        {
+          "step": 2,
+          "title": "开启深度思考模式",
+          "content": "点击「DeepThink」按钮开启深度推理，解决复杂问题",
+          "prompt": "请用深度思考模式分析以下问题，要求：\n1. 列出所有可能的解决方案\n2. 对每个方案做优劣分析\n3. 给出你的推荐方案和理由\n4. 标注每个方案的风险等级\n\n问题：[你的问题]",
+          "tips": [
+            "DeepThink模式推理能力极强，但响应较慢，耐心等待",
+            "数学/编程/逻辑推理问题优先选DeepSeek，比Kimi更强"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "代码生成与审查",
+          "content": "DeepSeek的代码能力媲美GPT-4，且完全免费",
+          "prompt": "请帮我写一个Python函数，要求：\n- 功能：[描述功能]\n- 输入：[参数说明]\n- 输出：[返回值说明]\n- 要求代码有完整注释和类型提示\n- 包含2-3个测试用例",
+          "tips": [
+            "DeepSeek生成的代码质量很高，且免费无限制",
+            "让它写测试用例可以直接验证代码是否正确"
+          ]
+        }
+      ],
+      "similarTools": [
+        "chatgpt",
+        "kimi",
+        "copilot"
+      ],
+      "applicableScenarios": [
+        "code-assistant",
+        "paper-writing"
+      ],
+      "freeAlternativeTo": [
+        "chatgpt",
+        "copilot"
+      ],
+      "publishedAt": "2025-01-05",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "DeepSeek深度思考：免费推理能力媲美GPT-4",
+          "url": "#"
+        },
+        {
+          "title": "DeepSeek代码生成：完全免费的编程AI助手",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "copilot",
+      "name": "GitHub Copilot",
+      "slug": "copilot",
+      "tagline": "GitHub出品的AI编程助手",
+      "description": "GitHub Copilot是GitHub推出的AI编程助手，基于OpenAI Codex模型，支持代码补全、代码生成、代码解释等功能。与VS Code深度集成，是程序员提效的利器。",
+      "logo": "💻",
+      "url": "https://github.com/features/copilot",
+      "pricing": "paid",
+      "pricingDetail": "个人版$10/月，企业版$19/月",
+      "category": [
+        "ai-code"
+      ],
+      "tags": [
+        "编程",
+        "代码补全",
+        "VS Code",
+        "开发效率"
+      ],
+      "chineseSupport": "partial",
+      "needsVPN": false,
+      "freeQuota": false,
+      "platforms": [
+        "web",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 5,
+        "easeOfUse": 3.5,
+        "chineseFriendly": 3
+      },
+      "review": {
+        "coreAdvantage": "代码补全准确率高，与IDE深度集成，大幅提升编程效率",
+        "painPoints": "需要付费，中文注释生成质量一般",
+        "targetUsers": "程序员、开发者、计算机专业学生"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "安装Copilot插件",
+          "content": "在VS Code扩展商店搜索「GitHub Copilot」安装",
+          "link": {
+            "label": "安装VS Code插件 →",
+            "url": "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot"
+          },
+          "tips": [
+            "需要GitHub账号+订阅，个人版$10/月",
+            "安装后重启VS Code生效"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "用注释驱动编码",
+          "content": "在代码中写注释描述你要什么，Copilot自动补全代码",
+          "prompt": "// 写一个函数：接收用户输入的日期字符串（YYYY-MM-DD格式），\n// 验证格式是否正确，\n// 返回该日期是星期几（中文），\n// 如果格式错误抛出 ValueError",
+          "tips": [
+            "注释越详细，Copilot补全越准确",
+            "按Tab接受建议，按Esc拒绝，按Ctrl+→逐字接受"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Copilot Chat对话编程",
+          "content": "按Ctrl+Shift+P打开Copilot Chat，用自然语言描述需求",
+          "tips": [
+            "选中代码后问Copilot「这段代码有什么问题？」效果很好",
+            "问「如何优化这段代码的性能？」可以获得具体改进建议"
+          ]
+        }
+      ],
+      "similarTools": [
+        "deepseek"
+      ],
+      "applicableScenarios": [
+        "code-assistant"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-01-20",
+      "updatedAt": "2025-07-18",
+      "articles": [
+        {
+          "title": "Copilot使用技巧：注释驱动编程效率翻倍",
+          "url": "#"
+        },
+        {
+          "title": "Copilot Chat：用自然语言写代码的正确姿势",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "slug": "midjourney",
+      "tagline": "顶级AI绘画生成工具",
+      "description": "Midjourney是目前最知名的AI图片生成工具之一，以极高的艺术质量和创意表现著称。通过Discord平台使用，支持多种风格和精细控制，适合专业设计师和艺术创作者。",
+      "logo": "✨",
+      "url": "https://www.midjourney.com",
+      "pricing": "paid",
+      "pricingDetail": "基础版$10/月，标准版$30/月",
+      "category": [
+        "ai-image"
+      ],
+      "tags": [
+        "绘画",
+        "艺术",
+        "高质量",
+        "Discord"
+      ],
+      "chineseSupport": "none",
+      "needsVPN": true,
+      "freeQuota": false,
+      "platforms": [
+        "web"
+      ],
+      "rating": {
+        "coreAdvantage": 5,
+        "easeOfUse": 2.5,
+        "chineseFriendly": 1.5
+      },
+      "review": {
+        "coreAdvantage": "生成质量极高，艺术风格丰富，社区创作灵感多",
+        "painPoints": "需要翻墙，需付费，中文提示词支持差，学习曲线较陡",
+        "targetUsers": "专业设计师、艺术创作者、有翻墙条件和预算的用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "注册Discord并加入Midjourney",
+          "content": "需先注册Discord，再加入Midjourney服务器",
+          "link": {
+            "label": "打开Midjourney →",
+            "url": "https://www.midjourney.com"
+          },
+          "tips": [
+            "需翻墙访问Discord",
+            "新手先去#newbies频道练习，那里有免费额度"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "用英文提示词生成图片",
+          "content": "输入 /imagine prompt 后面加英文描述",
+          "prompt": "/imagine prompt: A serene Japanese garden at dawn, cherry blossoms falling gently, stone bridge over koi pond, soft morning mist, golden hour lighting, watercolor style, high detail, 8k --ar 16:9 --v 6",
+          "tips": [
+            "Midjourney只认英文，用Kimi/DeepSeek把中文描述翻译成英文提示词效果很好",
+            "--ar 设置比例（16:9横屏/9:16竖屏/1:1方形）",
+            "--v 6 用最新模型版本"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "选择和优化",
+          "content": "从4张图中选择最满意的，放大或变体生成",
+          "tips": [
+            "U1-U4放大对应位置的图片，V1-V4生成相似变体",
+            "对满意的图点「Vary」微调比重新生成效率更高"
+          ]
+        }
+      ],
+      "similarTools": [
+        "jimeng",
+        "tongyi-wanxiang"
+      ],
+      "applicableScenarios": [
+        "ai-painting"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-01-10",
+      "updatedAt": "2025-07-15",
+      "articles": [
+        {
+          "title": "Midjourney进阶：从新手到出图高手的完整指南",
+          "url": "#"
+        },
+        {
+          "title": "Midjourney中文用户攻略：翻译提示词的最佳方案",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "wps-ai",
+      "name": "WPS AI",
+      "slug": "wps-ai",
+      "tagline": "金山出品的AI办公助手",
+      "description": "WPS AI是金山办公推出的AI助手，深度集成在WPS Office中，支持文档智能写作、PPT智能排版、表格智能分析等。适合日常办公场景，与Office文档格式完全兼容。",
+      "logo": "📄",
+      "url": "https://ai.wps.cn",
+      "pricing": "freemium",
+      "pricingDetail": "基础功能免费，WPS AI会员¥89/年",
+      "category": [
+        "ai-productivity",
+        "ai-writing"
+      ],
+      "tags": [
+        "办公",
+        "PPT",
+        "文档",
+        "表格"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 4,
+        "easeOfUse": 4.5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "与WPS Office深度集成，文档格式兼容性好，中文场景优化",
+        "painPoints": "AI生成质量中等，复杂排版需手动调整",
+        "targetUsers": "WPS用户、日常办公人员、需要快速出PPT的职场人"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开WPS Office",
+          "content": "打开WPS客户端或网页版，新建文档/PPT",
+          "link": {
+            "label": "打开WPS →",
+            "url": "https://www.kdocs.cn"
+          }
+        },
+        {
+          "step": 2,
+          "title": "AI一键生成PPT",
+          "content": "在WPS演示中点击AI按钮，输入主题一键生成",
+          "prompt": "帮我生成一份「Q3季度销售复盘」PPT，要求：\n- 8-10页\n- 包含数据概览、亮点分析、问题复盘、下季度规划\n- 风格简洁商务\n- 每页配演讲备注",
+          "tips": [
+            "AI生成后一定要人工检查数据和逻辑",
+            "先确认大纲再生成PPT，比直接一键生成质量更高"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "AI辅助写作",
+          "content": "在WPS文档中使用AI续写、润色、改写",
+          "prompt": "帮我润色以下段落，要求：\n- 保持原意不变\n- 语言更简洁有力\n- 删除冗余表述\n- 适合商务场景\n\n[粘贴你的文字]",
+          "tips": [
+            "WPS AI对中文商务文案优化很好",
+            "逐段润色比整篇润色效果更好"
+          ]
+        }
+      ],
+      "similarTools": [
+        "kimi",
+        "wenxin"
+      ],
+      "applicableScenarios": [
+        "ppt-making",
+        "weekly-report"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-02-15",
+      "updatedAt": "2025-07-10",
+      "articles": [
+        {
+          "title": "WPS AI一键PPT：10分钟生成专业汇报",
+          "url": "#"
+        },
+        {
+          "title": "WPS AI文档润色：中文商务文案优化技巧",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "jianying",
+      "name": "剪映",
+      "slug": "jianying",
+      "tagline": "字节跳动出品的视频剪辑与AI创作工具",
+      "description": "剪映是字节跳动推出的视频剪辑工具，内置AI字幕、AI配音、AI特效等功能。操作简单，适合短视频创作者快速出片。支持一键成片、智能抠图、文案生成视频等AI功能。",
+      "logo": "🎬",
+      "url": "https://www.capcut.cn",
+      "pricing": "freemium",
+      "pricingDetail": "基础功能免费，VIP会员¥25/月",
+      "category": [
+        "ai-video",
+        "ai-productivity"
+      ],
+      "tags": [
+        "视频剪辑",
+        "AI字幕",
+        "短视频",
+        "免费"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 4.5,
+        "easeOfUse": 5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "AI字幕准确率高，一键成片省时省力，与抖音生态深度打通",
+        "painPoints": "高级特效需VIP，导出画质有压缩",
+        "targetUsers": "短视频创作者、自媒体博主、需要快速出片的营销人员"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "下载剪映",
+          "content": "从官网或应用商店下载安装剪映",
+          "link": {
+            "label": "下载剪映 →",
+            "url": "https://www.capcut.cn"
+          }
+        },
+        {
+          "step": 2,
+          "title": "AI字幕一键生成",
+          "content": "导入视频后点击「文本」→「智能字幕」→「识别字幕」",
+          "tips": [
+            "AI字幕识别中文准确率约95%，专业术语需人工校对",
+            "识别后可以一键修改样式、添加动画效果"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "AI配音和文案",
+          "content": "让AI帮你写视频文案并自动配音",
+          "prompt": "帮我写一个30秒短视频脚本，要求：\n- 前3秒设置悬念或冲突\n- 中间15秒讲核心内容\n- 最后5秒引导互动\n- 每句配画面描述\n主题：[你的主题]",
+          "tips": [
+            "剪映的AI配音自然度很高，有多种音色可选",
+            "先写好文案再配音，比边写边录效率高很多"
+          ]
+        }
+      ],
+      "similarTools": [
+        "bi-ge",
+        "kling"
+      ],
+      "applicableScenarios": [
+        "video-making",
+        "xiaohongshu"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-01-20",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "剪映AI字幕：短视频创作者的提效利器",
+          "url": "#"
+        },
+        {
+          "title": "剪映AI配音：不录音也能做口播视频",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "deepl",
+      "name": "DeepL 翻译",
+      "slug": "deepl",
+      "tagline": "全球最精准的AI翻译工具",
+      "description": "DeepL是基于深度学习的AI翻译工具，翻译质量远超Google翻译和百度翻译，尤其在中英、英德翻译上表现优异。支持整篇文档翻译，保持原文排版格式，适合学术和商务场景。",
+      "logo": "🌐",
+      "url": "https://www.deepl.com/translator",
+      "pricing": "freemium",
+      "pricingDetail": "免费版有字数限制，Pro版€8.99/月起",
+      "category": [
+        "ai-translation"
+      ],
+      "tags": [
+        "翻译",
+        "文档翻译",
+        "多语言",
+        "精准"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 5,
+        "easeOfUse": 4.5,
+        "chineseFriendly": 4
+      },
+      "review": {
+        "coreAdvantage": "翻译质量业界最高，支持整篇文档翻译保持排版，中英翻译自然流畅",
+        "painPoints": "免费版有字数限制，Pro版价格偏高，小语种支持有限",
+        "targetUsers": "翻译工作者、外贸从业者、留学生、学术研究人员"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开DeepL",
+          "content": "访问DeepL翻译官网，无需注册即可使用",
+          "link": {
+            "label": "打开DeepL →",
+            "url": "https://www.deepl.com/translator"
+          }
+        },
+        {
+          "step": 2,
+          "title": "文本翻译",
+          "content": "粘贴文本自动检测语言并翻译，点击译文可查看备选翻译",
+          "tips": [
+            "点击翻译结果的词汇可以看到备选翻译，选择更贴切的表达",
+            "免费版每次最多翻译1500字符，长文档需分段"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "整篇文档翻译",
+          "content": "点击「翻译文件」上传PDF/Word/PPT，保持原文排版",
+          "link": {
+            "label": "上传文档翻译 →",
+            "url": "https://www.deepl.com/translator/files"
+          },
+          "tips": [
+            "文档翻译会保留原文排版和图片，非常方便",
+            "免费版每月3个文档，Pro版无限制"
+          ]
+        }
+      ],
+      "similarTools": [
+        "caiyun-translation"
+      ],
+      "applicableScenarios": [
+        "translation",
+        "paper-writing"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-01-15",
+      "updatedAt": "2025-07-18",
+      "articles": [
+        {
+          "title": "DeepL文档翻译：保持排版的AI翻译方案",
+          "url": "#"
+        },
+        {
+          "title": "DeepL vs 百度翻译：翻译质量实测对比",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "feishu-minutes",
+      "name": "飞书妙记",
+      "slug": "feishu-minutes",
+      "tagline": "飞书出品的AI会议记录工具",
+      "description": "飞书妙记是飞书旗下的AI会议记录工具，支持会议实时转写、智能摘要、待办提取、多语言翻译。与飞书日历深度集成，会议结束即可生成结构化纪要，告别手动记录。",
+      "logo": "🎙️",
+      "url": "https://www.feishu.cn/product/minutes",
+      "pricing": "freemium",
+      "pricingDetail": "基础功能免费，企业版按人数计费",
+      "category": [
+        "ai-productivity",
+        "ai-voice"
+      ],
+      "tags": [
+        "会议记录",
+        "语音转写",
+        "智能摘要",
+        "办公效率"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 4.5,
+        "easeOfUse": 4.5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "语音转写准确率高，与飞书生态无缝衔接，智能摘要实用",
+        "painPoints": "需飞书账号，非飞书用户使用门槛高",
+        "targetUsers": "企业办公人员、频繁开会的管理者、远程协作团队"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开飞书妙记",
+          "content": "登录飞书，进入「妙记」应用",
+          "link": {
+            "label": "打开飞书 →",
+            "url": "https://www.feishu.cn"
+          }
+        },
+        {
+          "step": 2,
+          "title": "会议中开启录音",
+          "content": "会议开始时点击「妙记」按钮开始实时转写",
+          "tips": [
+            "飞书日历中的会议可自动关联妙记，无需手动开启",
+            "确保麦克风质量好，远离噪音环境效果更佳"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "获取智能纪要",
+          "content": "会议结束后AI自动生成摘要、待办和关键发言",
+          "prompt": "请基于会议记录，帮我整理一份会议纪要：\n1. 会议主题和参会人\n2. 核心讨论点（3-5条）\n3. 决策事项（含负责人和截止日期）\n4. 待办事项列表\n5. 下次会议安排",
+          "tips": [
+            "AI生成的纪要建议先发给参会人确认，避免遗漏",
+            "可以用妙记的「搜索」功能快速定位会议中的关键讨论"
+          ]
+        }
+      ],
+      "similarTools": [
+        "xunfei-hearing"
+      ],
+      "applicableScenarios": [
+        "weekly-report",
+        "data-organizing"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-02-01",
+      "updatedAt": "2025-07-15",
+      "articles": [
+        {
+          "title": "飞书妙记实战：会议纪要自动生成工作流",
+          "url": "#"
+        },
+        {
+          "title": "飞书妙记+Kimi：从会议记录到周报的自动化",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "caiyun-translation",
+      "name": "彩云小译",
+      "slug": "caiyun-translation",
+      "tagline": "国产AI翻译工具，中日英三语互译",
+      "description": "彩云小译是彩云科技推出的AI翻译工具，支持中日英三语互译，翻译风格自然口语化。网页翻译功能可一键翻译整个英文网页，适合日常阅读外文资料和轻量翻译需求。",
+      "logo": "🌈",
+      "url": "https://fanyi.caiyunapp.com",
+      "pricing": "freemium",
+      "pricingDetail": "基础功能免费，会员¥40/年",
+      "category": [
+        "ai-translation"
+      ],
+      "tags": [
+        "翻译",
+        "网页翻译",
+        "中日英",
+        "口语化"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android"
+      ],
+      "rating": {
+        "coreAdvantage": 3.5,
+        "easeOfUse": 4.5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "中日翻译独到，口语化翻译自然，网页翻译一键使用",
+        "painPoints": "仅支持中日英三语，长文档翻译质量不如DeepL",
+        "targetUsers": "需要阅读日文资料的用户、轻量翻译需求、学生"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开彩云小译",
+          "content": "访问彩云小译官网，无需注册即可使用",
+          "link": {
+            "label": "打开彩云小译 →",
+            "url": "https://fanyi.caiyunapp.com"
+          }
+        },
+        {
+          "step": 2,
+          "title": "中日英互译",
+          "content": "输入文本自动识别语言并翻译，支持中日英三语互译",
+          "prompt": "请将以下内容翻译为日语，要求口语化、自然，适合日常对话：\n[粘贴内容]",
+          "tips": [
+            "彩云小译的中日翻译是特色，比DeepL更口语化",
+            "翻译英文网页时用浏览器插件一键翻译更方便"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "网页翻译",
+          "content": "安装浏览器插件后，一键翻译整个英文网页",
+          "tips": [
+            "安装彩云小译浏览器插件后，浏览英文网站点击图标即可翻译",
+            "双语对照模式阅读外文资料效率更高"
+          ]
+        }
+      ],
+      "similarTools": [
+        "deepl"
+      ],
+      "applicableScenarios": [
+        "translation"
+      ],
+      "freeAlternativeTo": [
+        "deepl"
+      ],
+      "publishedAt": "2025-03-01",
+      "updatedAt": "2025-07-10",
+      "articles": [
+        {
+          "title": "彩云小译网页翻译：一键阅读外文资料",
+          "url": "#"
+        },
+        {
+          "title": "彩云小译中日翻译：口语化翻译比DeepL更自然",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "xunfei-hearing",
+      "name": "讯飞听见",
+      "slug": "xunfei-hearing",
+      "tagline": "讯飞出品的AI语音转写工具",
+      "description": "讯飞听见是科大讯飞推出的AI语音转写工具，支持录音转文字、实时字幕、多语言识别。中文识别准确率业界领先，适合会议记录、采访整理、课堂笔记等场景。",
+      "logo": "👂",
+      "url": "https://www.iflyrec.com",
+      "pricing": "freemium",
+      "pricingDetail": "体验时长免费，按时长计费约¥0.33/分钟",
+      "category": [
+        "ai-voice",
+        "ai-productivity"
+      ],
+      "tags": [
+        "语音转写",
+        "会议记录",
+        "字幕生成",
+        "中文识别"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows"
+      ],
+      "rating": {
+        "coreAdvantage": 4.5,
+        "easeOfUse": 4,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "中文语音识别准确率业界最高，方言识别能力强，支持多语言",
+        "painPoints": "按时长收费长期使用成本较高，界面功能较繁杂",
+        "targetUsers": "记者、会议记录人员、需要语音转文字的办公人员"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开讯飞听见",
+          "content": "访问讯飞听见官网，注册登录",
+          "link": {
+            "label": "打开讯飞听见 →",
+            "url": "https://www.iflyrec.com"
+          }
+        },
+        {
+          "step": 2,
+          "title": "上传录音文件",
+          "content": "支持mp3/wav/m4a等格式，上传后自动转写",
+          "tips": [
+            "录音质量直接影响转写准确率，建议用外接麦克风录音",
+            "标准普通话识别准确率>95%，方言可能降至80%"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "编辑导出",
+          "content": "转写完成后可在线编辑、标注说话人、导出文字稿",
+          "tips": [
+            "标注说话人后可以按人导出各自的发言内容",
+            "导出支持Word/SRT字幕/TXT多种格式"
+          ]
+        }
+      ],
+      "similarTools": [
+        "feishu-minutes"
+      ],
+      "applicableScenarios": [
+        "voice-to-text",
+        "weekly-report"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-01-25",
+      "updatedAt": "2025-07-18",
+      "articles": [
+        {
+          "title": "讯飞听见语音转写：中文识别准确率最高",
+          "url": "#"
+        },
+        {
+          "title": "讯飞听见 vs 飞书妙记：语音转写工具对比",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "bi-ge",
+      "name": "必剪",
+      "slug": "bi-ge",
+      "tagline": "B站出品的视频创作工具",
+      "description": "必剪是哔哩哔哩推出的视频创作工具，内置AI字幕、虚拟形象、AI配音等功能。与B站生态深度打通，支持一键发布到B站，适合UP主和视频创作者使用。",
+      "logo": "📺",
+      "url": "https://bcut.bilibili.cn",
+      "pricing": "free",
+      "pricingDetail": "完全免费",
+      "category": [
+        "ai-video",
+        "ai-productivity"
+      ],
+      "tags": [
+        "视频剪辑",
+        "AI字幕",
+        "B站",
+        "免费"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows"
+      ],
+      "rating": {
+        "coreAdvantage": 3.5,
+        "easeOfUse": 4,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "完全免费，AI字幕准确，与B站生态无缝对接",
+        "painPoints": "功能不如专业剪辑软件丰富，特效模板较少",
+        "targetUsers": "B站UP主、短视频创作者、不想花钱买剪辑软件的用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "下载必剪",
+          "content": "从官网或B站下载安装必剪",
+          "link": {
+            "label": "下载必剪 →",
+            "url": "https://bcut.bilibili.cn"
+          }
+        },
+        {
+          "step": 2,
+          "title": "AI智能字幕",
+          "content": "导入视频后点击「字幕」→「AI字幕」，一键生成时间轴字幕",
+          "tips": [
+            "必剪完全免费，AI字幕不限时长",
+            "支持一键发布到B站，省去导出再上传的步骤"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "虚拟形象+AI配音",
+          "content": "用虚拟形象做口播视频，AI配音无需自己录音",
+          "tips": [
+            "虚拟形象适合不想露脸的UP主",
+            "AI配音音色丰富，可以选一个符合你内容风格的"
+          ]
+        }
+      ],
+      "similarTools": [
+        "jianying",
+        "kling"
+      ],
+      "applicableScenarios": [
+        "video-making",
+        "xiaohongshu"
+      ],
+      "freeAlternativeTo": [
+        "jianying"
+      ],
+      "publishedAt": "2025-02-10",
+      "updatedAt": "2025-07-12",
+      "articles": [
+        {
+          "title": "必剪完全免费：B站UP主的视频创作工具",
+          "url": "#"
+        },
+        {
+          "title": "必剪虚拟形象：不露脸也能做口播视频",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "kimi-ai-ppt",
+      "name": "Kimi+ PPT助手",
+      "slug": "kimi-ai-ppt",
+      "tagline": "Kimi出品的一键AI生成PPT工具",
+      "description": "Kimi+ PPT助手是月之暗面推出的AI PPT生成工具，输入主题或大纲即可一键生成完整PPT。支持多种模板风格，中文内容生成质量高，适合快速制作汇报PPT和演讲稿。",
+      "logo": "📊",
+      "url": "https://kimi.moonshot.cn",
+      "pricing": "freemium",
+      "pricingDetail": "基础功能免费，高级模板需会员",
+      "category": [
+        "ai-productivity",
+        "ai-writing"
+      ],
+      "tags": [
+        "PPT",
+        "一键生成",
+        "办公效率",
+        "免费"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web"
+      ],
+      "rating": {
+        "coreAdvantage": 4,
+        "easeOfUse": 4.5,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "一键生成PPT速度快，中文内容质量高，模板风格丰富",
+        "painPoints": "复杂排版需手动调整，动画效果有限",
+        "targetUsers": "需要快速出PPT的职场人、学生答辩、汇报演示"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开Kimi PPT助手",
+          "content": "访问Kimi，在Kimi+中选择PPT助手",
+          "link": {
+            "label": "打开Kimi →",
+            "url": "https://kimi.moonshot.cn"
+          }
+        },
+        {
+          "step": 2,
+          "title": "输入主题生成PPT",
+          "content": "输入PPT主题或大纲，AI一键生成完整PPT",
+          "prompt": "帮我生成一份PPT，主题是「2025年AI工具趋势分析」，要求：\n- 10-12页\n- 包含行业现状、热门品类分析、用户画像、趋势预测\n- 风格：科技简约\n- 每页有标题+要点+配图建议",
+          "tips": [
+            "先让AI生成大纲，确认结构满意后再生成PPT",
+            "生成的PPT可在WPS或PowerPoint中进一步调整"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "导出和调整",
+          "content": "下载PPT文件，在本地软件中做最终调整",
+          "tips": [
+            "AI生成的排版可能需要微调字体大小和间距",
+            "加入真实数据图表比纯文字更有说服力"
+          ]
+        }
+      ],
+      "similarTools": [
+        "wps-ai",
+        "gamma"
+      ],
+      "applicableScenarios": [
+        "ppt-making",
+        "weekly-report"
+      ],
+      "freeAlternativeTo": [
+        "gamma"
+      ],
+      "publishedAt": "2025-04-15",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "Kimi PPT助手：输入主题一键生成演示文稿",
+          "url": "#"
+        },
+        {
+          "title": "AI生成PPT对比：Kimi vs WPS AI vs Gamma",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "slug": "gamma",
+      "tagline": "AI一键生成演示文稿和文档",
+      "description": "Gamma是AI演示文稿生成工具，支持从一句话或文档生成精美演示文稿、文档和网页。设计感强，交互效果丰富，适合做产品展示、项目提案、培训材料等。",
+      "logo": "📐",
+      "url": "https://gamma.app",
+      "pricing": "freemium",
+      "pricingDetail": "免费版400积分，Pro版$10/月",
+      "category": [
+        "ai-productivity",
+        "ai-writing"
+      ],
+      "tags": [
+        "演示文稿",
+        "AI生成",
+        "设计感",
+        "文档"
+      ],
+      "chineseSupport": "partial",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web"
+      ],
+      "rating": {
+        "coreAdvantage": 4.5,
+        "easeOfUse": 4.5,
+        "chineseFriendly": 3
+      },
+      "review": {
+        "coreAdvantage": "设计感极强，交互效果丰富，AI生成速度快",
+        "painPoints": "中文排版偶有问题，免费积分有限，高级功能需付费",
+        "targetUsers": "设计师、产品经理、需要高颜值演示文稿的用户"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开Gamma",
+          "content": "访问Gamma官网，邮箱或Google账号注册",
+          "link": {
+            "label": "打开Gamma →",
+            "url": "https://gamma.app"
+          }
+        },
+        {
+          "step": 2,
+          "title": "一键生成演示文稿",
+          "content": "选择「Create with AI」，输入主题即可生成",
+          "prompt": "Create a presentation about our product launch plan, including:\n- Product overview and key features\n- Target market analysis\n- Go-to-market strategy\n- Timeline and milestones\n- Budget breakdown\n\nTone: Professional but engaging. Style: Modern and minimal.",
+          "tips": [
+            "Gamma的设计感很强，适合对外展示的场景",
+            "免费版有400积分，一次生成约消耗10-20积分"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "自定义调整",
+          "content": "AI生成后可自由拖拽、编辑卡片、更换主题",
+          "tips": [
+            "Gamma的交互式卡片比传统PPT更生动",
+            "可以直接分享链接，不需要导出PDF"
+          ]
+        }
+      ],
+      "similarTools": [
+        "kimi-ai-ppt",
+        "wps-ai"
+      ],
+      "applicableScenarios": [
+        "ppt-making"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-02-20",
+      "updatedAt": "2025-07-18",
+      "articles": [
+        {
+          "title": "Gamma设计感PPT：AI生成高颜值演示文稿",
+          "url": "#"
+        },
+        {
+          "title": "Gamma vs WPS AI：哪个AI PPT工具更适合你",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "slug": "notion-ai",
+      "tagline": "Notion内置的AI写作与整理助手",
+      "description": "Notion AI是Notion内置的AI助手，支持智能写作、内容摘要、翻译、头脑风暴等功能。与Notion知识库深度整合，适合已经在使用Notion管理笔记和项目的用户。",
+      "logo": "📝",
+      "url": "https://www.notion.so/product/ai",
+      "pricing": "freemium",
+      "pricingDetail": "Notion免费版+AI附加$10/月",
+      "category": [
+        "ai-productivity",
+        "ai-writing"
+      ],
+      "tags": [
+        "笔记",
+        "知识管理",
+        "AI写作",
+        "协作"
+      ],
+      "chineseSupport": "partial",
+      "needsVPN": false,
+      "freeQuota": false,
+      "platforms": [
+        "web",
+        "ios",
+        "android",
+        "windows",
+        "mac"
+      ],
+      "rating": {
+        "coreAdvantage": 4,
+        "easeOfUse": 4,
+        "chineseFriendly": 3.5
+      },
+      "review": {
+        "coreAdvantage": "与Notion生态深度整合，知识管理+AI一步到位，协作体验好",
+        "painPoints": "AI功能需额外付费，中文生成质量一般，响应速度偶有延迟",
+        "targetUsers": "Notion用户、知识工作者、远程协作团队"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开Notion",
+          "content": "在Notion页面中按空格键或输入/ai唤起AI",
+          "link": {
+            "label": "打开Notion →",
+            "url": "https://www.notion.so"
+          }
+        },
+        {
+          "step": 2,
+          "title": "智能写作与整理",
+          "content": "选中文字后可用AI续写、改写、翻译、总结",
+          "prompt": "帮我将以下会议笔记整理成结构化的项目文档：\n- 按主题分类（背景/方案/待办/风险）\n- 每个待办标注负责人和截止日期\n- 风险项标注严重程度\n\n会议笔记：[粘贴你的笔记]",
+          "tips": [
+            "Notion AI最适合已经在用Notion管理知识库的用户",
+            "AI功能需额外$10/月，非Notion用户建议用Kimi替代"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "头脑风暴",
+          "content": "用AI帮你发散思维，快速生成创意列表",
+          "prompt": "帮我针对「如何用AI提升团队协作效率」进行头脑风暴，要求：\n- 生成10个具体方案\n- 每个方案包含：方案名、一句话描述、实施难度（低/中/高）\n- 按可行性从高到低排序",
+          "tips": [
+            "头脑风暴后可以继续追问「展开第3个方案的详细实施步骤」"
+          ]
+        }
+      ],
+      "similarTools": [
+        "kimi",
+        "doubao"
+      ],
+      "applicableScenarios": [
+        "data-organizing",
+        "weekly-report"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-03-10",
+      "updatedAt": "2025-07-15",
+      "articles": [
+        {
+          "title": "Notion AI知识管理：笔记+AI一步到位",
+          "url": "#"
+        },
+        {
+          "title": "Notion AI头脑风暴：10分钟生成10个创意方案",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "kling",
+      "name": "可灵AI",
+      "slug": "kling",
+      "tagline": "快手出品的AI视频生成工具",
+      "description": "可灵AI是快手推出的AI视频生成工具，支持文生视频、图生视频等功能。生成视频质量高，动作连贯自然，中文提示词友好，适合内容创作者快速制作短视频素材。",
+      "logo": "🎥",
+      "url": "https://kling.kuaishou.cn",
+      "pricing": "freemium",
+      "pricingDetail": "每日免费积分，会员¥66/月起",
+      "category": [
+        "ai-video"
+      ],
+      "tags": [
+        "视频生成",
+        "文生视频",
+        "短视频",
+        "中文友好"
+      ],
+      "chineseSupport": "native",
+      "needsVPN": false,
+      "freeQuota": true,
+      "platforms": [
+        "web"
+      ],
+      "rating": {
+        "coreAdvantage": 4.5,
+        "easeOfUse": 4,
+        "chineseFriendly": 5
+      },
+      "review": {
+        "coreAdvantage": "视频生成质量高，动作连贯自然，中文提示词友好",
+        "painPoints": "免费积分有限，长视频生成耗时较长",
+        "targetUsers": "短视频创作者、自媒体博主、需要视频素材的营销人员"
+      },
+      "tutorial": [
+        {
+          "step": 1,
+          "title": "打开可灵AI",
+          "content": "访问可灵AI官网，手机号或快手账号登录",
+          "link": {
+            "label": "打开可灵AI →",
+            "url": "https://kling.kuaishou.cn"
+          }
+        },
+        {
+          "step": 2,
+          "title": "文生视频",
+          "content": "用中文描述你想要的视频画面和动作",
+          "prompt": "一只橘猫趴在窗台上晒太阳，慢慢伸了个懒腰，阳光洒在它金色的毛发上，画面温馨治愈，电影感镜头，缓慢推进",
+          "tips": [
+            "描述要包含：主体+动作+环境+光影+镜头运动",
+            "视频时长5秒为最佳，太长动作可能不连贯",
+            "一次生成3个版本，选最好的那个"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "图生视频",
+          "content": "上传一张图片，让AI让图片动起来",
+          "tips": [
+            "图片质量越高，生成的视频效果越好",
+            "描述中明确说明你希望图片中什么动、怎么动"
+          ]
+        }
+      ],
+      "similarTools": [
+        "jianying",
+        "bi-ge"
+      ],
+      "applicableScenarios": [
+        "video-making",
+        "xiaohongshu"
+      ],
+      "freeAlternativeTo": [],
+      "publishedAt": "2025-03-20",
+      "updatedAt": "2025-07-20",
+      "articles": [
+        {
+          "title": "可灵AI文生视频：中文提示词生成高质量短视频",
+          "url": "#"
+        },
+        {
+          "title": "可灵AI图生视频：让静态图片动起来的3个技巧",
+          "url": "#"
+        }
+      ]
+    }
+  ]
+}
