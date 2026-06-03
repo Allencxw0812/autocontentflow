@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:local": "BASE_PATH='/' astro build",
     "postbuild": "npx pagefind --site dist/",
     "preview": "astro preview",
+    "serve": "node serve.cjs",
     "astro": "astro"
   },
   "dependencies": {
