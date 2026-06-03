@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sI https://allencxw0812.github.io/autocontentflow/)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'fix: switch to gh-pages branch deployment *)",
+      "Bash(git push *)"
+    ]
+  }
+}
