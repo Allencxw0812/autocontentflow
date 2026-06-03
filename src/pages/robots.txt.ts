@@ -1,6 +1,6 @@
 // Dynamic robots.txt generation
 export const GET = () => {
-  const SITE_URL = 'https://ai-website.pages.dev';
+  const SITE_URL = 'https://allencxw0812.github.io/autocontentflow';
 
   const robotsTxt = `User-agent: *
 Allow: /

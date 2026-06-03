@@ -1,7 +1,7 @@
 import { getAllTools, getAllScenarios } from '../utils/data';
 
 export const GET = () => {
-  const SITE_URL = 'https://ai-website.pages.dev';
+  const SITE_URL = 'https://allencxw0812.github.io/autocontentflow';
   const SITE_TITLE = '普通人AI实战笔记';
   const SITE_DESC = '帮你找到真正好用的AI工具。按场景找工具、真实评测、免费替代。';
 

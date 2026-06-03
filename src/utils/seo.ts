@@ -1,6 +1,6 @@
 import type { Tool, Scenario, JsonLdSoftwareApplication, JsonLdHowTo, JsonLdItemList } from '../types/index';
 
-const SITE_URL = 'https://ai-website.pages.dev';
+const SITE_URL = 'https://allencxw0812.github.io/autocontentflow';
 
 /** 生成工具页面的JSON-LD（SoftwareApplication） */
 export function generateToolJsonLd(tool: Tool): JsonLdSoftwareApplication {

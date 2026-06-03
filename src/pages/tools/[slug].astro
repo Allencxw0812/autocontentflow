@@ -28,10 +28,10 @@ const toolJsonLd = generateToolJsonLd(tool);
 
 // Breadcrumb JSON-LD
 const breadcrumbLd = [
-  { name: '首页', url: 'https://ai-website.pages.dev/' },
-  { name: 'AI工具评测', url: 'https://ai-website.pages.dev/tools' },
+  { name: '首页', url: 'https://allencxw0812.github.io/autocontentflow/' },
+  { name: 'AI工具评测', url: 'https://allencxw0812.github.io/autocontentflow/tools' },
   ...(tool.category.length > 0
-    ? [{ name: tool.category[0] === 'ai-chat' ? 'AI对话' : tool.category[0], url: `https://ai-website.pages.dev/tools#${tool.category[0]}` }]
+    ? [{ name: tool.category[0] === 'ai-chat' ? 'AI对话' : tool.category[0], url: `https://allencxw0812.github.io/autocontentflow/tools#${tool.category[0]}` }]
     : []),
   { name: tool.name },
 ];
