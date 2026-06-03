@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+
+const BASE = import.meta.env.BASE_URL || '/';
 ---
 
 <BaseLayout
@@ -28,14 +30,14 @@ import Breadcrumb from '../components/Breadcrumb.astro';
   <!-- Hot Search Tags -->
   <div class="mb-8 flex flex-wrap gap-2 items-center">
     <span class="text-xs text-text-secondary shrink-0">🔥 热搜：</span>
-    <a href="/search?q=AI写周报" class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">AI写周报</a>
-    <a href="/search?q=免费AI工具" class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">免费AI工具</a>
-    <a href="/search?q=AI绘画" class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">AI绘画</a>
-    <a href="/search?q=AI做PPT" class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">AI做PPT</a>
-    <a href="/search?q=小红书文案" class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">小红书文案</a>
-    <a href="/search?q=AI翻译" class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">AI翻译</a>
-    <a href="/search?q=论文写作" class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">论文写作</a>
-    <a href="/search?q=短视频" class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">短视频</a>
+    <a href={`${BASE}search?q=AI写周报`} class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">AI写周报</a>
+    <a href={`${BASE}search?q=免费AI工具`} class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">免费AI工具</a>
+    <a href={`${BASE}search?q=AI绘画`} class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">AI绘画</a>
+    <a href={`${BASE}search?q=AI做PPT`} class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">AI做PPT</a>
+    <a href={`${BASE}search?q=小红书文案`} class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">小红书文案</a>
+    <a href={`${BASE}search?q=AI翻译`} class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">AI翻译</a>
+    <a href={`${BASE}search?q=论文写作`} class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">论文写作</a>
+    <a href={`${BASE}search?q=短视频`} class="text-xs px-2.5 py-1 rounded-full bg-white border border-primary/15 text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors">短视频</a>
   </div>
 
   <div id="search-results" class="space-y-3"></div>

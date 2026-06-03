@@ -1,5 +1,6 @@
 ---
 import type { Scenario } from '../types/index';
+const BASE = import.meta.env.BASE_URL || '/';
 
 interface Props {
   scenario: Scenario;
@@ -8,7 +9,7 @@ interface Props {
 const { scenario } = Astro.props;
 ---
 
-<a href={`/scenarios/${scenario.slug}`} class="block bg-bg-white rounded-[var(--radius-card)] border border-border hover:shadow-md hover:border-primary/30 transition-all p-5 group">
+<a href={`${BASE}scenarios/${scenario.slug}`} class="block bg-bg-white rounded-[var(--radius-card)] border border-border hover:shadow-md hover:border-primary/30 transition-all p-5 group">
   <div class="flex items-start gap-3">
     <span class="text-2xl">{scenario.icon}</span>
     <div class="flex-1">

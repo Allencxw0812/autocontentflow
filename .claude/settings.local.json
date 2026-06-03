@@ -11,7 +11,10 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" 'https://allencxw0812.github.io/autocontentflow/about/')",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" 'https://allencxw0812.github.io/autocontentflow/tools/kimi/')",
       "Bash(curl *)",
-      "Bash(git commit -m 'fix: use actions/deploy-pages for GitHub Pages deployment *)"
+      "Bash(git commit -m 'fix: use actions/deploy-pages for GitHub Pages deployment *)",
+      "Bash(open *)",
+      "Bash(pkill -f \"serve.cjs\")",
+      "Bash(node /Users/niu/WorkBuddy/Claw/workflow/ai-website/serve.cjs)"
     ]
   }
 }

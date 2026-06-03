@@ -3,6 +3,7 @@
 import { getAllTools, getAllScenarios, getAllRoles, getFreeAlternatives } from '../../utils/data';
 import type { Tool, Scenario } from '../../types/index';
 
+const BASE = import.meta.env.BASE_URL || '/';
 const STALENESS_DAYS = 90;
 const now = Date.now();
 const threshold = STALENESS_DAYS * 86400_000;
@@ -123,8 +124,8 @@ const nowStr = new Date().toISOString().split('T')[0];
     <a href="#stale">⚠️ 过期内容</a>
     <a href="#categories">🏷️ 分类分布</a>
     <a href="#recent">🔄 最近更新</a>
-    <a href="/admin/search-stats/" style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">🔍 搜索统计</a>
-    <a href="/" target="_blank" style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">🌐 返回网站</a>
+    <a href={`${BASE}admin/search-stats/`} style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">🔍 搜索统计</a>
+    <a href={BASE} target="_blank" style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">🌐 返回网站</a>
   </aside>
 
   <div class="main">
@@ -135,7 +136,7 @@ const nowStr = new Date().toISOString().split('T')[0];
       </div>
       <div style="display:flex;gap:8px;">
         <a href="#stale" class="btn btn-primary">查看过期内容</a>
-        <a href="/admin/search-stats/" class="btn">搜索统计</a>
+        <a href={`${BASE}admin/search-stats/`} class="btn">搜索统计</a>
       </div>
     </div>
 
@@ -169,7 +170,7 @@ const nowStr = new Date().toISOString().split('T')[0];
           <tbody>
             {topStale.map(t => (
               <tr>
-                <td><a href={`/tools/${t.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{t.name}</a></td>
+                <td><a href={`${BASE}tools/${t.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{t.name}</a></td>
                 <td style="color:#888;">{t.updatedAt}</td>
                 <td>
                   <div style="display:flex;align-items:center;gap:6px;">
@@ -192,7 +193,7 @@ const nowStr = new Date().toISOString().split('T')[0];
           <tbody>
             {topStaleScenarios.map(s => (
               <tr>
-                <td><a href={`/scenarios/${s.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{s.icon} {s.name}</a></td>
+                <td><a href={`${BASE}scenarios/${s.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{s.icon} {s.name}</a></td>
                 <td style="color:#888;">{s.updatedAt}</td>
                 <td>
                   <div style="display:flex;align-items:center;gap:6px;">
@@ -299,9 +300,9 @@ const nowStr = new Date().toISOString().split('T')[0];
         🛠️ 运营自动化: 每周一自动检查内容新鲜度 | 每月1日 AI 自动刷新评测
       </span>
       <div style="display:flex;gap:8px;">
-        <a href="/about/" target="_blank" class="btn" style="font-size:12px;">关于我们</a>
-        <a href="/updates/" target="_blank" class="btn" style="font-size:12px;">更新日志</a>
-        <a href="/rss.xml" target="_blank" class="btn" style="font-size:12px;">RSS Feed</a>
+        <a href={`${BASE}about/`} target="_blank" class="btn" style="font-size:12px;">关于我们</a>
+        <a href={`${BASE}updates/`} target="_blank" class="btn" style="font-size:12px;">更新日志</a>
+        <a href={`${BASE}rss.xml`} target="_blank" class="btn" style="font-size:12px;">RSS Feed</a>
       </div>
     </div>
   </div>

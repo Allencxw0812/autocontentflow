@@ -1,7 +1,7 @@
 ---
 ---
 
-<form action="/search" method="get" class="relative">
+<form action={`${import.meta.env.BASE_URL || '/'}search`} method="get" class="relative">
   <input
     type="text"
     name="q"

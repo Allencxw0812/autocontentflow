@@ -5,15 +5,16 @@ interface Props {
   tool: Tool;
 }
 
-const { tool } = Astro.props;
 import { formatPricing, getOverallRating, formatRating } from '../utils/formatters';
 import { getToolFavicon, getToolIcon } from '../utils/data';
+const { tool } = Astro.props;
+const BASE = import.meta.env.BASE_URL || '/';
 
 const pricingInfo = formatPricing(tool.pricing);
 const overallRating = getOverallRating(tool.rating);
 ---
 
-<a href={`/tools/${tool.slug}`} class="block bg-bg-white rounded-[var(--radius-card)] border border-border hover:shadow-md hover:border-primary/30 transition-all p-5 group">
+<a href={`${BASE}tools/${tool.slug}`} class="block bg-bg-white rounded-[var(--radius-card)] border border-border hover:shadow-md hover:border-primary/30 transition-all p-5 group">
   <div class="flex items-start gap-4">
     <!-- Logo -->
     <div class="w-12 h-12 rounded-lg bg-white border border-border flex items-center justify-center shrink-0 overflow-hidden">

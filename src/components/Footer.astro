@@ -1,5 +1,6 @@
 ---
 const currentYear = new Date().getFullYear();
+const BASE = import.meta.env.BASE_URL || '/';
 ---
 
 <footer class="border-t border-border bg-bg-white mt-auto">
@@ -23,10 +24,10 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="font-semibold text-sm mb-4">快速导航</h3>
         <ul class="space-y-2">
-          <li><a href="/scenarios" class="text-text-secondary hover:text-primary transition-colors text-sm">场景推荐</a></li>
-          <li><a href="/tools" class="text-text-secondary hover:text-primary transition-colors text-sm">工具评测</a></li>
-          <li><a href="/free-alternatives" class="text-text-secondary hover:text-primary transition-colors text-sm">免费替代</a></li>
-          <li><a href="/search" class="text-text-secondary hover:text-primary transition-colors text-sm">搜索</a></li>
+          <li><a href={`${BASE}scenarios`} class="text-text-secondary hover:text-primary transition-colors text-sm">场景推荐</a></li>
+          <li><a href={`${BASE}tools`} class="text-text-secondary hover:text-primary transition-colors text-sm">工具评测</a></li>
+          <li><a href={`${BASE}free-alternatives`} class="text-text-secondary hover:text-primary transition-colors text-sm">免费替代</a></li>
+          <li><a href={`${BASE}search`} class="text-text-secondary hover:text-primary transition-colors text-sm">搜索</a></li>
         </ul>
       </div>
 

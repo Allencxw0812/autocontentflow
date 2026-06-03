@@ -1,10 +1,12 @@
 ---
 import SearchBox from './SearchBox.astro';
 
+const BASE = import.meta.env.BASE_URL || '/';
+
 const navLinks = [
-  { href: '/scenarios', label: '场景' },
-  { href: '/tools', label: '工具' },
-  { href: '/free-alternatives', label: '免费替代' },
+  { href: `${BASE}scenarios`, label: '场景' },
+  { href: `${BASE}tools`, label: '工具' },
+  { href: `${BASE}free-alternatives`, label: '免费替代' },
 ];
 ---
 
@@ -12,7 +14,7 @@ const navLinks = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 shrink-0">
+      <a href={BASE} class="flex items-center gap-2 shrink-0">
         <span class="text-2xl">🤖</span>
         <span class="font-bold text-lg text-primary">
           普通人AI实战笔记
