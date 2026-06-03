@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>普通人AI实战笔记</title>
+    <link>https://allencxw0812.github.io/autocontentflow</link>
+    <description>帮你找到真正好用的AI工具。按场景找工具、真实评测、免费替代。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 03 Jun 2026 14:17:52 GMT</lastBuildDate>
+    <atom:link href="https://allencxw0812.github.io/autocontentflow/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Kimi 智能助手 — 月之暗面出品的长文本AI对话工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/kimi</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/kimi</guid>
+      <description>Kimi是月之暗面推出的AI智能助手，支持200万字超长上下文，中文理解能力极强，适合长文档处理、论文写作等场景。免费额度充足，无需翻墙，是国内用户的首选AI对话工具。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-chat</category>
+    </item>
+    <item>
+      <title>ChatGPT — OpenAI出品的AI对话工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/chatgpt</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/chatgpt</guid>
+      <description>ChatGPT是OpenAI推出的AI对话工具，基于GPT-4o模型，逻辑推理能力强，支持多模态输入输出。全球用户量最大的AI对话工具，适合复杂问题分析和创意内容生成。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-chat, ai-writing</category>
+    </item>
+    <item>
+      <title>DeepSeek — 深度求索出品的AI推理工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/deepseek</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/deepseek</guid>
+      <description>DeepSeek是深度求索推出的AI对话工具，以强大的逻辑推理能力和代码生成能力著称。R1推理模型在数学和编程任务上表现优异，且完全开源免费。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-chat, ai-code</category>
+    </item>
+    <item>
+      <title>剪映 — 字节跳动出品的视频剪辑与AI创作工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/jianying</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/jianying</guid>
+      <description>剪映是字节跳动推出的视频剪辑工具，内置AI字幕、AI配音、AI特效等功能。操作简单，适合短视频创作者快速出片。支持一键成片、智能抠图、文案生成视频等AI功能。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-video, ai-productivity</category>
+    </item>
+    <item>
+      <title>Kimi+ PPT助手 — Kimi出品的一键AI生成PPT工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/kimi-ai-ppt</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/kimi-ai-ppt</guid>
+      <description>Kimi+ PPT助手是月之暗面推出的AI PPT生成工具，输入主题或大纲即可一键生成完整PPT。支持多种模板风格，中文内容生成质量高，适合快速制作汇报PPT和演讲稿。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-productivity, ai-writing</category>
+    </item>
+    <item>
+      <title>可灵AI — 快手出品的AI视频生成工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/kling</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/kling</guid>
+      <description>可灵AI是快手推出的AI视频生成工具，支持文生视频、图生视频等功能。生成视频质量高，动作连贯自然，中文提示词友好，适合内容创作者快速制作短视频素材。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-video</category>
+    </item>
+    <item>
+      <title>写周报 — 10分钟搞定过去要1小时的周报</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/weekly-report</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/weekly-report</guid>
+      <description>每周五写周报是很多人的噩梦。用AI工具，你可以快速梳理一周工作要点，自动生成结构清晰的周报草稿，再稍作修改就能提交。从1小时缩短到10分钟，从此告别加班写周报。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>office-worker</category>
+    </item>
+    <item>
+      <title>编程开发 — AI编程助手，开发效率翻倍</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/code-assistant</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/code-assistant</guid>
+      <description>无论你是专业程序员还是编程新手，AI编程助手都能帮你写出更好的代码。从代码补全、Bug修复到架构设计，AI工具正在重新定义编程方式。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>entrepreneur</category>
+    </item>
+    <item>
+      <title>视频制作 — AI帮你从零开始做短视频</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/video-making</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/video-making</guid>
+      <description>做视频不再需要专业设备和剪辑技术。AI工具可以帮你自动生成字幕、配音、特效，甚至直接从文字生成视频。无论你是做抖音、B站还是小红书，AI都能大幅降低视频创作门槛。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>content-creator</category>
+    </item>
+    <item>
+      <title>数据整理 — AI帮你从混乱信息中理出头绪</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/data-organizing</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/data-organizing</guid>
+      <description>面对散乱的会议记录、邮件、文档，整理信息是最耗时的工作之一。AI工具可以帮你快速归纳要点、提取关键数据、生成结构化表格，让混乱的信息变得一目了然。</description>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+      <category>office-worker</category>
+    </item>
+    <item>
+      <title>文心一言 — 百度出品的中文AI对话工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/wenxin</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/wenxin</guid>
+      <description>文心一言是百度推出的AI对话工具，基于文心大模型，中文理解能力出色，支持文学创作、商业文案、数理逻辑推算等。与百度搜索深度整合，信息时效性强。</description>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-chat, ai-writing</category>
+    </item>
+    <item>
+      <title>GitHub Copilot — GitHub出品的AI编程助手</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/copilot</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/copilot</guid>
+      <description>GitHub Copilot是GitHub推出的AI编程助手，基于OpenAI Codex模型，支持代码补全、代码生成、代码解释等功能。与VS Code深度集成，是程序员提效的利器。</description>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-code</category>
+    </item>
+    <item>
+      <title>DeepL 翻译 — 全球最精准的AI翻译工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/deepl</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/deepl</guid>
+      <description>DeepL是基于深度学习的AI翻译工具，翻译质量远超Google翻译和百度翻译，尤其在中英、英德翻译上表现优异。支持整篇文档翻译，保持原文排版格式，适合学术和商务场景。</description>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-translation</category>
+    </item>
+    <item>
+      <title>讯飞听见 — 讯飞出品的AI语音转写工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/xunfei-hearing</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/xunfei-hearing</guid>
+      <description>讯飞听见是科大讯飞推出的AI语音转写工具，支持录音转文字、实时字幕、多语言识别。中文识别准确率业界领先，适合会议记录、采访整理、课堂笔记等场景。</description>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-voice, ai-productivity</category>
+    </item>
+    <item>
+      <title>Gamma — AI一键生成演示文稿和文档</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/gamma</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/gamma</guid>
+      <description>Gamma是AI演示文稿生成工具，支持从一句话或文档生成精美演示文稿、文档和网页。设计感强，交互效果丰富，适合做产品展示、项目提案、培训材料等。</description>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-productivity, ai-writing</category>
+    </item>
+    <item>
+      <title>做小红书 — AI帮你从0到1做小红书博主</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/xiaohongshu</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/xiaohongshu</guid>
+      <description>做小红书最头疼的就是选题、文案和封面图。用AI工具，你可以快速生成爆款选题、写出吸引眼球的文案、制作精美封面图，轻松涨粉变现。</description>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 GMT</pubDate>
+      <category>content-creator</category>
+    </item>
+    <item>
+      <title>论文写作 — AI辅助论文写作，效率提升3倍</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/paper-writing</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/paper-writing</guid>
+      <description>写论文最痛苦的不是写本身，而是找文献、理思路、调格式。AI工具可以帮你快速梳理研究框架、润色学术表达、检查引用格式，让你专注在真正有价值的思考上。</description>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 GMT</pubDate>
+      <category>student</category>
+    </item>
+    <item>
+      <title>翻译速查 — AI翻译比人翻还自然</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/translation</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/translation</guid>
+      <description>传统翻译软件翻译出来的内容机器味太重。新一代AI翻译工具不仅能翻译得更自然，还能保持原文的语气和风格。无论是翻译文档、邮件还是网页，AI翻译都能帮你快速搞定。</description>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 GMT</pubDate>
+      <category>office-worker</category>
+    </item>
+    <item>
+      <title>豆包 — 字节跳动出品的AI对话助手</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/doubao</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/doubao</guid>
+      <description>豆包是字节跳动推出的AI对话助手，基于云雀大模型，支持多轮对话、内容创作、知识问答等。界面简洁易用，与抖音生态深度整合，适合日常对话和轻量级内容创作。</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-chat</category>
+    </item>
+    <item>
+      <title>即梦 — 字节跳动出品的AI绘画工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/jimeng</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/jimeng</guid>
+      <description>即梦是字节跳动推出的AI图片生成工具，支持文生图、图生图等多种创作模式。中文提示词友好，生成速度快，适合做小红书封面、公众号配图等场景。</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-image</category>
+    </item>
+    <item>
+      <title>Midjourney — 顶级AI绘画生成工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/midjourney</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/midjourney</guid>
+      <description>Midjourney是目前最知名的AI图片生成工具之一，以极高的艺术质量和创意表现著称。通过Discord平台使用，支持多种风格和精细控制，适合专业设计师和艺术创作者。</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-image</category>
+    </item>
+    <item>
+      <title>飞书妙记 — 飞书出品的AI会议记录工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/feishu-minutes</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/feishu-minutes</guid>
+      <description>飞书妙记是飞书旗下的AI会议记录工具，支持会议实时转写、智能摘要、待办提取、多语言翻译。与飞书日历深度集成，会议结束即可生成结构化纪要，告别手动记录。</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-productivity, ai-voice</category>
+    </item>
+    <item>
+      <title>Notion AI — Notion内置的AI写作与整理助手</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/notion-ai</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/notion-ai</guid>
+      <description>Notion AI是Notion内置的AI助手，支持智能写作、内容摘要、翻译、头脑风暴等功能。与Notion知识库深度整合，适合已经在使用Notion管理笔记和项目的用户。</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-productivity, ai-writing</category>
+    </item>
+    <item>
+      <title>AI绘画 — 零基础也能画出专业级作品</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/ai-painting</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/ai-painting</guid>
+      <description>AI绘画让不会画画的普通人也能创作出令人惊艳的图片。无论是做头像、做配图还是做设计稿，AI绘画工具都能帮你快速实现。中文用户推荐即梦和通义万相，效果不输Midjourney。</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <category>content-creator</category>
+    </item>
+    <item>
+      <title>做PPT — AI一键生成专业PPT，告别加班</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/ppt-making</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/ppt-making</guid>
+      <description>做PPT是职场人的日常噩梦：找模板、排版、配色、动画……用AI工具，你可以从一句话描述生成完整PPT，或让AI帮你优化现有PPT的视觉效果和内容逻辑。</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <category>office-worker</category>
+    </item>
+    <item>
+      <title>语音转文字 — 开会再也不用手动记笔记</title>
+      <link>https://allencxw0812.github.io/autocontentflow/scenarios/voice-to-text</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/scenarios/voice-to-text</guid>
+      <description>开会、采访、上课时手写笔记效率太低还容易遗漏。AI语音转写工具可以实时将语音转为文字，还能自动生成会议摘要和待办事项，让你的精力专注在思考而非记录上。</description>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+      <category>office-worker</category>
+    </item>
+    <item>
+      <title>必剪 — B站出品的视频创作工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/bi-ge</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/bi-ge</guid>
+      <description>必剪是哔哩哔哩推出的视频创作工具，内置AI字幕、虚拟形象、AI配音等功能。与B站生态深度打通，支持一键发布到B站，适合UP主和视频创作者使用。</description>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-video, ai-productivity</category>
+    </item>
+    <item>
+      <title>通义万相 — 阿里出品的AI绘画工具</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/tongyi-wanxiang</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/tongyi-wanxiang</guid>
+      <description>通义万相是阿里云推出的AI图片生成工具，支持文生图、涂鸦生图、照片重构等模式。基于通义大模型，可商用，适合电商设计、营销素材等场景。</description>
+      <pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-image</category>
+    </item>
+    <item>
+      <title>WPS AI — 金山出品的AI办公助手</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/wps-ai</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/wps-ai</guid>
+      <description>WPS AI是金山办公推出的AI助手，深度集成在WPS Office中，支持文档智能写作、PPT智能排版、表格智能分析等。适合日常办公场景，与Office文档格式完全兼容。</description>
+      <pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-productivity, ai-writing</category>
+    </item>
+    <item>
+      <title>彩云小译 — 国产AI翻译工具，中日英三语互译</title>
+      <link>https://allencxw0812.github.io/autocontentflow/tools/caiyun-translation</link>
+      <guid isPermaLink="true">https://allencxw0812.github.io/autocontentflow/tools/caiyun-translation</guid>
+      <description>彩云小译是彩云科技推出的AI翻译工具，支持中日英三语互译，翻译风格自然口语化。网页翻译功能可一键翻译整个英文网页，适合日常阅读外文资料和轻量翻译需求。</description>
+      <pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate>
+      <category>ai-translation</category>
+    </item>
+  </channel>
+</rss>

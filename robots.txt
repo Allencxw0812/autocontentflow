@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://allencxw0812.github.io/autocontentflow/sitemap-index.xml
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Private/admin pages
+Disallow: /admin/*

@@ -1,0 +1,7 @@
+# SPA-like fallback routes
+/about  /about  200
+/updates  /updates  200
+/rss.xml  /rss.xml  200
+
+# Legacy redirects (template)
+/old-path/*  /:splat  301
