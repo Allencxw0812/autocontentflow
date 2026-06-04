@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { getAllTools, getAllScenarios, getAllRoles } from '../utils/data';
 
+const BASE = import.meta.env.BASE_URL || '/';
 const tools = getAllTools();
 const scenarios = getAllScenarios();
 const roles = getAllRoles();
@@ -107,7 +108,7 @@ const jsonLd = {
     <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
       {Object.entries(categoryCount).map(([cat, count]) => (
         <a
-          href={`/tools#${cat}`}
+          href={`${BASE}tools#${cat}`}
           class="bg-white rounded-lg border border-border p-4 hover:border-primary/30 hover:shadow-sm transition-all text-center"
         >
           <div class="text-2xl font-bold text-primary">{count}</div>

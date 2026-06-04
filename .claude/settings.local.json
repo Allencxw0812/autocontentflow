@@ -16,7 +16,17 @@
       "Bash(pkill -f \"serve.cjs\")",
       "Bash(node /Users/niu/WorkBuddy/Claw/workflow/ai-website/serve.cjs)",
       "Bash(node serve.cjs)",
-      "Bash(git commit -m 'fix: pagefind path + local dev support *)"
+      "Bash(git commit -m 'fix: pagefind path + local dev support *)",
+      "Bash(echo \"首页: $\\(curl -so /dev/null -w '%{http_code}' 'https://allencxw0812.github.io/autocontentflow/'\\)\")",
+      "Bash(echo \"场景: $\\(curl -so /dev/null -w '%{http_code}' 'https://allencxw0812.github.io/autocontentflow/scenarios/'\\)\")",
+      "Bash(echo \"工具: $\\(curl -so /dev/null -w '%{http_code}' 'https://allencxw0812.github.io/autocontentflow/tools/'\\)\")",
+      "Bash(echo \"Kimi: $\\(curl -so /dev/null -w '%{http_code}' 'https://allencxw0812.github.io/autocontentflow/tools/kimi/'\\)\")",
+      "Bash(echo \"搜索: $\\(curl -so /dev/null -w '%{http_code}' 'https://allencxw0812.github.io/autocontentflow/search/'\\)\")",
+      "Bash(npm run *)",
+      "Bash(grep -n 'href=.*\"/' /Users/niu/WorkBuddy/Claw/workflow/ai-website/src/pages/__TRACKED_VAR__)",
+      "Bash(grep *)",
+      "Bash(BASE_PATH='/' npm run build)",
+      "Bash(git commit -m 'fix: complete all remaining BASE path links *)"
     ]
   }
 }

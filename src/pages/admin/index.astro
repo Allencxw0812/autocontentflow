@@ -284,7 +284,7 @@ const nowStr = new Date().toISOString().split('T')[0];
           {recentUpdates.map(item => (
             <tr>
               <td><span class={`badge ${item.type === 'scenario' ? '' : 'badge-green'}`}>{item.type === 'scenario' ? '场景' : '工具'}</span></td>
-              <td><a href={`/${item.type === 'scenario' ? 'scenarios' : 'tools'}/${item.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{(item as any).icon || ''} {item.name}</a></td>
+              <td><a href={`${BASE}${item.type === 'scenario' ? 'scenarios' : 'tools'}/${item.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;">{(item as any).icon || ''} {item.name}</a></td>
               <td style="font-size:12px;color:#888;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{item.tagline || (item as Tool).tagline}</td>
               <td style="font-size:12px;">{(item as any).updatedAt}</td>
               <td><span class={`badge ${item.ageDays <= 30 ? 'badge-green' : item.ageDays <= 90 ? 'badge-amber' : 'badge-red'}`}>{item.ageDays}天前</span></td>

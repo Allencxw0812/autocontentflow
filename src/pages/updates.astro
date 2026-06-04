@@ -14,6 +14,7 @@ interface UpdateItem {
   link: string;
 }
 
+const BASE = import.meta.env.BASE_URL || '/';
 const tools = getAllTools();
 const scenarios = getAllScenarios();
 
@@ -26,7 +27,7 @@ const allUpdates: UpdateItem[] = [
     icon: t.logo,
     description: t.tagline,
     updatedAt: t.updatedAt,
-    link: `/tools/${t.slug}`,
+    link: `${BASE}tools/${t.slug}`,
   })),
   ...scenarios.map((s) => ({
     type: 'scenario' as const,
@@ -35,7 +36,7 @@ const allUpdates: UpdateItem[] = [
     icon: s.icon,
     description: s.tagline,
     updatedAt: s.updatedAt,
-    link: `/scenarios/${s.slug}`,
+    link: `${BASE}scenarios/${s.slug}`,
   })),
 ].sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
 
