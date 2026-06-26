@@ -19,7 +19,7 @@ const freeTool = getToolById(alternative.freeToolId);
         src={getToolIcon(paidTool.id)}
         alt={paidTool.name}
         class="w-4 h-4 object-contain rounded-sm"
-        onerror={`this.onerror=null;this.src='${getToolFavicon(paidTool.url, 32)}'`}
+        onerror={`this.outerHTML='<span class="text-lg">${paidTool.logo}</span>'`}
         loading="lazy"
       />
       {paidTool.name}
@@ -36,7 +36,7 @@ const freeTool = getToolById(alternative.freeToolId);
         src={getToolIcon(freeTool.id)}
         alt={freeTool.name}
         class="w-4 h-4 object-contain rounded-sm"
-        onerror={`this.onerror=null;this.src='${getToolFavicon(freeTool.url, 32)}'`}
+        onerror={`this.outerHTML='<span class="text-lg">${freeTool.logo}</span>'`}
         loading="lazy"
       />
       {freeTool.name}

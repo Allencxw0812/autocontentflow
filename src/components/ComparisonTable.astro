@@ -25,7 +25,7 @@ const BASE = import.meta.env.BASE_URL || '/';
                     src={getToolIcon(tool.id)}
                     alt={tool.name}
                     class="w-4 h-4 object-contain rounded-sm"
-                    onerror={`this.onerror=null;this.src='${getToolFavicon(tool.url, 32)}'`}
+                    onerror={`this.outerHTML='<span class="text-lg">${tool.logo}</span>'`}
                     loading="lazy"
                   />
                   {tool.name}
