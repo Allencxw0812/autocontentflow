@@ -99,6 +99,7 @@ const now = new Date().toISOString().split('T')[0];
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
         <button class="btn btn-primary" id="btn-scan">🔍 扫描匹配</button>
         <button class="btn" id="btn-list">📋 查看状态</button>
+        <button class="btn" id="btn-clear">🗑️ 清除待处理</button>
         <button class="btn" id="btn-deploy" style="background:#059669;color:#fff;border-color:#059669;">🚀 一键部署</button>
         <span style="font-size:12px;color:#999;margin-left:8px;">或终端执行：<code style="background:#f0f0f0;padding:2px 6px;border-radius:4px;">node scripts/wechat.mjs scan | bind | deploy</code></span>
       </div>
@@ -176,27 +177,52 @@ const now = new Date().toISOString().split('T')[0];
       } catch(e) {}
     }
 
+    var pendingChanges = [];
+
     // ── 保存绑定 ──
     function saveBind() {
       var title = document.getElementById('bind-title').value.trim();
       var url = document.getElementById('bind-url').value.trim();
       if (!title) { showToast('请输入文章标题', ''); return; }
 
-      // 拼接绑定命令
-      var cmd = 'node scripts/wechat.mjs bind "' + title + '" ' + currentToolId;
-      if (url) cmd = 'WECHAT_URL="' + url + '" ' + cmd;
-
-      // 复制到剪贴板并提示
-      copyToClipboard(cmd);
+      // 添加到待处理列表
+      pendingChanges.push({ toolId: currentToolId, title: title, url: url });
       closeBind();
-      showToast('✅ 命令已复制！在终端粘贴执行即可绑定', 'success');
+
+      // 生成完整脚本
+      var lines = ['#!/bin/bash', 'cd \"$(dirname \"$0\")/..\"', ''];
+      // 收集每个工具的文章
+      var toolMap = {};
+      pendingChanges.forEach(function(c) {
+        if (!toolMap[c.toolId]) toolMap[c.toolId] = [];
+        toolMap[c.toolId].push({ title: c.title, url: c.url });
+      });
+      for (var toolId in toolMap) {
+        lines.push('# ' + toolId);
+        toolMap[toolId].forEach(function(a) {
+          var cmd = 'node scripts/wechat.mjs bind \"' + a.title + '\" ' + toolId;
+          if (a.url) cmd = 'WECHAT_URL=\"' + a.url + '\" ' + cmd;
+          lines.push(cmd);
+        });
+      }
+      lines.push('');
+      lines.push('# 一键部署');
+      lines.push('node scripts/wechat.mjs deploy');
+      var script = lines.join('\n');
+
+      // 显示脚本
+      var output = document.getElementById('cmd-output');
+      output.style.display = 'block';
+      output.innerHTML = '<div style="color:#fbbf24;margin-bottom:8px;">📋 待处理 ' + pendingChanges.length + ' 条变更 — 复制以下脚本到终端执行：</div><pre style="white-space:pre-wrap;word-break:break-all;">' + script.replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</pre>';
+
+      copyToClipboard(script);
+      showToast('✅ 脚本已复制！在终端粘贴执行即可 (' + pendingChanges.length + ' 条变更)', 'success');
     }
 
     function copyToClipboard(text) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).catch(function(){});
       }
-      // fallback
       var ta = document.createElement('textarea');
       ta.value = text;
       ta.style.position = 'fixed';
@@ -206,6 +232,13 @@ const now = new Date().toISOString().split('T')[0];
       try { document.execCommand('copy'); } catch(e) {}
       document.body.removeChild(ta);
     }
+
+    // ── 清除待处理 ──
+    document.getElementById('btn-clear').addEventListener('click', function() {
+      pendingChanges = [];
+      document.getElementById('cmd-output').style.display = 'none';
+      showToast('已清除待处理列表');
+    });
 
     // ── 事件委托：绑定按钮 ──
     document.addEventListener('click', function(e) {
