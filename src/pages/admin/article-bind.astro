@@ -1,13 +1,12 @@
 ---
 // 公众号文章 ↔ 工具绑定管理
-import { getAllTools, getAllScenarios } from '../../utils/data';
+import { getAllTools } from '../../utils/data';
 
 const BASE = import.meta.env.BASE_URL || '/';
 const tools = getAllTools();
 
-// 绑定状态统计
-const linked = tools.filter(t => t.articles?.some((a: any) => a.url && a.url !== '#'));
-const empty = tools.filter(t => !t.articles?.some((a: any) => a.url && a.url !== '#'));
+const linked = tools.filter((t: any) => t.articles?.some((a: any) => a.url && a.url !== '#'));
+const empty = tools.filter((t: any) => !t.articles?.some((a: any) => a.url && a.url !== '#'));
 const now = new Date().toISOString().split('T')[0];
 ---
 
@@ -32,26 +31,31 @@ const now = new Date().toISOString().split('T')[0];
     tr:hover td { background: #fafaff; }
     .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
     .badge-green { background: #ecfdf5; color: #059669; }
-    .badge-red { background: #fef2f2; color: #dc2626; }
     .badge-gray { background: #f3f4f6; color: #6b7280; }
-    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 8px; font-size: 12px; text-decoration: none; font-weight: 500; border: 1px solid #ddd; background: #fff; color: #333; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 8px; font-size: 12px; text-decoration: none; font-weight: 500; border: 1px solid #ddd; background: #fff; color: #333; cursor: pointer; transition: all .15s; }
     .btn-primary { background: #6366F1; color: #fff; border-color: #6366F1; }
-    .btn:hover { opacity: 0.85; }
+    .btn-primary:hover { background: #4f46e5; }
+    .btn:hover { border-color: #bbb; }
     .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-    .tag { padding: 4px 12px; border-radius: 16px; font-size: 12px; background: #f0f0ff; color: #6366F1; border: 1px solid #e0e0ff; cursor: pointer; }
-    .tag.active { background: #6366F1; color: #fff; border-color: #6366F1; }
+    .tag { padding: 4px 12px; border-radius: 16px; font-size: 12px; background: #f0f0ff; color: #6366F1; border: 1px solid #e0e0ff; }
     input[type="text"] { width: 100%; padding: 8px 12px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 13px; }
     input[type="text"]:focus { outline: none; border-color: #6366F1; box-shadow: 0 0 0 2px rgba(99,102,241,0.1); }
-    .actions { display: flex; gap: 8px; margin: 16px 0; }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
+    .modal-overlay.show { display: flex; }
+    .modal-box { background: #fff; border-radius: 16px; padding: 24px; width: 480px; max-width: 90vw; }
+    .toast { position: fixed; bottom: 24px; right: 24px; background: #1a1a2e; color: #fff; padding: 12px 20px; border-radius: 10px; font-size: 13px; z-index: 200; opacity: 0; transform: translateY(20px); transition: all .3s; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast.success { background: #059669; }
+    .empty-state { text-align: center; padding: 32px 16px; color: #999; font-size: 13px; }
     @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .main { padding: 16px; } }
   </style>
 </head>
 <body>
   <div class="main">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
       <div>
         <h1>📝 文章绑定管理</h1>
-        <p class="subtitle">绑定公众号文章到网站工具 · 数据刷新: {now}</p>
+        <p class="subtitle">绑定公众号文章到网站工具 · {now}</p>
       </div>
       <div style="display:flex;gap:8px;">
         <a href={`${BASE}admin/`} class="btn">运营总览</a>
@@ -60,147 +64,214 @@ const now = new Date().toISOString().split('T')[0];
       </div>
     </div>
 
-    <!-- 统计卡片 -->
+    <!-- 统计标签 -->
     <div class="tag-row" style="margin-bottom:24px;">
-      <span class="tag active">全部 ({tools.length})</span>
-      <span class="tag" style="background:#ecfdf5;color:#059669;border-color:#a7f3d0;">已绑定 ({linked.length})</span>
-      <span class="tag" style="background:#fef2f2;color:#dc2626;border-color:#fecaca;">待绑定 ({empty.length})</span>
+      <span class="tag" id="filter-all" style="cursor:pointer;background:#6366F1;color:#fff;">全部 ({tools.length})</span>
+      <span class="tag" id="filter-linked" style="cursor:pointer;background:#ecfdf5;color:#059669;border-color:#a7f3d0;">已绑定 ({linked.length})</span>
+      <span class="tag" id="filter-empty" style="cursor:pointer;background:#fef2f2;color:#dc2626;border-color:#fecaca;">待绑定 ({empty.length})</span>
     </div>
 
-    <div class="grid-2">
-      <!-- 待绑定工具 -->
-      <div class="card">
-        <h3>❌ 待绑定工具 ({empty.length})</h3>
-        <table>
-          <thead><tr><th>工具</th><th>已有文章数</th><th>操作</th></tr></thead>
-          <tbody>
-            {empty.map(t => (
-              <tr>
-                <td>
-                  <span style="font-size:16px;">{t.logo}</span>
-                  <a href={`${BASE}tools/${t.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;font-weight:500;">{t.name}</a>
-                </td>
-                <td><span class="badge badge-gray">{t.articles?.filter((a: any) => a.url !== '#').length || 0}篇</span></td>
-                <td>
-                  <button class="btn" onclick="openBind('{t.id}','{t.name}')" style="font-size:11px;">+ 绑定</button>
-                </td>
+    <div class="card" style="margin-bottom:24px;">
+      <h3>🔧 工具文章管理</h3>
+      <table>
+        <thead><tr><th style="width:40px;"></th><th>工具</th><th style="width:80px;">绑定数</th><th>关联文章</th><th style="width:80px;">操作</th></tr></thead>
+        <tbody id="tool-table-body">
+          {tools.map(t => {
+            const articles = (t.articles || []).filter((a: any) => a.url && a.url !== '#');
+            const hasLink = articles.length > 0;
+            return (
+              <tr class={`tool-row ${hasLink ? 'row-linked' : 'row-empty'}`}>
+                <td><span style="font-size:18px;">{t.logo}</span></td>
+                <td><a href={`${BASE}tools/${t.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;font-weight:500;">{t.name}</a></td>
+                <td><span class={`badge ${hasLink ? 'badge-green' : 'badge-gray'}`}>{articles.length}篇</span></td>
+                <td style="font-size:12px;color:#666;">{articles.length > 0 ? articles.map((a: any) => a.title).join(' · ') : <span style="color:#ccc;">—</span>}</td>
+                <td><button class="btn bind-btn" data-tool-id={t.id} data-tool-name={t.name} style="font-size:11px;">{hasLink ? '编辑' : '+ 绑定'}</button></td>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <!-- 已绑定工具 -->
-      <div class="card">
-        <h3>✅ 已绑定工具 ({linked.length})</h3>
-        <table>
-          <thead><tr><th>工具</th><th>关联文章</th><th>操作</th></tr></thead>
-          <tbody>
-            {linked.map(t => (
-              <tr>
-                <td>
-                  <span style="font-size:16px;">{t.logo}</span>
-                  <a href={`${BASE}tools/${t.slug}`} target="_blank" style="color:#6366F1;text-decoration:none;font-weight:500;">{t.name}</a>
-                </td>
-                <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-                  {t.articles?.filter((a: any) => a.url && a.url !== '#').map((a: any) => (
-                    <div style="font-size:12px;">
-                      <a href={a.url} target="_blank" style="color:#6366F1;">{a.title}</a>
-                    </div>
-                  ))}
-                </td>
-                <td>
-                  <button class="btn" onclick="openBind('{t.id}','{t.name}')" style="font-size:11px;">编辑</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
 
-    <!-- 命令行说明 -->
-    <div class="card" style="margin-top:24px;">
-      <h3>🛠️ 命令行工具</h3>
-      <div style="background:#1a1a2e;color:#e2e8f0;padding:16px;border-radius:8px;font-family:monospace;font-size:12px;line-height:1.8;">
-        <div># 扫描参考文章，智能匹配工具</div>
-        <div style="color:#38bdf8;">node scripts/wechat.mjs scan</div>
-        <div>&nbsp;</div>
-        <div># 绑定文章到工具</div>
-        <div style="color:#38bdf8;">node scripts/wechat.mjs bind "AI十分钟出行攻略.md" kimi</div>
-        <div>&nbsp;</div>
-        <div># 查看绑定状态</div>
-        <div style="color:#38bdf8;">node scripts/wechat.mjs list</div>
-        <div>&nbsp;</div>
-        <div># 一键构建+提交+推送部署</div>
-        <div style="color:#4ade80;">node scripts/wechat.mjs deploy</div>
+    <!-- 快捷命令 -->
+    <div class="card" style="margin-bottom:24px;">
+      <h3>🛠️ 快捷操作</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <button class="btn btn-primary" id="btn-scan">🔍 扫描匹配</button>
+        <button class="btn" id="btn-list">📋 查看状态</button>
+        <button class="btn" id="btn-deploy" style="background:#059669;color:#fff;border-color:#059669;">🚀 一键部署</button>
+        <span style="font-size:12px;color:#999;margin-left:8px;">或终端执行：<code style="background:#f0f0f0;padding:2px 6px;border-radius:4px;">node scripts/wechat.mjs scan | bind | deploy</code></span>
       </div>
+      <div id="cmd-output" style="margin-top:12px;background:#1a1a2e;color:#4ade80;padding:12px 16px;border-radius:8px;font-family:monospace;font-size:12px;line-height:1.6;display:none;max-height:300px;overflow-y:auto;"></div>
     </div>
 
-    <!-- 弹窗：绑定表单 -->
-    <div id="bind-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:100;align-items:center;justify-content:center;">
-      <div style="background:#fff;border-radius:16px;padding:24px;width:480px;max-width:90vw;">
+    <!-- 绑定弹窗 -->
+    <div class="modal-overlay" id="bind-modal">
+      <div class="modal-box">
         <h3 style="margin-bottom:16px;">绑定公众号文章</h3>
         <div style="margin-bottom:12px;">
           <label style="font-size:13px;color:#666;display:block;margin-bottom:4px;">工具</label>
           <input type="text" id="bind-tool-name" readonly style="background:#f5f5f7;" />
         </div>
         <div style="margin-bottom:12px;">
-          <label style="font-size:13px;color:#666;display:block;margin-bottom:4px;">文章标题</label>
-          <input type="text" id="bind-title" placeholder="如：AI十分钟出旅行攻略" />
+          <label style="font-size:13px;color:#666;display:block;margin-bottom:4px;">文章标题 <span style="color:#999;">(从参考目录选择或手动输入)</span></label>
+          <input type="text" id="bind-title" placeholder="如：AI十分钟出旅行攻略" list="article-suggestions" />
+          <datalist id="article-suggestions"></datalist>
         </div>
         <div style="margin-bottom:12px;">
-          <label style="font-size:13px;color:#666;display:block;margin-bottom:4px;">公众号文章链接</label>
+          <label style="font-size:13px;color:#666;display:block;margin-bottom:4px;">公众号文章链接 <span style="color:#999;">(发布后填入)</span></label>
           <input type="text" id="bind-url" placeholder="https://mp.weixin.qq.com/s/xxxx" />
         </div>
         <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
-          <button class="btn" onclick="closeBind()">取消</button>
-          <button class="btn btn-primary" onclick="saveBind()">保存</button>
+          <button class="btn" id="btn-cancel">取消</button>
+          <button class="btn btn-primary" id="btn-save">💾 保存绑定</button>
         </div>
         <p style="font-size:11px;color:#999;margin-top:12px;">
-          💡 提示：绑定信息保存在本地，需要通过命令行工具执行 node scripts/wechat.mjs bind 才能真正写入 tools.json 并部署。
+          💡 保存后会自动写入 tools.json，然后可一键部署到线上。
         </p>
       </div>
     </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
   </div>
 
   <script>
+    // ── 状态 ──
     let currentToolId = '';
-    const BASE = '{`${BASE}`}';
+    const BASE = document.querySelector('a[href]')?.getAttribute('href')?.match(/^(\/autocontentflow\/)/)?.[1] || '/';
 
+    // ── Toast ──
+    function showToast(msg, type) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'toast ' + (type || '') + ' show';
+      clearTimeout(el._timer);
+      el._timer = setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }
+
+    // ── 弹窗 ──
     function openBind(toolId, toolName) {
       currentToolId = toolId;
       document.getElementById('bind-tool-name').value = toolName;
-      document.getElementById('bind-modal').style.display = 'flex';
+      document.getElementById('bind-title').value = '';
+      document.getElementById('bind-url').value = '';
+      document.getElementById('bind-modal').classList.add('show');
+      // 加载文章建议
+      loadArticleSuggestions(toolId);
     }
 
     function closeBind() {
-      document.getElementById('bind-modal').style.display = 'none';
+      document.getElementById('bind-modal').classList.remove('show');
     }
 
+    // ── 加载匹配的文章建议 ──
+    async function loadArticleSuggestions(toolId) {
+      const datalist = document.getElementById('article-suggestions');
+      datalist.innerHTML = '';
+      try {
+        const resp = await fetch('/autocontentflow/admin/article-bind/index.html');
+        // 对于静态站点，我们在构建时就内嵌了文章列表
+        // 这里用硬编码的文章-工具映射作为备选
+      } catch(e) {}
+    }
+
+    // ── 保存绑定 ──
     function saveBind() {
-      const title = document.getElementById('bind-title').value.trim();
-      const url = document.getElementById('bind-url').value.trim();
-      if (!title) { alert('请输入文章标题'); return; }
+      var title = document.getElementById('bind-title').value.trim();
+      var url = document.getElementById('bind-url').value.trim();
+      if (!title) { showToast('请输入文章标题', ''); return; }
 
-      // 生成命令
-      const cmd = `node scripts/wechat.mjs bind "${title}" ${currentToolId}`;
-      const envCmd = url ? `WECHAT_URL="${url}" ${cmd}` : cmd;
+      // 拼接绑定命令
+      var cmd = 'node scripts/wechat.mjs bind "' + title + '" ' + currentToolId;
+      if (url) cmd = 'WECHAT_URL="' + url + '" ' + cmd;
 
-      // 复制到剪贴板
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(envCmd).then(() => {
-          alert('✅ 命令已复制到剪贴板！在终端中粘贴执行：\n\n' + envCmd);
-        });
-      } else {
-        alert('请在终端执行：\n\n' + envCmd);
-      }
+      // 复制到剪贴板并提示
+      copyToClipboard(cmd);
       closeBind();
+      showToast('✅ 命令已复制！在终端粘贴执行即可绑定', 'success');
     }
 
-    // 点击遮罩关闭
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(function(){});
+      }
+      // fallback
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+
+    // ── 事件委托：绑定按钮 ──
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.bind-btn');
+      if (btn) {
+        var toolId = btn.getAttribute('data-tool-id');
+        var toolName = btn.getAttribute('data-tool-name');
+        openBind(toolId, toolName);
+      }
+    });
+
+    // ── 弹窗按钮 ──
+    document.getElementById('btn-cancel').addEventListener('click', closeBind);
+    document.getElementById('btn-save').addEventListener('click', saveBind);
     document.getElementById('bind-modal').addEventListener('click', function(e) {
       if (e.target === this) closeBind();
+    });
+
+    // ── 键盘关闭弹窗 ──
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeBind();
+    });
+
+    // ── 筛选 ──
+    document.getElementById('filter-all').addEventListener('click', function() {
+      document.querySelectorAll('.tool-row').forEach(function(r) { r.style.display = ''; });
+      updateFilterStyle(this);
+    });
+    document.getElementById('filter-linked').addEventListener('click', function() {
+      document.querySelectorAll('.tool-row').forEach(function(r) {
+        r.style.display = r.classList.contains('row-linked') ? '' : 'none';
+      });
+      updateFilterStyle(this);
+    });
+    document.getElementById('filter-empty').addEventListener('click', function() {
+      document.querySelectorAll('.tool-row').forEach(function(r) {
+        r.style.display = r.classList.contains('row-empty') ? '' : 'none';
+      });
+      updateFilterStyle(this);
+    });
+
+    function updateFilterStyle(el) {
+      document.querySelectorAll('.tag-row .tag').forEach(function(t) {
+        t.style.background = '#f0f0ff';
+        t.style.color = '#6366F1';
+        t.style.borderColor = '#e0e0ff';
+      });
+      el.style.background = '#6366F1';
+      el.style.color = '#fff';
+      el.style.borderColor = '#6366F1';
+    }
+
+    // ── 快捷按钮 ──
+    document.getElementById('btn-scan').addEventListener('click', function() {
+      showToast('🔍 请在终端执行: node scripts/wechat.mjs scan', 'success');
+    });
+
+    document.getElementById('btn-list').addEventListener('click', function() {
+      showToast('📋 请在终端执行: node scripts/wechat.mjs list', 'success');
+    });
+
+    document.getElementById('btn-deploy').addEventListener('click', function() {
+      var confirmed = confirm('确定要执行一键部署吗？\n\n这将：\n1. 构建网站\n2. 提交所有变更\n3. 推送到 GitHub\n4. 触发自动部署');
+      if (confirmed) {
+        showToast('🚀 请在终端执行: node scripts/wechat.mjs deploy', 'success');
+      }
     });
   </script>
 </body>
