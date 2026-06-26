@@ -2,7 +2,7 @@ name: AI Auto-Refresh Reviews
 
 on:
   schedule:
-    # First day of each month at 06:00 UTC+8 (22:00 UTC on last day of prev month)
+    # 每月1日 06:00 UTC+8 (前一日 22:00 UTC)
     - cron: '0 22 28-31 * *'
   workflow_dispatch:
 
@@ -29,9 +29,9 @@ jobs:
       - name: Run AI refresh
         id: refresh
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
-          # Only run on actual 1st day of month (cron trick catches last days)
+          # 仅在每月1日实际执行（cron trick 覆盖月末几天）
           if [ "$(date +%d)" != "01" ]; then
             echo "Not the 1st day of month, skipping."
             exit 0

@@ -80,7 +80,7 @@
         "description": "推荐Kimi、文心一言等AI工具帮你快速生成周报，附详细对比和实战案例。免费方案，无需翻墙。"
       },
       "publishedAt": "2025-02-01",
-      "updatedAt": "2025-07-20",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI写周报全流程：从要点梳理到排版提交",
@@ -172,7 +172,7 @@
         "description": "推荐Kimi、豆包、即梦等AI工具帮你做小红书，从选题到封面一站搞定。免费方案，新手友好。"
       },
       "publishedAt": "2025-02-15",
-      "updatedAt": "2025-07-18",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI做小红书全攻略：选题+文案+封面一条龙",
@@ -263,7 +263,7 @@
         "description": "推荐即梦、通义万相等AI绘画工具，中文友好、免费使用。对比Midjourney，帮你选择最适合的AI绘画工具。"
       },
       "publishedAt": "2025-03-01",
-      "updatedAt": "2025-07-15",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI绘画入门：零基础也能画出专业级作品",
@@ -351,7 +351,7 @@
         "description": "推荐Kimi、DeepSeek等AI工具辅助论文写作，从文献梳理到润色修改全流程覆盖。免费方案，学生友好。"
       },
       "publishedAt": "2025-03-10",
-      "updatedAt": "2025-07-18",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI辅助论文写作：从文献梳理到润色修改",
@@ -431,7 +431,7 @@
         "description": "推荐Kimi、WPS AI等工具帮你快速制作PPT，从大纲到排版一站搞定。免费方案，职场必备。"
       },
       "publishedAt": "2025-03-20",
-      "updatedAt": "2025-07-15",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI一键PPT：告别加班做汇报",
@@ -517,7 +517,7 @@
         "description": "推荐DeepSeek、GitHub Copilot等AI编程工具，从代码补全到Bug修复一站搞定。含免费替代方案。"
       },
       "publishedAt": "2025-04-01",
-      "updatedAt": "2025-07-20",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI编程实战：免费工具替代Copilot",
@@ -610,7 +610,7 @@
         "description": "推荐可灵AI、剪映等AI视频制作工具，从脚本撰写到成片输出一站搞定。免费方案，新手也能做视频。"
       },
       "publishedAt": "2025-04-10",
-      "updatedAt": "2025-07-20",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI视频制作：从脚本到成片全流程",
@@ -702,7 +702,7 @@
         "description": "对比DeepL、彩云小译等AI翻译工具，帮你选择最适合的翻译方案。免费替代、文档翻译、口语化翻译全覆盖。"
       },
       "publishedAt": "2025-04-20",
-      "updatedAt": "2025-07-18",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI翻译对比：DeepL vs 彩云小译哪个好",
@@ -794,7 +794,7 @@
         "description": "对比讯飞听见、飞书妙记等AI语音转写工具，帮你找到最适合的会议记录方案。免费替代、实时转写全覆盖。"
       },
       "publishedAt": "2025-05-01",
-      "updatedAt": "2025-07-15",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI语音转文字：开会不用手写笔记了",
@@ -887,7 +887,7 @@
         "description": "推荐Kimi、DeepSeek等AI工具帮你整理归纳信息，从会议记录到行业报告一站搞定。免费方案，效率翻倍。"
       },
       "publishedAt": "2025-05-10",
-      "updatedAt": "2025-07-20",
+      "updatedAt": "2026-06-23",
       "articles": [
         {
           "title": "AI数据整理：从混乱信息到结构化知识",
@@ -895,6 +895,515 @@
         },
         {
           "title": "Kimi+DeepSeek：100份报告整理成知识库的完整流程",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ai-interview",
+      "name": "AI模拟面试",
+      "slug": "ai-interview",
+      "role": "student",
+      "icon": "💼",
+      "tagline": "用AI练面试，拿offer更有底气",
+      "description": "AI模拟面试场景专为学生和求职者设计，利用AI技术模拟真实面试环境，提供常见问题、行为面试、技术面试等练习。通过语音交互、实时反馈和个性化建议，帮助用户提升表达、逻辑和应变能力，增强面试自信。适合准备校招、社招或转行的用户。",
+      "coverImage": "/images/scenarios/ai-interview.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "选择面试类型",
+          "description": "在AI工具中选择目标岗位或面试类型（如技术岗、行为面试、英语面试），系统自动生成相关题目集。",
+          "toolId": "doubao"
+        },
+        {
+          "step": 2,
+          "title": "模拟面试对话",
+          "description": "通过语音或文字与AI进行实时问答，AI扮演面试官，模拟真实面试节奏，可调整难度和时长。",
+          "toolId": "kimi"
+        },
+        {
+          "step": 3,
+          "title": "获取反馈与优化",
+          "description": "AI分析回答内容、语速、逻辑结构，生成评分和改进建议，如补充案例、优化表达。",
+          "toolId": "deepseek"
+        },
+        {
+          "step": 4,
+          "title": "复盘与记录",
+          "description": "保存面试录音或文字记录，结合AI总结高频错误和待改进点，制定针对性练习计划。",
+          "toolId": "feishu-minutes"
+        }
+      ],
+      "tools": [
+        "doubao",
+        "kimi",
+        "deepseek",
+        "feishu-minutes",
+        "chatgpt"
+      ],
+      "comparison": [
+        {
+          "toolId": "doubao",
+          "coreAdvantage": "面试题库丰富，支持多行业岗位定制",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "长对话记忆强，模拟面试流畅自然",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "deepseek",
+          "coreAdvantage": "反馈深入，逻辑和表达分析精准",
+          "easeOfUse": "中",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "feishu-minutes",
+          "coreAdvantage": "自动转写和总结，便于复盘",
+          "easeOfUse": "高",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "chatgpt",
+          "coreAdvantage": "回答灵活，可模拟多种面试风格",
+          "easeOfUse": "中",
+          "freeQuota": "有限"
+        }
+      ],
+      "pitfalls": [
+        "避免过度依赖AI回答模板，应结合自身经历灵活组织语言",
+        "注意AI可能无法模拟真实面试中的肢体语言和眼神交流，需额外练习"
+      ],
+      "caseStudy": {
+        "title": "学生小李用AI模拟面试拿下大厂offer",
+        "summary": "小李通过豆包和Kimi进行每日模拟面试，针对技术岗反复练习，结合飞书妙记复盘，最终在真实面试中表现自信，成功入职。",
+        "url": "/tools/deepseek"
+      },
+      "freeAlternatives": [],
+      "relatedScenarios": [
+        "code-assistant",
+        "voice-to-text"
+      ],
+      "seo": {
+        "title": "AI模拟面试：学生求职必备，用AI练面试拿offer更有底气",
+        "description": "AI模拟面试场景指南，为学生和求职者提供从面试类型选择、模拟对话到反馈复盘的完整流程。推荐豆包、Kimi、DeepSeek等工具，助你提升面试技巧，轻松应对校招和社招。"
+      },
+      "publishedAt": "2026-06-25",
+      "updatedAt": "2026-06-25",
+      "articles": [
+        {
+          "title": "AI模拟面试完整指南",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ai-resume",
+      "name": "AI写简历",
+      "slug": "ai-resume",
+      "role": "office-worker",
+      "icon": "📄",
+      "tagline": "AI帮你写出HR眼前一亮的简历",
+      "description": "针对求职者难以突出个人亮点、简历格式不规范的问题，AI写简历工具能智能分析岗位要求，优化工作经历描述，生成专业排版、HR青睐的简历。适用于应届生、跳槽者及职场新人。",
+      "coverImage": "/images/scenarios/ai-resume.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "输入求职目标与基本信息",
+          "description": "填写目标岗位、行业、工作年限、联系方式等基础信息。",
+          "toolId": "wps-ai"
+        },
+        {
+          "step": 2,
+          "title": "智能优化工作经历描述",
+          "description": "将原始工作内容输入，AI自动改写为量化、结果导向的表述，突出成就。",
+          "toolId": "deepseek"
+        },
+        {
+          "step": 3,
+          "title": "生成专业简历排版",
+          "description": "选择模板，AI自动生成PDF或Word格式简历，确保格式规范美观。",
+          "toolId": "canva-ai"
+        }
+      ],
+      "tools": [
+        "wps-ai",
+        "deepseek",
+        "canva-ai",
+        "notion-ai",
+        "tencent-docs-ai"
+      ],
+      "comparison": [
+        {
+          "toolId": "wps-ai",
+          "coreAdvantage": "深度集成WPS Office，一键生成Word简历，支持多种模板",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "deepseek",
+          "coreAdvantage": "中文语境优化出色，擅长改写工作经历为量化成果",
+          "easeOfUse": "高",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "canva-ai",
+          "coreAdvantage": "设计模板丰富，支持AI自动排版与视觉优化",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "notion-ai",
+          "coreAdvantage": "可构建结构化简历数据库，AI辅助内容润色",
+          "easeOfUse": "中",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "tencent-docs-ai",
+          "coreAdvantage": "腾讯生态协同方便，AI辅助内容生成与校对",
+          "easeOfUse": "高",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "避免过度依赖AI导致简历内容不真实，面试时露馅；",
+        "注意核对AI生成数据，确保所有信息准确无误，特别是联系方式与时间线。"
+      ],
+      "caseStudy": {
+        "title": "DeepSeek助应届生斩获大厂面试",
+        "summary": "一位计算机专业应届生使用DeepSeek优化项目经历，将‘参与开发’改写为‘独立开发XX模块，提升系统效率30%’，最终获得多家互联网公司面试邀请。",
+        "url": "/tools/deepseek"
+      },
+      "freeAlternatives": [],
+      "relatedScenarios": [
+        "paper-writing",
+        "data-organizing"
+      ],
+      "seo": {
+        "title": "AI写简历指南：用智能工具写出HR眼前一亮的简历",
+        "description": "掌握AI写简历技巧，利用DeepSeek、WPS AI等工具优化工作经历、生成专业排版。从输入信息到导出PDF，完整工作流助你高效求职，提升面试机会。"
+      },
+      "publishedAt": "2026-06-25",
+      "updatedAt": "2026-06-25",
+      "articles": [
+        {
+          "title": "AI写简历完整指南",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ai-data-analysis",
+      "name": "AI数据分析",
+      "slug": "ai-data-analysis",
+      "role": "entrepreneur",
+      "icon": "📈",
+      "tagline": "不用写代码，用AI对话式做数据分析",
+      "description": "面向企业主和管理者的AI数据分析场景，无需编写代码，通过自然语言对话即可完成数据清洗、趋势分析、可视化图表生成和业务洞察。适合快速处理日常运营数据、销售报表或用户行为数据。",
+      "coverImage": "/images/scenarios/ai-data-analysis.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "上传数据文件",
+          "description": "将CSV、Excel或数据库导出文件上传至AI平台，支持拖拽或粘贴。",
+          "toolId": "kimi"
+        },
+        {
+          "step": 2,
+          "title": "描述分析需求",
+          "description": "用自然语言说明分析目标，例如‘统计本月各产品销量占比’或‘找出用户流失的关键因素’。",
+          "toolId": "kimi"
+        },
+        {
+          "step": 3,
+          "title": "查看初步结果",
+          "description": "AI自动生成表格、图表（如柱状图、折线图）和文字摘要，可要求调整或细化。",
+          "toolId": "chatgpt"
+        },
+        {
+          "step": 4,
+          "title": "深入提问与洞察",
+          "description": "基于结果追问，例如‘为什么A产品销量下降？’或‘预测下季度趋势’，AI会结合数据给出解释。",
+          "toolId": "deepseek"
+        },
+        {
+          "step": 5,
+          "title": "导出报告",
+          "description": "将分析结果和图表导出为PDF或PPT，用于团队分享或汇报。",
+          "toolId": "kimi-ai-ppt"
+        }
+      ],
+      "tools": [
+        "kimi",
+        "chatgpt",
+        "deepseek",
+        "kimi-ai-ppt",
+        "wps-ai"
+      ],
+      "comparison": [
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "长上下文支持，适合大文件数据分析",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "chatgpt",
+          "coreAdvantage": "自然语言理解强，多轮对话流畅",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "deepseek",
+          "coreAdvantage": "推理能力出色，擅长因果分析",
+          "easeOfUse": "中",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "kimi-ai-ppt",
+          "coreAdvantage": "一键生成PPT报告",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "wps-ai",
+          "coreAdvantage": "集成在WPS中，直接处理表格文件",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        }
+      ],
+      "pitfalls": [
+        "上传数据前检查是否有敏感信息，避免泄露客户隐私。",
+        "AI可能误解列名或数值含义，需明确指定字段（例如‘销售额列’）。",
+        "免费额度通常有限制，大量分析需付费或寻找替代方案。"
+      ],
+      "caseStudy": {
+        "title": "用Kimi分析电商销售数据",
+        "summary": "一位电商企业主上传了3个月的销售CSV，通过对话要求Kimi‘按周统计销售额并找出增长最快的品类’，几分钟内获得图表和洞察，节省了2天手工分析时间。",
+        "url": "/tools/deepseek"
+      },
+      "freeAlternatives": [],
+      "relatedScenarios": [
+        "data-organizing",
+        "weekly-report"
+      ],
+      "seo": {
+        "title": "AI数据分析：不用写代码，企业主用对话式工具快速洞察业务",
+        "description": "无需编程基础，通过AI对话式数据分析工具即可完成数据清洗、趋势分析和可视化。本文指南推荐Kimi、ChatGPT、DeepSeek等工具，并提供完整工作流和避坑建议，助力企业主高效决策。"
+      },
+      "publishedAt": "2026-06-25",
+      "updatedAt": "2026-06-25",
+      "articles": [
+        {
+          "title": "AI数据分析完整指南",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ai-short-video",
+      "name": "短视频创作",
+      "slug": "ai-short-video",
+      "role": "content-creator",
+      "icon": "🎬",
+      "tagline": "AI写脚本→生成素材→剪辑一步到位",
+      "description": "短视频创作者利用AI工具从脚本撰写、素材生成到视频剪辑的全流程自动化，大幅提升内容生产效率与创意质量。",
+      "coverImage": "/images/scenarios/ai-short-video.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "AI生成脚本",
+          "description": "使用DeepSeek或Kimi输入主题和风格要求，生成吸引人的短视频脚本和口播文案。",
+          "toolId": "deepseek"
+        },
+        {
+          "step": 2,
+          "title": "AI生成视觉素材",
+          "description": "通过Midjourney或即梦AI将脚本中的关键画面转化为高质量图片或视频片段。",
+          "toolId": "midjourney"
+        },
+        {
+          "step": 3,
+          "title": "AI配音与音乐",
+          "description": "使用剪映的AI配音功能或Suno生成背景音乐，增强视频感染力。",
+          "toolId": "jianying"
+        },
+        {
+          "step": 4,
+          "title": "AI智能剪辑",
+          "description": "利用剪映的AI剪辑功能自动匹配素材、添加字幕和特效，快速输出成品。",
+          "toolId": "jianying"
+        }
+      ],
+      "tools": [
+        "deepseek",
+        "midjourney",
+        "jianying",
+        "suno",
+        "jimeng"
+      ],
+      "comparison": [
+        {
+          "toolId": "deepseek",
+          "coreAdvantage": "中文脚本生成质量高，逻辑清晰",
+          "easeOfUse": "高",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "midjourney",
+          "coreAdvantage": "图像生成艺术感强，细节丰富",
+          "easeOfUse": "中",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "jianying",
+          "coreAdvantage": "一站式剪辑、配音、字幕，操作简单",
+          "easeOfUse": "高",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "suno",
+          "coreAdvantage": "生成高质量背景音乐，风格多样",
+          "easeOfUse": "中",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "jimeng",
+          "coreAdvantage": "国产工具，生成速度快，适合短视频",
+          "easeOfUse": "高",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "AI生成的脚本可能缺乏个性化，建议人工调整语气和细节以匹配账号风格。",
+        "Midjourney生成的图片需注意版权，避免直接商用未经授权的角色或元素。"
+      ],
+      "caseStudy": {
+        "title": "从零到一：AI辅助的30秒产品短视频创作",
+        "summary": "创作者使用DeepSeek生成产品卖点脚本，Midjourney制作产品场景图，剪映自动剪辑并配音，30分钟完成一条爆款短视频。",
+        "url": "/tools/deepseek"
+      },
+      "freeAlternatives": [],
+      "relatedScenarios": [
+        "xiaohongshu",
+        "ai-painting"
+      ],
+      "seo": {
+        "title": "短视频创作AI工具指南：脚本、素材到剪辑一步到位",
+        "description": "掌握短视频创作全流程AI工具：用DeepSeek写脚本，Midjourney生成视觉素材，剪映智能剪辑配音。提升内容生产效率，打造爆款短视频。"
+      },
+      "publishedAt": "2026-06-25",
+      "updatedAt": "2026-06-25",
+      "articles": [
+        {
+          "title": "短视频创作完整指南",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "ai-travel-planning",
+      "name": "AI旅游攻略",
+      "slug": "ai-travel-planning",
+      "role": "office-worker",
+      "icon": "✈️",
+      "tagline": "AI帮你定制专属旅行攻略，拒绝踩坑",
+      "description": "职场人士利用AI工具快速生成个性化旅游攻略，从目的地推荐、行程规划到预算控制、实用贴士，一站式解决旅行准备难题，避免常见踩坑点，让每次出行都高效又愉快。",
+      "coverImage": "/images/scenarios/ai-travel-planning.svg",
+      "workflow": [
+        {
+          "step": 1,
+          "title": "确定旅行偏好与需求",
+          "description": "使用AI助手明确旅行时间、预算、兴趣点（如美食、文化、自然风光）和出行人数，为后续规划奠定基础。",
+          "toolId": "kimi"
+        },
+        {
+          "step": 2,
+          "title": "生成目的地推荐与行程草案",
+          "description": "让AI根据偏好推荐3-5个目的地，并生成初步行程框架，包括每日活动、交通建议和住宿选项。",
+          "toolId": "deepseek"
+        },
+        {
+          "step": 3,
+          "title": "细化行程与预算优化",
+          "description": "利用AI进一步调整行程细节，如景点开放时间、门票价格，并优化预算分配，确保性价比最高。",
+          "toolId": "chatgpt"
+        },
+        {
+          "step": 4,
+          "title": "生成图文攻略与本地贴士",
+          "description": "借助AI生成可视化攻略（如地图、图片）和本地实用信息（如必吃榜、避坑提示），方便出行参考。",
+          "toolId": "canva-ai"
+        }
+      ],
+      "tools": [
+        "kimi",
+        "deepseek",
+        "chatgpt",
+        "canva-ai",
+        "wenxin"
+      ],
+      "comparison": [
+        {
+          "toolId": "kimi",
+          "coreAdvantage": "长文本处理能力强，适合生成详细行程",
+          "easeOfUse": "高",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "deepseek",
+          "coreAdvantage": "推理逻辑清晰，推荐精准",
+          "easeOfUse": "高",
+          "freeQuota": "有"
+        },
+        {
+          "toolId": "chatgpt",
+          "coreAdvantage": "对话自然，多轮优化行程",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "canva-ai",
+          "coreAdvantage": "一键生成精美图文攻略",
+          "easeOfUse": "高",
+          "freeQuota": "有限"
+        },
+        {
+          "toolId": "wenxin",
+          "coreAdvantage": "中文理解好，本地化信息丰富",
+          "easeOfUse": "中",
+          "freeQuota": "有"
+        }
+      ],
+      "pitfalls": [
+        "避免过度依赖AI，需人工核实景点开放时间等实时信息",
+        "不要忽略预算细节，AI可能低估隐性费用（如交通、保险）"
+      ],
+      "caseStudy": {
+        "title": "职场人3天北京AI旅游攻略",
+        "summary": "小李用DeepSeek和Kimi规划了3天北京行程，涵盖故宫、长城和胡同美食，AI优化后节省了20%预算并避开人流高峰。",
+        "url": "/tools/deepseek"
+      },
+      "freeAlternatives": [
+        "kimi",
+        "wenxin"
+      ],
+      "relatedScenarios": [
+        "data-organizing",
+        "xiaohongshu"
+      ],
+      "seo": {
+        "title": "AI旅游攻略：职场人专属定制行程，拒绝踩坑",
+        "description": "用AI工具快速生成个性化旅游攻略，从目的地推荐到行程优化，职场人高效出行必备指南。覆盖预算控制、本地贴士，避免常见踩坑点，让旅行更省心。"
+      },
+      "publishedAt": "2026-06-25",
+      "updatedAt": "2026-06-25",
+      "articles": [
+        {
+          "title": "AI旅游攻略完整指南",
           "url": "#"
         }
       ]

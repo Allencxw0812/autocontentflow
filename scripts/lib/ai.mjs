@@ -1,44 +1,47 @@
 /**
- * Claude API 调用封装 — AI 生成评测内容
+ * DeepSeek API 调用封装 — AI 生成评测内容
+ * DeepSeek 使用 OpenAI 兼容格式
  */
-import { CLAUDE_MODEL, AI_BATCH_SIZE } from '../config.mjs';
-
-const API_URL = 'https://api.anthropic.com/v1/messages';
+import { AI_MODEL, AI_API_URL, AI_BATCH_SIZE } from '../config.mjs';
 
 function getApiKey() {
-  const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) throw new Error('缺少 ANTHROPIC_API_KEY 环境变量');
+  const key = process.env.DEEPSEEK_API_KEY;
+  if (!key) throw new Error('缺少 DEEPSEEK_API_KEY 环境变量');
   return key;
 }
 
-/** 调用 Claude API */
-export async function callClaude({ system, messages, maxTokens = 4096 }) {
+/** 调用 DeepSeek API（OpenAI 兼容格式） */
+export async function callAI({ system, messages, maxTokens = 4096, temperature = 0.7 }) {
   const apiKey = getApiKey();
 
+  // 将 system prompt 合并到 messages 数组（OpenAI 格式）
+  const fullMessages = system
+    ? [{ role: 'system', content: system }, ...messages]
+    : messages;
+
   const body = {
-    model: CLAUDE_MODEL,
+    model: AI_MODEL,
+    messages: fullMessages,
     max_tokens: maxTokens,
-    system,
-    messages,
+    temperature,
   };
 
-  const res = await fetch(API_URL, {
+  const res = await fetch(AI_API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
+      'Authorization': `Bearer ${apiKey}`,
     },
     body: JSON.stringify(body),
   });
 
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`Claude API 错误 (${res.status}): ${err}`);
+    throw new Error(`DeepSeek API 错误 (${res.status}): ${err}`);
   }
 
   const data = await res.json();
-  return data.content[0].text;
+  return data.choices[0].message.content;
 }
 
 /**
@@ -96,7 +99,7 @@ ${toolSummary}
 只返回JSON，不要其他内容。`;
 
   console.log(`  🤖 正在为 ${tool.name} 生成评测...`);
-  const result = await callClaude({
+  const result = await callAI({
     system,
     messages: [{ role: 'user', content: prompt }],
     maxTokens: 2048,
@@ -167,7 +170,7 @@ ${JSON.stringify(searchStats, null, 2)}
 }`;
 
   console.log('  🤖 正在生成运营建议...');
-  const result = await callClaude({
+  const result = await callAI({
     system,
     messages: [{ role: 'user', content: prompt }],
     maxTokens: 2048,
@@ -202,7 +205,7 @@ export async function generateComparisonOutline(toolNames) {
 }`;
 
   console.log(`  🤖 正在生成 ${toolNames.join(' vs ')} 对比大纲...`);
-  const result = await callClaude({
+  const result = await callAI({
     system,
     messages: [{ role: 'user', content: prompt }],
     maxTokens: 2048,

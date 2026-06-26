@@ -18,8 +18,11 @@ export const CRAWL_DELAY_MS = 2000;
 /** 爬虫超时（ms）*/
 export const CRAWL_TIMEOUT_MS = 15000;
 
-/** Claude 模型 */
-export const CLAUDE_MODEL = 'claude-sonnet-4-6';
+/** DeepSeek API 地址 */
+export const AI_API_URL = 'https://api.deepseek.com/chat/completions';
+
+/** AI 模型 */
+export const AI_MODEL = 'deepseek-chat';
 
 /** 单次 AI 调用最大工具数 */
 export const AI_BATCH_SIZE = 3;

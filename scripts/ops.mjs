@@ -271,6 +271,35 @@ async function generateWeeklyReport() {
   return report;
 }
 
+// ─── run: MVP 全自动运营（check → refresh → crawl → report）───
+
+async function runFullCycle() {
+  log('🚀 启动 MVP 全自动运营周期...\n');
+
+  // 1. Check freshness
+  log('▶ [1/4] 内容新鲜度检查');
+  const freshness = await checkFreshness();
+
+  // 2. Refresh stale content
+  if (freshness.totalStale > 0) {
+    log(`\n▶ [2/4] AI 刷新 ${freshness.totalStale} 条过期内容`);
+    await refreshContent();
+  } else {
+    log('\n▶ [2/4] 跳过（内容全部新鲜）');
+  }
+
+  // 3. Crawl tool sites
+  log('\n▶ [3/4] 工具官网可达性检测');
+  await crawlTools();
+
+  // 4. Generate report
+  log('\n▶ [4/4] 生成综合运营周报');
+  const report = await generateWeeklyReport();
+
+  log('\n✅ MVP 全自动运营周期完成！');
+  return report;
+}
+
 // ─── Main ──────────────────────────────────────────────────
 
 const COMMANDS = {
@@ -278,17 +307,19 @@ const COMMANDS = {
   refresh: refreshContent,
   crawl: crawlTools,
   report: generateWeeklyReport,
+  run: runFullCycle,
 };
 
 async function main() {
   if (!command || !COMMANDS[command]) {
-    console.log('Usage: node scripts/ops.mjs <check|refresh|crawl|report> [--json] [--dry-run] [--tools|--scenarios]');
+    console.log('Usage: node scripts/ops.mjs <check|refresh|crawl|report|run> [--json] [--dry-run] [--tools|--scenarios]');
     console.log('');
     console.log('Commands:');
     console.log('  check    Check content freshness');
     console.log('  refresh  AI batch refresh stale content reviews');
     console.log('  crawl    Crawl tool websites to detect changes');
     console.log('  report   Generate comprehensive weekly ops report');
+    console.log('  run      MVP full cycle: check → refresh → crawl → report');
     console.log('');
     console.log('Options:');
     console.log('  --json        Output JSON format (for CI consumption)');
