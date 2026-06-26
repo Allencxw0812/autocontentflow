@@ -132,9 +132,11 @@ export function getDomainFromUrl(url: string): string {
   }
 }
 
+const BASE = import.meta.env.BASE_URL;
+
 /** 获取工具的本地图标路径 */
 export function getToolIcon(toolId: string): string {
-  return `/icons/${toolId}.png`;
+  return `${BASE}icons/${toolId}.png`;
 }
 
 /** 获取工具的后备favicon URL（加载失败时回退用） */

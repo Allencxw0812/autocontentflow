@@ -18,9 +18,10 @@ interface Props {
 
 const { meta, jsonLd } = Astro.props;
 const siteTitle = '普通人AI实战笔记';
+const BASE = import.meta.env.BASE_URL;
 const fullTitle = meta.title === siteTitle ? siteTitle : `${meta.title} | ${siteTitle}`;
 const canonicalUrl = meta.canonicalUrl || Astro.url.href;
-const ogImage = meta.ogImage || '/images/og-default.png';
+const ogImage = meta.ogImage || `${BASE}images/og-default.png`;
 const ogType = meta.ogType || 'website';
 ---
 
