@@ -98,6 +98,26 @@
       "updatedAt": "2026-06-23",
       "articles": [
         {
+          "title": "三天旅行攻略，AI十分钟给你排得明明白白",
+          "url": "#"
+        },
+        {
+          "title": "\"年会发言5分钟，AI十分钟就给你写得体又幽默\"",
+          "url": "#"
+        },
+        {
+          "title": "翻遍微信才找到那条重要信息？AI帮你把聊天记录变成你的第二大脑",
+          "url": "#"
+        },
+        {
+          "title": "微信读书笔记太散？用AI帮你整理成知识体系",
+          "url": "#"
+        },
+        {
+          "title": "旅行攻略自己做太麻烦？AI三天行程全安排",
+          "url": "#"
+        },
+        {
           "title": "\"公众号文章不知道写什么？AI给你100个选题方向\"",
           "url": "#"
         }
@@ -550,16 +570,7 @@
       ],
       "publishedAt": "2025-03-01",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "通义万相电商图：AI生成可商用的产品图片",
-          "url": "#"
-        },
-        {
-          "title": "通义万相涂鸦生图：画个草图AI帮你变成精美图片",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "deepseek",
@@ -646,16 +657,7 @@
       ],
       "publishedAt": "2025-01-05",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "DeepSeek深度思考：免费推理能力媲美GPT-4",
-          "url": "#"
-        },
-        {
-          "title": "DeepSeek代码生成：完全免费的编程AI助手",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "copilot",
@@ -738,16 +740,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2025-01-20",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "Copilot使用技巧：注释驱动编程效率翻倍",
-          "url": "#"
-        },
-        {
-          "title": "Copilot Chat：用自然语言写代码的正确姿势",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "midjourney",
@@ -830,16 +823,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2025-01-10",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "Midjourney进阶：从新手到出图高手的完整指南",
-          "url": "#"
-        },
-        {
-          "title": "Midjourney中文用户攻略：翻译提示词的最佳方案",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "wps-ai",
@@ -1013,16 +997,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2025-01-20",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "剪映AI字幕：短视频创作者的提效利器",
-          "url": "#"
-        },
-        {
-          "title": "剪映AI配音：不录音也能做口播视频",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "deepl",
@@ -1108,6 +1083,10 @@
       "publishedAt": "2025-01-15",
       "updatedAt": "2026-06-23",
       "articles": [
+        {
+          "title": "英文邮件发不出去？AI帮你写得像母语者",
+          "url": "#"
+        },
         {
           "title": "PDF论文太难读？AI帮你翻译成人话",
           "url": "#"
@@ -1281,16 +1260,7 @@
       ],
       "publishedAt": "2025-03-01",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "彩云小译网页翻译：一键阅读外文资料",
-          "url": "#"
-        },
-        {
-          "title": "彩云小译中日翻译：口语化翻译比DeepL更自然",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "xunfei-hearing",
@@ -1371,16 +1341,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2025-01-25",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "讯飞听见语音转写：中文识别准确率最高",
-          "url": "#"
-        },
-        {
-          "title": "讯飞听见 vs 飞书妙记：语音转写工具对比",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "bi-ge",
@@ -1464,16 +1425,7 @@
       ],
       "publishedAt": "2025-02-10",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "必剪完全免费：B站UP主的视频创作工具",
-          "url": "#"
-        },
-        {
-          "title": "必剪虚拟形象：不露脸也能做口播视频",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "kimi-ai-ppt",
@@ -1555,16 +1507,7 @@
       ],
       "publishedAt": "2025-04-15",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "Kimi PPT助手：输入主题一键生成演示文稿",
-          "url": "#"
-        },
-        {
-          "title": "AI生成PPT对比：Kimi vs WPS AI vs Gamma",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "gamma",
@@ -1643,16 +1586,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2025-02-20",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "Gamma设计感PPT：AI生成高颜值演示文稿",
-          "url": "#"
-        },
-        {
-          "title": "Gamma vs WPS AI：哪个AI PPT工具更适合你",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "notion-ai",
@@ -1736,16 +1670,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2025-03-10",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "Notion AI知识管理：笔记+AI一步到位",
-          "url": "#"
-        },
-        {
-          "title": "Notion AI头脑风暴：10分钟生成10个创意方案",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "kling",
@@ -1825,16 +1750,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2025-03-20",
       "updatedAt": "2026-06-23",
-      "articles": [
-        {
-          "title": "可灵AI文生视频：中文提示词生成高质量短视频",
-          "url": "#"
-        },
-        {
-          "title": "可灵AI图生视频：让静态图片动起来的3个技巧",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "yuanbao",
@@ -1921,12 +1837,7 @@
       ],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "元宝使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "tongyi-qianwen",
@@ -2013,12 +1924,7 @@
       ],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "通义千问使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "claude",
@@ -2105,12 +2011,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "Claude使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "gemini",
@@ -2195,12 +2096,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "Gemini使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "mita-ai-search",
@@ -2287,6 +2183,22 @@
       "updatedAt": "2026-06-25",
       "articles": [
         {
+          "title": "用AI做竞品分析，半小时出一份报告",
+          "url": "#"
+        },
+        {
+          "title": "用AI搜索健康知识，别再被养生谣言骗了",
+          "url": "#"
+        },
+        {
+          "title": "用AI搜索法律咨询，先搞清楚再找律师",
+          "url": "#"
+        },
+        {
+          "title": "想不出活动策划方案？AI十分钟给你20个爆款创意",
+          "url": "#"
+        },
+        {
           "title": "花几万买行业研报？AI免费帮你搜，比咨询公司报告还快",
           "url": "#"
         }
@@ -2371,12 +2283,7 @@
       "freeAlternativeTo": [],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "Suno使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "canva-ai",
@@ -2464,12 +2371,7 @@
       ],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "Canva AI使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "tencent-docs-ai",
@@ -2556,12 +2458,7 @@
       ],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "腾讯文档AI使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "cursor",
@@ -2645,12 +2542,7 @@
       ],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "Cursor使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "meitu-ai",
@@ -2737,12 +2629,7 @@
       ],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "美图AI使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "tiangong-ai-search",
@@ -2827,12 +2714,7 @@
       ],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "天工AI搜索使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     },
     {
       "id": "haimian-music",
@@ -2916,12 +2798,7 @@
       ],
       "publishedAt": "2026-06-25",
       "updatedAt": "2026-06-25",
-      "articles": [
-        {
-          "title": "海绵音乐使用技巧与实战指南",
-          "url": "#"
-        }
-      ]
+      "articles": []
     }
   ]
 }
