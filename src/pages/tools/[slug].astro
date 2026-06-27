@@ -202,10 +202,25 @@ const jsonLd = [toolJsonLd, breadcrumbJsonLd, faqJsonLd];
   {similarTools.length > 0 && (
     <section class="mb-8">
       <h2 class="text-xl font-bold mb-4">🔄 同类对比</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {similarTools.map((st) => (
-          <ToolCard tool={st} />
-        ))}
+      <div class="space-y-3">
+        {similarTools.map(function(st) {
+          const ids = [tool.id, st.id].sort();
+          const compareUrl = BASE + 'compare/' + ids[0] + '-vs-' + ids[1] + '/';
+          return (
+            <a href={compareUrl} class="flex items-center gap-4 p-4 bg-white rounded-lg border border-border hover:border-primary/40 hover:shadow-sm transition-all group">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
+                <span class="text-xl shrink-0">{tool.logo}</span>
+                <span class="text-text-secondary text-sm">vs</span>
+                <span class="text-xl shrink-0">{st.logo}</span>
+                <div class="ml-2">
+                  <span class="font-medium text-sm group-hover:text-primary transition-colors">{tool.name} vs {st.name}</span>
+                  <p class="text-text-secondary text-xs mt-0.5">查看详细对比：评分·价格·中文支持·适用场景</p>
+                </div>
+              </div>
+              <span class="text-primary text-sm font-medium shrink-0 group-hover:translate-x-0.5 transition-transform">对比 →</span>
+            </a>
+          );
+        })}
       </div>
     </section>
   )}
