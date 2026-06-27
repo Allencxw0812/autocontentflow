@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getAllTools } from '../../utils/data';
+
+export function getStaticPaths() {
+  const tools = getAllTools();
+  const pairs = [];
+  const seen = new Set();
+
+  for (const t of tools) {
+    const simTools = t.similarTools || [];
+    for (const sId of simTools) {
+      const b = tools.find(function(x) { return x.id === sId; });
+      if (!b || t.id === b.id) continue;
+      const key = [t.id, b.id].sort().join('|');
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const sorted = [t, b].sort(function(x, y) { return x.id.localeCompare(y.id); });
+      pairs.push({ params: { slugs: sorted[0].id + '-vs-' + sorted[1].id } });
+    }
+  }
+  return pairs;
+}
+
+const { slugs } = Astro.params;
+const BASE = import.meta.env.BASE_URL || '/';
+const parts = slugs.split('-vs-');
+const allTools = getAllTools();
+const toolA = allTools.find(function(t) { return t.id === parts[0]; });
+const toolB = allTools.find(function(t) { return t.id === parts[1]; });
+
+function starRating(rating) {
+  if (!rating) return '';
+  var n = Math.round(Number(rating));
+  return '★'.repeat(n) + '☆'.repeat(5 - n);
+}
+
+var rA = toolA && toolA.rating ? ((toolA.rating.coreAdvantage + toolA.rating.easeOfUse + toolA.rating.chineseFriendly) / 3).toFixed(1) : '0';
+var rB = toolB && toolB.rating ? ((toolB.rating.coreAdvantage + toolB.rating.easeOfUse + toolB.rating.chineseFriendly) / 3).toFixed(1) : '0';
+
+var seoTitle = toolA && toolB ? toolA.name + ' vs ' + toolB.name + ' 哪个好？AI工具对比评测 2026' : '工具对比';
+var seoDesc = toolA && toolB ? toolA.name + '和' + toolB.name + '怎么选？从价格、功能、中文支持、使用难度等维度详细对比，帮你找到最适合的AI工具。' : '';
+---
+
+{ toolA && toolB ? (
+  <BaseLayout meta={{ title: seoTitle, description: seoDesc }}>
+    <Breadcrumb items={[
+      { label: 'AI工具评测', href: BASE + 'tools' },
+      { label: '工具对比' },
+      { label: toolA.name + ' vs ' + toolB.name },
+    ]} />
+
+    <section class="mb-8">
+      <h1 class="text-2xl md:text-3xl font-bold">
+        {toolA.name} vs {toolB.name}
+        <span class="text-text-secondary text-lg font-normal ml-2">哪个好？</span>
+      </h1>
+      <p class="text-text-secondary mt-2">{seoDesc}</p>
+    </section>
+
+    <section class="mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {[toolA, toolB].map(function(tool, idx) {
+          var rating = idx === 0 ? rA : rB;
+          return (
+            <div class="bg-white rounded-xl border border-border p-6 hover:shadow-md transition-shadow">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-14 h-14 rounded-xl bg-white border border-border flex items-center justify-center shrink-0">
+                  <span class="text-2xl">{tool.logo}</span>
+                </div>
+                <div>
+                  <h2 class="text-xl font-bold">{tool.name}</h2>
+                  <p class="text-text-secondary text-xs">{tool.tagline}</p>
+                </div>
+              </div>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-text-secondary">综合评分</span>
+                  <span class="font-bold text-yellow-500">{starRating(rating)} {rating}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-text-secondary">价格</span>
+                  <span class="font-medium">{tool.pricingDetail || (tool.pricing === 'free' ? '免费' : tool.pricing === 'freemium' ? '免费增值' : '付费')}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-text-secondary">中文支持</span>
+                  <span class={'font-medium ' + (tool.chineseSupport === 'native' ? 'text-green-600' : tool.chineseSupport === 'partial' ? 'text-yellow-600' : 'text-red-600')}>
+                    {tool.chineseSupport === 'native' ? '原生中文' : tool.chineseSupport === 'partial' ? '部分支持' : '中文较弱'}
+                  </span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-text-secondary">翻墙</span>
+                  <span class={'font-medium ' + (tool.needsVPN ? 'text-red-600' : 'text-green-600')}>
+                    {tool.needsVPN ? '需要' : '不需要'}
+                  </span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-text-secondary">免费额度</span>
+                  <span class={'font-medium ' + (tool.freeQuota ? 'text-green-600' : 'text-red-600')}>
+                    {tool.freeQuota ? '有' : '无'}
+                  </span>
+                </div>
+              </div>
+              <a href={BASE + 'tools/' + tool.slug} class="block mt-4 text-center py-2 bg-primary/5 text-primary text-sm font-medium rounded-lg border border-primary/20 hover:bg-primary/10 transition-colors">
+                查看完整评测 →
+              </a>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">📊 详细对比</h2>
+      <div class="bg-white rounded-xl border border-border overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="text-left p-4 font-medium text-text-secondary">对比维度</th>
+              <th class="text-left p-4 font-medium">{toolA.name}</th>
+              <th class="text-left p-4 font-medium">{toolB.name}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr>
+              <td class="p-4 text-text-secondary font-medium">核心优势</td>
+              <td class="p-4 text-sm">{toolA.review?.coreAdvantage}</td>
+              <td class="p-4 text-sm">{toolB.review?.coreAdvantage}</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="p-4 text-text-secondary font-medium">痛点</td>
+              <td class="p-4 text-sm text-red-600/80">{toolA.review?.painPoints}</td>
+              <td class="p-4 text-sm text-red-600/80">{toolB.review?.painPoints}</td>
+            </tr>
+            <tr>
+              <td class="p-4 text-text-secondary font-medium">适合人群</td>
+              <td class="p-4 text-sm">{toolA.review?.targetUsers}</td>
+              <td class="p-4 text-sm">{toolB.review?.targetUsers}</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="p-4 text-text-secondary font-medium">核心功能</td>
+              <td class="p-4">{starRating(toolA.rating?.coreAdvantage)}</td>
+              <td class="p-4">{starRating(toolB.rating?.coreAdvantage)}</td>
+            </tr>
+            <tr>
+              <td class="p-4 text-text-secondary font-medium">易用性</td>
+              <td class="p-4">{starRating(toolA.rating?.easeOfUse)}</td>
+              <td class="p-4">{starRating(toolB.rating?.easeOfUse)}</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="p-4 text-text-secondary font-medium">中文友好度</td>
+              <td class="p-4">{starRating(toolA.rating?.chineseFriendly)}</td>
+              <td class="p-4">{starRating(toolB.rating?.chineseFriendly)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">🎯 你应该选哪个？</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="bg-green-50 rounded-xl border border-green-200 p-6">
+          <h3 class="font-bold text-green-800 mb-3">选 {toolA.name}，如果你…</h3>
+          <ul class="space-y-2 text-sm text-green-700">
+            {!toolA.needsVPN && <li>✅ 不想翻墙，国内直接使用</li>}
+            {toolA.freeQuota && <li>✅ 需要免费额度</li>}
+            {toolA.chineseSupport === 'native' && <li>✅ 需要最好的中文体验</li>}
+            {toolA.pricing === 'free' && <li>✅ 预算有限，需要完全免费</li>}
+            {toolA.review?.coreAdvantage && <li>✅ {toolA.review.coreAdvantage.slice(0, 50)}…</li>}
+          </ul>
+        </div>
+        <div class="bg-blue-50 rounded-xl border border-blue-200 p-6">
+          <h3 class="font-bold text-blue-800 mb-3">选 {toolB.name}，如果你…</h3>
+          <ul class="space-y-2 text-sm text-blue-700">
+            {!toolB.needsVPN && <li>✅ 不想翻墙，国内直接使用</li>}
+            {toolB.freeQuota && <li>✅ 需要免费额度</li>}
+            {toolB.chineseSupport === 'native' && <li>✅ 需要最好的中文体验</li>}
+            {toolB.pricing === 'free' && <li>✅ 预算有限，需要完全免费</li>}
+            {toolB.review?.coreAdvantage && <li>✅ {toolB.review.coreAdvantage.slice(0, 50)}…</li>}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">🔗 相关链接</h2>
+      <div class="flex flex-wrap gap-2">
+        <a href={BASE + 'tools/' + toolA.slug} class="px-4 py-2 bg-white border border-border rounded-lg text-sm hover:border-primary/30 hover:text-primary transition-colors">
+          📝 {toolA.name} 完整评测
+        </a>
+        <a href={BASE + 'tools/' + toolB.slug} class="px-4 py-2 bg-white border border-border rounded-lg text-sm hover:border-primary/30 hover:text-primary transition-colors">
+          📝 {toolB.name} 完整评测
+        </a>
+        <a href={BASE + 'tools'} class="px-4 py-2 bg-white border border-border rounded-lg text-sm hover:border-primary/30 hover:text-primary transition-colors">
+          📋 全部 32 款工具评测
+        </a>
+      </div>
+    </section>
+  </BaseLayout>
+) : (
+  <BaseLayout meta={{ title: '工具对比' }}>
+    <div class="text-center py-16">
+      <p class="text-text-secondary">工具对比页面加载中…</p>
+      <a href={BASE + 'tools'} class="text-primary text-sm mt-4 inline-block">浏览全部工具 →</a>
+    </div>
+  </BaseLayout>
+)}
